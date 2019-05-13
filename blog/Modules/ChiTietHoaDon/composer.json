@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/chitiethoadon",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\ChiTietHoaDon\\Providers\\ChiTietHoaDonServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ChiTietHoaDon\\": ""
+        }
+    }
+}
