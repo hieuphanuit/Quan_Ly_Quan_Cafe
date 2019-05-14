@@ -1,9 +1,13 @@
-@extends('hoadon::layouts.master')
+@extends('QuanLy.MasterQuanLy')
 
-@section('content')
-    <h1>Hello World</h1>
-
-    <p>
-        This view is loaded from module: {!! config('hoadon.name') !!}
-    </p>
-@stop
+@section('Breadcrumbs')
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">Overview</li>
+</ol>
+@endsection
+@section('Content')
+<h1>Thêm nguyên liệu</h1>
+@endsection
