@@ -23,7 +23,7 @@ class HoaDonController extends Controller
      */
     public function create()
     {
-        return view('hoadon::create');
+        return view('hoadon::ThemHoaDon');
     }
 
     /**

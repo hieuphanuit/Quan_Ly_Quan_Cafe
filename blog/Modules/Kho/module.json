@@ -1,0 +1,14 @@
+{
+    "name": "Kho",
+    "alias": "kho",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Kho\\Providers\\KhoServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

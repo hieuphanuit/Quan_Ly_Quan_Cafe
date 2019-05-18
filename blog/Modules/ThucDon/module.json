@@ -1,0 +1,14 @@
+{
+    "name": "ThucDon",
+    "alias": "thucdon",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\ThucDon\\Providers\\ThucDonServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

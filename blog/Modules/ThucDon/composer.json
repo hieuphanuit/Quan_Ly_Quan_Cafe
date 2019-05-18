@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/thucdon",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\ThucDon\\Providers\\ThucDonServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ThucDon\\": ""
+        }
+    }
+}

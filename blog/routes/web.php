@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', function () {
     return view('QuanLy.QuanLyDashboard');
 })->middleware('CheckRole:QuanLy');
+
+

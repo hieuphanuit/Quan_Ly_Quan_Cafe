@@ -12,5 +12,6 @@
 */
 
 Route::prefix('hoadon')->group(function() {
-    Route::get('/', 'HoaDonController@index');
+    Route::get('/danhsachhoadon', 'HoaDonController@index');
+	Route::get('/themhoadon', 'HoaDonController@create');
 });
