@@ -2,10 +2,16 @@
 
 @section('Breadcrumbs')
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">
-    <a href="#">Dashboard</a>
-  </li>
-  <li class="breadcrumb-item active">Overview</li>
+	<li class="breadcrumb-item">
+		<a href="#">Dashboard</a>
+	</li>
+	<li class="breadcrumb-item">
+		<a href="#">Hoá đơn</a>
+	</li>  
+	<li class="breadcrumb-item">
+		<a href="#">Danh sách hóa đơn</a>
+	</li>
+  <li class="breadcrumb-item active">Chi tiết hóa đơn</li>
 </ol>
 @endsection
 @section('Content')
@@ -32,7 +38,7 @@
 			<input type="text" id="TongTien" name="TongTien"  class="form-control"/>
 		</div>
 	</form>
-	<h1>Chi tiết hóa Đơn</h1>
+	<h1 style="text-align: center;">Chi tiết hóa Đơn</h1>
 	<div class="card mb-3">
 		<div class="card-header">
 			<i class="fas fa-table"></i>

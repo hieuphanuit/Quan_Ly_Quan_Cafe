@@ -5,14 +5,11 @@
   <li class="breadcrumb-item">
     <a href="#">Dashboard</a>
   </li>
-  <li class="breadcrumb-item active">Overview</li>
+  <li class="breadcrumb-item active">Kho</li>
 </ol>
 @endsection
 @section('Content')
 <h1 style="text-align: center;">Thông tin kho</h1>
-<div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success" href="/nguyenlieu/themnguyenlieu">Thêm thông tin</a>
-</div>
 <div class="card mb-3">
   <div class="card-header">
     <i class="fas fa-table"></i>
@@ -26,7 +23,7 @@
             <th>Tên nguyên liệu</th>
             <th>Đơn vị tính</th>
 			<th>Số lượng tồn</th>
-            <th>Hành Động</th>
+            <th width="30%">Hành Động</th>
           </tr>
         </thead>
         <tfoot>
@@ -35,7 +32,7 @@
             <th>Tên nguyên liệu</th>
             <th>Đơn vị tính</th>
 			<th>Số lượng tồn</th>
-            <th>Hành Động</th>
+            <th width="30%">Hành Động</th>
           </tr>
         </tfoot>
         <tbody>
@@ -52,8 +49,7 @@
 					<div class="col-md-3">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
+					<div class="col-md-3">		
 					</div>
 				</div>
 			</td>
@@ -71,8 +67,7 @@
 					<div class="col-md-3">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
+					<div class="col-md-3">		
 					</div>
 				</div>
 			</td>
@@ -90,8 +85,7 @@
 					<div class="col-md-3">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
+					<div class="col-md-3">		
 					</div>
 				</div>
 			</td>
@@ -109,8 +103,7 @@
 					<div class="col-md-3">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
+					<div class="col-md-3">		
 					</div>
 				</div>
 			</td>
@@ -128,8 +121,7 @@
 					<div class="col-md-3">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
+					<div class="col-md-3">		
 					</div>
 				</div>
 			</td>
@@ -147,8 +139,7 @@
 					<div class="col-md-3">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
+					<div class="col-md-3">		
 					</div>
 				</div>
 			</td>

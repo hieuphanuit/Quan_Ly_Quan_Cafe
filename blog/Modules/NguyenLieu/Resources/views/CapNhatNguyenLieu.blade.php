@@ -5,7 +5,10 @@
   <li class="breadcrumb-item">
     <a href="#">Dashboard</a>
   </li>
-  <li class="breadcrumb-item active">Overview</li>
+  <li class="breadcrumb-item">
+    <a href="#">Nguyên liệu</a>
+  </li>
+  <li class="breadcrumb-item active">Cập nhật nguyên liệu</li>
 </ol>
 @endsection
 @section('Content')

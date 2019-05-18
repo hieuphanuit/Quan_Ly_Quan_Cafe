@@ -5,13 +5,13 @@
   <li class="breadcrumb-item">
     <a href="#">Dashboard</a>
   </li>
-  <li class="breadcrumb-item active">Overview</li>
+  <li class="breadcrumb-item active">Hóa đơn nguyên liệu</li>
 </ol>
 @endsection
 @section('Content')
 <h1 style="text-align: center;">Danh sách hóa đơn nguyên liệu</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success" href="/nhanvien/themnhanvien">Thêm hóa đơn</a>
+	<a class="btn btn-success" href="/hoadon/themhoadon">Thêm hóa đơn nguyên liệu</a>
 </div>
 <div class="card mb-3">
   <div class="card-header">

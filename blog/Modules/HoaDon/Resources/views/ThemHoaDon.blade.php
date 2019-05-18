@@ -5,11 +5,14 @@
   <li class="breadcrumb-item">
     <a href="#">Dashboard</a>
   </li>
-  <li class="breadcrumb-item active">Overview</li>
+  <li class="breadcrumb-item">
+    <a href="#">Kho</a>
+  </li>
+  <li class="breadcrumb-item active">Thêm hóa đơn nguyên liệu</li>
 </ol>
 @endsection
 @section('Content')
-<h1>Thêm hóa đơn</h1>
+<h1 style="text-align:center;">Thêm hóa đơn</h1>
 <div class="container">
 	<form class="themhoadon">
 		<div class="form-group">
@@ -29,7 +32,7 @@
 			<input type="text" id="TongTien" name="TongTien"  class="form-control"/>
 		</div>
 	</form>
-	<h1>Chi tiết hóa Đơn</h1>
+	<h1 style="text-align:center;">Chi tiết hóa Đơn</h1>
 	<form class="themchitiet">
 		<div class="form-group">
 			<label for="MaNguyenLieu">Mã nguyên liệu: </label>
@@ -52,7 +55,7 @@
 			<input type="text" id="TongTien" name="TongTien"  class="form-control"/>
 		</div>
 		<div class="form-group">
-			<button class="btn btn-info" type="submit">Thêm</button>
+			<button class="btn btn-info" type="submit" style="margin-right:5px;">Thêm</button>
 			<button class="btn btn-warning" type="submit">Cập nhật</button>
 		</div>
 	</form>
@@ -69,7 +72,7 @@
 					<th>Tên nguyên liệu</th>
 					<th>Đơn vị tính</th>
 					<th>Thành tiền</th>
-					<th>Hành Động</th>
+					<th width="33%">Hành Động</th>
 				</tr>
 			</thead>
 			<tfoot>
@@ -89,11 +92,13 @@
 					<td>61</td>
 					<td>
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-info"style="width:80px;">Sửa</a>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-danger"style="width:80px;">Xóa</a>
+							</div>
+							<div class="col-md-3">
 							</div>
 						</div>
 					</td>
@@ -105,11 +110,13 @@
 					<td>63</td>
 					<td>
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-info"style="width:80px;">Sửa</a>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-danger"style="width:80px;">Xóa</a>
+							</div>
+							<div class="col-md-3">
 							</div>
 						</div>
 					</td>
@@ -121,11 +128,13 @@
 					<td>66</td>
 					<td>
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-info"style="width:80px;">Sửa</a>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-danger"style="width:80px;">Xóa</a>
+							</div>
+							<div class="col-md-3">
 							</div>
 						</div>
 					</td>
@@ -137,11 +146,13 @@
 					<td>22</td>
 					<td>
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-info"style="width:80px;">Sửa</a>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-danger"style="width:80px;">Xóa</a>
+							</div>
+							<div class="col-md-3">
 							</div>
 						</div>
 					</td>
@@ -153,11 +164,13 @@
 					<td>33</td>	
 					<td>
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-info"style="width:80px;">Sửa</a>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a class="btn btn-danger"style="width:80px;">Xóa</a>
+							</div>
+							<div class="col-md-3">
 							</div>
 						</div>
 					</td>

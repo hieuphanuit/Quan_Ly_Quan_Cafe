@@ -13,4 +13,6 @@
 
 Route::prefix('kho')->group(function() {
     Route::get('/', 'KhoController@index');
+	Route::get('/capnhatnguyenlieukho/{id}', 'KhoController@edit');
+	Route::get('/thongtinnguyenlieukho/{id}', 'KhoController@profile');
 });

@@ -5,7 +5,7 @@
   <li class="breadcrumb-item">
     <a href="#">Dashboard</a>
   </li>
-  <li class="breadcrumb-item active">Overview</li>
+  <li class="breadcrumb-item active">Nguyên liệu</li>
 </ol>
 @endsection
 @section('Content')
@@ -26,7 +26,7 @@
             <th>Tên nguyên liệu</th>
             <th>Đơn vị tính</th>
 			<th>Giá ước lượng</th>
-            <th>Hành Động</th>
+            <th width="30%">Hành Động</th>
           </tr>
         </thead>
         <tfoot>

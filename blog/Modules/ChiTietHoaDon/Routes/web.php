@@ -12,5 +12,5 @@
 */
 
 Route::prefix('chitiethoadon')->group(function() {
-    Route::get('/', 'ChiTietHoaDonController@index');
 });
+Route::get('/hoadon/danhsachhoadon/chitiethoadon/{id}', 'ChiTietHoaDonController@index');

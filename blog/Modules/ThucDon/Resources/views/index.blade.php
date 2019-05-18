@@ -5,11 +5,11 @@
   <li class="breadcrumb-item">
     <a href="#">Dashboard</a>
   </li>
-  <li class="breadcrumb-item active">Overview</li>
+  <li class="breadcrumb-item active">Thực đơn</li>
 </ol>
 @endsection
 @section('Content')
-<h1>Danh sách thực đơn</h1>
+<h1 style="text-align:center;">Danh sách thực đơn</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
 	<a class="btn btn-success" href="/thucdon/themthucdon">Thêm thực đơn</a>
 </div>
@@ -33,7 +33,7 @@
 			<th>Mã món</th>
             <th>Tên món</th>
             <th>Đơn giá</th>
-            <th>Hành Động</th>
+            <th width="30%">Hành Động</th>
           </tr>
         </tfoot>
         <tbody>

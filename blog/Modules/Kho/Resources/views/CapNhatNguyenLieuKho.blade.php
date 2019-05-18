@@ -6,15 +6,15 @@
     <a href="#">Dashboard</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="#">Nguyên liệu</a>
+    <a href="#">Kho</a>
   </li>
-  <li class="breadcrumb-item active">Thêm nguyên liệu</li>
+  <li class="breadcrumb-item active">Cập nhật nguyên liệu kho</li>
 </ol>
 @endsection
 @section('Content')
-<h1 style="text-align: center;">Thêm nguyên liệu</h1>
+<h1 style="text-align: center;">Cập nhật nguyên liệu kho</h1>
 <div class="container">
-	<form class="themnguyenlieu">
+	<form class="themnguyenlieukho">
 		<div class="form-group">
 			<label for="MaNguyeLieu">Mã nguyên liệu: </label>
 			<input type="text" id="MaNguyeLieu" name="MaNguyeLieu"  class="form-control"/>
@@ -30,13 +30,13 @@
 			  <option value="2">Kg</option>
 			  <option value="3">Lon</option>
 			</select>
-		</div>		
-		<div class="form-group">
-			<label for="GiaUocLuong">Giá ước lượng: </label>
-			<input type="text" id="GiaUocLuong" name="GiaUocLuong"  class="form-control"/>
 		</div>
 		<div class="form-group">
-			<button class="btn btn-info" type="submit">Thêm</button>
+			<label for="SoLuongTon">Số lượng tồn: </label>
+			<input type="text" id="SoLuongTon" name="SoLuongTon"  class="form-control"/>
+		</div>		
+		<div class="form-group">
+			<button class="btn btn-info" type="submit">Cập nhật</button>
 		</div>
 	</form>
 </div>

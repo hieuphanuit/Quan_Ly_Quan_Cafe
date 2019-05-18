@@ -53,7 +53,7 @@ class KhoController extends Controller
      */
     public function edit($id)
     {
-        return view('kho::edit');
+        return view('kho::CapNhatNguyenLieuKho');
     }
 
     /**
@@ -75,5 +75,10 @@ class KhoController extends Controller
     public function destroy($id)
     {
         //
+    }
+	
+	public function profile($id)
+    {
+        return view('kho::ThongTinNguyenLieuKho');
     }
 }
