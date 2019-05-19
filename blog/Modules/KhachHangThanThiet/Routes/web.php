@@ -16,4 +16,4 @@ Route::prefix('khachhangthanthiet')->group(function() {
 	Route::get('/themkhachhang', 'KhachHangThanThietController@create');
 	Route::get('/thongtinkhachhang/{id}', 'KhachHangThanThietController@profile');
 	Route::get('/capnhatkhachhang/{id}', 'KhachHangThanThietController@edit');
-});
+})->middleware('CheckRole:QuanLy');

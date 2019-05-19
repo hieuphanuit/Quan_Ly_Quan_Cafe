@@ -3,9 +3,9 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Dashboard</a>
+    <a href="#">Hóa đơn</a>
   </li>
-  <li class="breadcrumb-item active">Hóa đơn nguyên liệu</li>
+  <li class="breadcrumb-item active">Danh sách hóa đơn nguyên liệu</li>
 </ol>
 @endsection
 @section('Content')

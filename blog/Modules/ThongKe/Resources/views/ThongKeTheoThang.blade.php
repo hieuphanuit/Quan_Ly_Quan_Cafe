@@ -3,7 +3,7 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Dashboard</a>
+    <a href="#">Thống kê</a>
   </li>
   <li class="breadcrumb-item active">Thống kê theo tháng</li>
 </ol>
@@ -14,7 +14,14 @@
 	<form class="thongketheothang">
 		<div class="form-group">
 			<label for="ThoiGian">Thời gian: </label>
-			<input type="text" id="ThoiGian" name="ThoiGian"  class="form-control"/>
+			<div class="row">
+				<div class="col-md-4">
+					Từ tháng:<input class="month_from form-control" type="text">
+				</div>
+				<div class="col-md-4">
+					Đến tháng:<input class="month_to form-control" type="text">
+				</div>
+			</div>
 		</div>
 		<div class="form-group">
 			<label for="TongDoanhThu">Doanh Thu: </label>
@@ -96,4 +103,22 @@
 		</div>
 	  </div>
 </div>
+
+
+
+<script type="text/javascript">
+
+    $('.month_from').datepicker({  
+    format: "mm-yyyy",
+    viewMode: "months", 
+    minViewMode: "months"
+    });  
+	
+    $('.month_to').datepicker({  
+    format: "mm-yyyy",
+    viewMode: "months", 
+    minViewMode: "months"
+    });  
+
+</script> 
 @endsection

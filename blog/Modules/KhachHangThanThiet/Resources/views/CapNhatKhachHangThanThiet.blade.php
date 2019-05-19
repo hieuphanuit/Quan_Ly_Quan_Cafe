@@ -3,9 +3,6 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Dashboard</a>
-  </li>
-  <li class="breadcrumb-item">
     <a href="#">Khách hàng</a>
   </li>
   <li class="breadcrumb-item active">Cập nhật khách hàng thân thiết</li>

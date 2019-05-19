@@ -3,16 +3,13 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Dashboard</a>
-  </li>
-  <li class="breadcrumb-item">
     <a href="#">Kho</a>
   </li>
   <li class="breadcrumb-item active">Thêm hóa đơn nguyên liệu</li>
 </ol>
 @endsection
 @section('Content')
-<h1 style="text-align:center;">Thêm hóa đơn</h1>
+<h1 style="text-align:center;">Thêm hóa đơn nguyên liệu</h1>
 <div class="container">
 	<form class="themhoadon">
 		<div class="form-group">
@@ -32,7 +29,7 @@
 			<input type="text" id="TongTien" name="TongTien"  class="form-control"/>
 		</div>
 	</form>
-	<h1 style="text-align:center;">Chi tiết hóa Đơn</h1>
+	<h1 style="text-align:center;">Chi tiết hóa đơn nguyên liệu</h1>
 	<form class="themchitiet">
 		<div class="form-group">
 			<label for="MaNguyenLieu">Mã nguyên liệu: </label>

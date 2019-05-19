@@ -3,7 +3,7 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Dashboard</a>
+    <a href="#">Thống kê</a>
   </li>
   <li class="breadcrumb-item active">Thống kê theo ca</li>
 </ol>
@@ -14,7 +14,11 @@
 	<form class="thongketheoca">
 		<div class="form-group">
 			<label for="ThoiGian">Thời gian: </label>
-			<input type="text" id="ThoiGian" name="ThoiGian"  class="form-control"/>
+			<select>
+			  <option value="#">Sáng</option>
+			  <option value="#">Chiều</option>
+			  <option value="mercedes">Tối</option>
+			</select>
 		</div>
 		<div class="form-group">
 			<label for="TongDoanhThu">Doanh Thu: </label>

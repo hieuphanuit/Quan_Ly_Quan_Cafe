@@ -16,4 +16,4 @@ Route::prefix('nhanvien')->group(function() {
 	Route::get('/themnhanvien', 'NhanVienController@create');
 	Route::get('/capnhatnhanvien/{id}', 'NhanVienController@edit');
 	Route::get('/thongtinnhanvien/{id}', 'NhanVienController@profile');
-});
+})->middleware('CheckRole:QuanLy');
