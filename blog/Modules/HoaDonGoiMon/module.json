@@ -1,0 +1,14 @@
+{
+    "name": "HoaDonGoiMon",
+    "alias": "hoadongoimon",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\HoaDonGoiMon\\Providers\\HoaDonGoiMonServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -46,13 +46,13 @@
             <td>61</td>
             <td>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-3 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
@@ -65,89 +65,13 @@
             <td>63</td>
             <td>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-3 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-			<td>Cái</td>
-            <td>66</td>
-            <td>
-				<div class="row">
-					<div class="col-md-3">
-						<a class="btn btn-info"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-3">
-						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Cedric Kelly</td>
-            <td>Edinburgh</td>
-			<td>Cái</td>
-            <td>22</td>
-            <td>
-				<div class="row">
-					<div class="col-md-3">
-						<a class="btn btn-info"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-3">
-						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Airi Satou</td>
-            <td>Tokyo</td>
-			<td>Cái</td>
-            <td>33</td>	
-            <td>
-				<div class="row">
-					<div class="col-md-3">
-						<a class="btn btn-info"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-3">
-						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-3">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Brielle Williamson</td>
-            <td>Integration Specialist</td>
-			<td>Cái</td>
-            <td>61</td>
-            <td>
-				<div class="row">
-					<div class="col-md-3">
-						<a class="btn btn-info"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-3">
-						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-3">
+					<div class="col-md-3 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>

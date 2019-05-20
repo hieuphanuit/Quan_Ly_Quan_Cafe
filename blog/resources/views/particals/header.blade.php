@@ -19,8 +19,9 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
-  
-  <!-- Custom styles for this template-->
+  <!-- Custom styles for this css-->
+   <link href="{{asset('css/custom_style.css')}}" rel="stylesheet">
+  <!-- Custom styles for this datetimepicker-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
