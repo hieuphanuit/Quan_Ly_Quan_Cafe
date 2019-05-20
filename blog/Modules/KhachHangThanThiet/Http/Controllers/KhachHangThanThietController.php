@@ -23,7 +23,7 @@ class KhachHangThanThietController extends Controller
      */
     public function create()
     {
-        return view('khachhangthanthiet::ThemKhachHangThanThiet');
+        return view('khachhangthanthiet::create');
     }
 
     /**

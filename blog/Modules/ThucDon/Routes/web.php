@@ -12,8 +12,8 @@
 */
 
 Route::prefix('thucdon')->group(function() {
-    Route::get('/danhsachthucdon', 'ThucDonController@index');
-	Route::get('/themthucdon', 'ThucDonController@create');
-	Route::get('/capnhatthucdon/{id}', 'ThucDonController@edit');
-	Route::get('/thongtinthucdon/{id}', 'ThucDonController@profile');
+    Route::get('/danhsachthucdon', 'ThucDonController@index')->middleware('CheckRole:QuanLyVaThuNgan');
+	Route::get('/themthucdon', 'ThucDonController@create')->middleware('CheckRole:QuanLy');
+	Route::get('/capnhatthucdon/{id}', 'ThucDonController@edit')->middleware('CheckRole:QuanLy');
+	Route::get('/thongtinthucdon/{id}', 'ThucDonController@profile')->middleware('CheckRole:QuanLy');
 });

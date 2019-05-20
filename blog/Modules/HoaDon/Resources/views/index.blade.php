@@ -11,12 +11,12 @@
 @section('Content')
 <h1 style="text-align: center;">Danh sách hóa đơn nguyên liệu</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success" href="/hoadon/themhoadon">Thêm hóa đơn nguyên liệu</a>
+	<a class="btn btn-success" href="/hoadon/themhoadonnguyenlieu">Thêm hóa đơn nguyên liệu</a>
 </div>
 <div class="card mb-3">
   <div class="card-header">
     <i class="fas fa-table"></i>
-    Data Table Example</div>
+  </div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

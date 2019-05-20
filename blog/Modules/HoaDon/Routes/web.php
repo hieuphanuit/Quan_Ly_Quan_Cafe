@@ -12,6 +12,8 @@
 */
 
 Route::prefix('hoadon')->group(function() {
-    Route::get('/danhsachhoadon', 'HoaDonController@index');
-	Route::get('/themhoadon', 'HoaDonController@create');
+	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
+		Route::get('/danhsachhoadonnguyenlieu', 'HoaDonController@index');
+		Route::get('/themhoadonnguyenlieu', 'HoaDonController@create');
+	});
 });

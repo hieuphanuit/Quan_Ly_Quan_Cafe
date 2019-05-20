@@ -42,21 +42,11 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-fw fa-folder"></i>
-      <span>Nguyên Liệu</span>
-    </a>
-    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-      <a class="dropdown-item" href="/nguyenlieu/danhsachnguyenlieu">Danh sách</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/nguyenlieu/themnguyenlieu">Thêm</a>
-    </div>
-  </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-fw fa-folder"></i>
       <span>Kho</span>
     </a>
     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-      <a class="dropdown-item" href="/kho/">Thông tin</a>
+      <a class="dropdown-item" href="/kho/">Thông tin kho</a>
+	  <a class="dropdown-item" href="/kho/themnguyenlieukho">Thêm nguyên liệu kho</a>
     </div>
   </li>
   <li class="nav-item dropdown">
@@ -66,9 +56,13 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
       <h6 class="dropdown-header">Hóa đơn nguyên liệu:</h6>
-      <a class="dropdown-item" href="/hoadon/danhsachhoadon">Danh sách</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/hoadon/themhoadon">Thêm</a>
+      <a class="dropdown-item" href="/hoadon/danhsachhoadonnguyenlieu">Danh sách</a>
+    
+      <a class="dropdown-item" href="/hoadon/themhoadonnguyenlieu">Thêm</a>
+	  <div class="dropdown-divider"></div>
+	  <h6 class="dropdown-header">Hóa đơn gọi món:</h6>
+      <a class="dropdown-item" href="/hoadongoimon/danhsachhoadongoimon">Danh sách</a>
+      <a class="dropdown-item" href="/hoadongoimon/themhoadongoimon">Thêm</a>
     </div>
   </li>
   <li class="nav-item dropdown">

@@ -48,4 +48,8 @@ class User extends Authenticatable
     public function IsQuanLy(){
         return $this->Role == "QuanLy";
     }
+	
+	public function IsThuNgan(){
+        return $this->Role == "ThuNgan";
+    }
 }

@@ -23,7 +23,7 @@ class NhanVienController extends Controller
      */
     public function create()
     {
-        return view('nhanvien::ThemNhanVien');
+        return view('nhanvien::create');
     }
 
     /**

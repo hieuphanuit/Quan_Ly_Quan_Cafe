@@ -12,7 +12,7 @@
 */
 
 Route::prefix('khachhangthanthiet')->group(function () {
-	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
+	Route::group(['middleware' => ['CheckRole:QuanLyVaThuNgan']], function () {
 		Route::get('/danhsachkhachang', 'KhachHangThanThietController@index');
 		Route::get('/themkhachhang', 'KhachHangThanThietController@create');
 		Route::get('/thongtinkhachhang/{id}', 'KhachHangThanThietController@profile');

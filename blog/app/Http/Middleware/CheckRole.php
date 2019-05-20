@@ -36,7 +36,13 @@ class CheckRole
                 return redirect('login');
             }
         }
-
+		if ($role == "QuanLyVaThuNgan") {
+            if ($user->IsThuNgan()||$user->IsQuanLy()) {
+                return $next($request);
+            } else {
+                return redirect('login');
+            }
+        }
         return $next($request);
     }
 }

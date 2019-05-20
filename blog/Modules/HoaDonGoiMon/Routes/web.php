@@ -12,5 +12,6 @@
 */
 
 Route::prefix('hoadongoimon')->group(function() {
-    Route::get('/', 'HoaDonGoiMonController@index');
+    Route::get('/danhsachhoadongoimon', 'HoaDonGoiMonController@index');
+	Route::get('/themhoadongoimon', 'HoaDonGoiMonController@create')->middleware('CheckRole:ThuNgan');
 });

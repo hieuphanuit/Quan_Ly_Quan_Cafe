@@ -23,7 +23,7 @@ class ThucDonController extends Controller
      */
     public function create()
     {
-        return view('thucdon::ThemThucDon');
+        return view('thucdon::create');
     }
 
     /**

@@ -12,7 +12,11 @@
 */
 
 Route::prefix('kho')->group(function() {
-    Route::get('/', 'KhoController@index');
-	Route::get('/capnhatnguyenlieukho/{id}', 'KhoController@edit');
-	Route::get('/thongtinnguyenlieukho/{id}', 'KhoController@profile');
+	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
+		Route::get('/', 'KhoController@index');
+		Route::get('/capnhatnguyenlieukho/{id}', 'KhoController@edit');
+		Route::get('/thongtinnguyenlieukho/{id}', 'KhoController@profile');
+		Route::get('/themnguyenlieukho', 'KhoController@create');
+		Route::get('/thongtinnguyenlieukho/{id}', 'KhoController@profile');
+	});
 });

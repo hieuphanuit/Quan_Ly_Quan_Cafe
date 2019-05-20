@@ -5,13 +5,13 @@
 	<li class="breadcrumb-item">
 		<a href="#">Hoá đơn</a>
 	</li>
-  <li class="breadcrumb-item active">Chi tiết hóa đơn</li>
+  <li class="breadcrumb-item active">Chi tiết hóa đơn nguyên liệu</li>
 </ol>
 @endsection
 @section('Content')
-<h1 style="text-align: center;">Thông tin hóa đơn</h1>
+<h1 style="text-align: center;">Thông tin hóa đơn nguyên liệu</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success">Xuất hóa đơn</a>
+	<a class="btn btn-success">Xuất hóa đơn nguyên liệu</a>
 </div>
 <div class="container">
 	<form class="themhoadon">
@@ -32,7 +32,7 @@
 			<input type="text" id="TongTien" name="TongTien"  class="form-control"/>
 		</div>
 	</form>
-	<h1 style="text-align: center;">Chi tiết hóa Đơn</h1>
+	<h1 style="text-align: center;">Chi tiết hóa đơn nguyên liệu</h1>
 	<div class="card mb-3">
 		<div class="card-header">
 			<i class="fas fa-table"></i>
