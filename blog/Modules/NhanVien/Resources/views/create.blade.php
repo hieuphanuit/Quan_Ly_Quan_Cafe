@@ -14,7 +14,7 @@
 	<form class="themnhanvien">
 		<div class="form-group">
 			<label for="MaNhanVien">Mã số nhân viên: </label>
-			<input type="text" id="MaNhanVien" name="MaNhanVien"  class="form-control"/>
+			<input type="text" id="MaNhanVien" name="MaNhanVien"  class="form-control" readonly/>
 		</div>
 		<div class="form-group">
 			<label for="HoVaTen">Họ và tên: </label>
@@ -54,7 +54,7 @@
 		</div>
 		<div class="form-group">
 			<label for="LuongTheoGio">Lương theo giờ: </label>
-			<input type="text" id="LuongTheoGio" name="LuongTheoGio"  class="form-control"/>
+			<input type="text" id="LuongTheoGio" name="LuongTheoGio"  class="form-control" />
 		</div>
 		<div class="form-group">
 				<button class="btn btn-info" type="submit">Thêm</button>

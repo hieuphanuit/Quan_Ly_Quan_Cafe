@@ -49,13 +49,13 @@
             <td>2011/04/25</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
@@ -69,13 +69,13 @@
             <td>2011/07/25</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
@@ -89,13 +89,13 @@
             <td>2009/01/12</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
@@ -109,13 +109,13 @@
             <td>2012/03/29</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
@@ -129,13 +129,13 @@
             <td>2008/11/28</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
@@ -149,13 +149,13 @@
             <td>2012/12/02</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>

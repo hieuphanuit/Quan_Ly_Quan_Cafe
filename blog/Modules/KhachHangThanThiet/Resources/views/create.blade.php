@@ -14,7 +14,7 @@
 	<form class="themkhachhang">
 		<div class="form-group">
 			<label for="MaKhachHang">Mã khách hàng: </label>
-			<input type="text" id="MaKhachHang" name="MaKhachHang"  class="form-control"/>
+			<input type="text" id="MaKhachHang" name="MaKhachHang"  class="form-control" readonly />
 		</div>
 		<div class="form-group">
 			<label for="HoVaTen">Họ và tên: </label>

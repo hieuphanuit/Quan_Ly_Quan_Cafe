@@ -14,7 +14,7 @@
 	<form class="themhoadon">
 		<div class="form-group">
 			<label for="MaMon">Mã hóa đơn: </label>
-			<input type="text" id="MaMon" name="MaMon"  class="form-control"/>
+			<input type="text" id="MaMon" name="MaMon"  class="form-control" readonly/>
 		</div>
 		<div class="form-group">
 			<label for="TenMon">Người nhập: </label>

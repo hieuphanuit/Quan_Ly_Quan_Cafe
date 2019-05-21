@@ -14,7 +14,7 @@
 	<form class="themthucdon">
 		<div class="form-group">
 			<label for="MaMon">Mã món: </label>
-			<input type="text" id="MaMon" name="MaMon"  class="form-control"/>
+			<input type="text" id="MaMon" name="MaMon"  class="form-control" readonly />
 		</div>
 		<div class="form-group">
 			<label for="TenMon">Tên món: </label>

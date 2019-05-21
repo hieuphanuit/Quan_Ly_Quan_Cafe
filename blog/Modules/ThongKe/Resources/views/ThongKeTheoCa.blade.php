@@ -24,14 +24,14 @@
 	<h1 style="text-align: center;">Hóa đơn gọi món</h1>
 		<div class="form-group row">
 			<div class="col-md-4">
-			<label for="ThoiGian">Người lập</label>
+			<label for="ThoiGian">Người lập:</label>
 				<select  class="form-control">
 				  <option value="#">Quản lý</option>
 				  <option value="#">Thu ngân</option>
 				</select>
 			</div>
 			<div class="col-md-4">
-			<label for="ThoiGian">Món</label>
+			<label for="ThoiGian">Món:</label>
 				<select  class="form-control">
 				  <option value="#">Món A</option>
 				  <option value="#">Món B</option>	

@@ -43,13 +43,13 @@
             <td>61</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
@@ -61,13 +61,13 @@
             <td>63</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
@@ -79,13 +79,13 @@
             <td>66</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>

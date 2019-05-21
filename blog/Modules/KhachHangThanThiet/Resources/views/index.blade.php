@@ -13,6 +13,19 @@
 <div class="col-md-5"style="padding-bottom:20px;">
 	<a class="btn btn-success"href="/khachhangthanthiet/themkhachhang">Thêm khách hàng</a>
 </div>
+<div class="form-group row">
+	<div class="col-md-4">
+		<label for="timkiem_hovaten">Họ và tên khách hàng:</label>
+		<input class="form-control" id="timkiem_hovaten" type="text"></input>
+	</div>
+	<div class="col-md-4">
+		<label for="timkiem_sdt">Số điện thoại:</label>
+		<input class="form-control" type="tel" name="phone" id= "timkiem_sdt" pattern="[0-9]{3}-[0-9]{4}-[0-9]{3}"></input>
+	</div>
+	<div class="col-md-4">
+		<a class="btn btn-success xuatpdf"style="width:120px;margin-top:32px;">Tìm kiếm</a>
+	</div>
+</div>
 <div class="card mb-3">
 	<div class="card-header">
 		<i class="fas fa-table"></i>
@@ -49,13 +62,13 @@
             <td>2011/04/25</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
@@ -69,13 +82,13 @@
             <td>2011/07/25</td>
             <td>
 				<div class="row">
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
-					<div class="col-md-3 hanhdong">
+					<div class="col-md-4 hanhdong">
 						<a class="btn btn-danger"style="width:80px;">Xóa</a>
 					</div>
 				</div>
