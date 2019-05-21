@@ -1,4 +1,4 @@
-@extends('QuanLy.MasterQuanLy')
+@extends('master')
 
 @section('Breadcrumbs')
 <ol class="breadcrumb">
