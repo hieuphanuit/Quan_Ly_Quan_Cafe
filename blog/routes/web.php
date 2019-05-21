@@ -12,15 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/dashboard', function () {
-    return view('QuanLy.QuanLyDashboard');
-});
+Route::get('/dashboard','HomeController@index');
 
 

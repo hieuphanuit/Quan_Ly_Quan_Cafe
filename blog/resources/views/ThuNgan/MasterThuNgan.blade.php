@@ -1,12 +1,7 @@
 @include('particals.header')
 @include('particals.topnav')
 <div id="wrapper">
-  @if (Auth::user()->Role=="QuanLy")
-    @include('particals.sidebar')
-  @else
-    @include('particals.sidebarThuNgan')
-  @endif
-  
+  @include('particals.sidebarThuNgan')
 
   <div id="content-wrapper">
 
