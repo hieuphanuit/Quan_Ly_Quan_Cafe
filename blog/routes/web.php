@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/dashboard','HomeController@index');
+Route::get('/dashboard','HomeController@index')->middleware('CheckRole:QuanLyVaThuNgan');
 
 

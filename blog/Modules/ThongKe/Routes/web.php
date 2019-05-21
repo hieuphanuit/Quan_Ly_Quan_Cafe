@@ -12,8 +12,9 @@
 */
 
 Route::prefix('thongke')->group(function() {
-    Route::get('/', 'ThongKeController@index');
-	Route::get('/thongketheoca', 'ThongKeController@thongketheoca');
-	Route::get('/thongketheongay', 'ThongKeController@thongketheongay')->middleware('CheckRole:QuanLy');
-	Route::get('/thongketheothang', 'ThongKeController@thongketheothang')->middleware('CheckRole:QuanLy');
+	Route::group(['middleware' => ['CheckRole:QuanLyVaThuNgan']], function () {
+		Route::get('/thongketheoca', 'ThongKeController@thongketheoca');
+		Route::get('/thongketheongay', 'ThongKeController@thongketheongay')->middleware('CheckRole:QuanLy');
+		Route::get('/thongketheothang', 'ThongKeController@thongketheothang')->middleware('CheckRole:QuanLy');
+	});
 });

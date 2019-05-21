@@ -11,6 +11,8 @@
 |
 */
 
-Route::prefix('mon')->group(function() {
-    Route::get('/', 'MonController@index');
+Route::prefix('mon')->group(function () {
+    Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
+        Route::get('/', 'MonController@index');
+    });
 });

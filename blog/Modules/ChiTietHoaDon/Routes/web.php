@@ -13,4 +13,4 @@
 
 Route::prefix('chitiethoadon')->group(function() {
 });
-Route::get('/hoadon/chitiethoadonnguyenlieu/{id}', 'ChiTietHoaDonController@index')->middleware('CheckRole:QuanLy');;
+Route::get('/hoadon/chitiethoadonnguyenlieu/{id}', 'ChiTietHoaDonController@index')->middleware('CheckRole:QuanLy');
