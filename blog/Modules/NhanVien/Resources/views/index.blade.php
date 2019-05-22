@@ -11,7 +11,7 @@
 @section('Content')
 <h1 style="text-align: center;">Danh sách nhân viên</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success" href="/nhanvien/themnhanvien">Thêm nhân viên</a>
+	<a class="btn btn-success" href="/nhanvien/create">Thêm nhân viên</a>
 </div>
 <div class="card mb-3">
   <div class="card-header">

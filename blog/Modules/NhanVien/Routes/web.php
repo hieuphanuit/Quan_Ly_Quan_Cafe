@@ -13,9 +13,10 @@
 
 Route::prefix('nhanvien')->group(function () {
 	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
-		Route::get('/danhsachnhanvien', 'NhanVienController@index');
-		Route::get('/themnhanvien', 'NhanVienController@create');
-		Route::get('/capnhatnhanvien/{id}', 'NhanVienController@edit');
-		Route::get('/thongtinnhanvien/{id}', 'NhanVienController@profile');
+		Route::get('/', 'NhanVienController@index');
+		Route::get('/create', 'NhanVienController@create');
+		Route::get('/{id}/edit', 'NhanVienController@edit');
+		Route::get('/{id}', 'NhanVienController@profile');
+		Route::post('/', 'NhanVienController@store')->name('nhanvien.store');
 	});
 });

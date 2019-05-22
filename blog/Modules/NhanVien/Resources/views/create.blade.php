@@ -11,7 +11,7 @@
 @section('Content')
 <h1 style="text-align: center;">Thêm nhân viên</h1>
 <div class="container">
-	<form class="themnhanvien">
+	<form class="themnhanvien" action="{{route('nhanvien.store')}}" method="POST">
 		<div class="form-group">
 			<label for="MaNhanVien">Mã số nhân viên: </label>
 			<input type="text" id="MaNhanVien" name="MaNhanVien"  class="form-control" readonly/>
@@ -59,6 +59,7 @@
 		<div class="form-group">
 				<button class="btn btn-info" type="submit">Thêm</button>
 		</div>
+		{!! csrf_field() !!}
 	</form>
 </div>
 @endsection

@@ -53,7 +53,7 @@ class NhanVienController extends Controller
      */
     public function edit($id)
     {
-        return view('nhanvien::CapNhatNhanVien');
+        return view('nhanvien::edit');
     }
 
     /**
@@ -78,6 +78,6 @@ class NhanVienController extends Controller
     }
 	public function profile($id)
     {
-        return view('nhanvien::ThongTinNhanVien');
+        return view('nhanvien::profile');
     }
 }

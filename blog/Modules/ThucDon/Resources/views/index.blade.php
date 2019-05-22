@@ -11,7 +11,7 @@
 @section('Content')
 <h1 style="text-align:center;">Danh sách thực đơn</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success" href="/thucdon/themthucdon">Thêm thực đơn</a>
+	<a class="btn btn-success" href="/thucdon/create">Thêm thực đơn</a>
 </div>
 <div class="card mb-3">
   <div class="card-header">

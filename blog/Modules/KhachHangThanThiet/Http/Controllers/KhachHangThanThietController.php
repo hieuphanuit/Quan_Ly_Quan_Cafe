@@ -23,7 +23,7 @@ class KhachHangThanThietController extends Controller
      */
     public function create()
     {
-        return view('khachhangthanthiet::ThemKhachHangThanThiet');
+        return view('khachhangthanthiet::create');
     }
 
     /**
@@ -53,7 +53,7 @@ class KhachHangThanThietController extends Controller
      */
     public function edit($id)
     {
-        return view('khachhangthanthiet::CapNhatKhachHangThanThiet');
+        return view('khachhangthanthiet::edit');
     }
 
     /**
@@ -78,6 +78,6 @@ class KhachHangThanThietController extends Controller
     }
 	public function profile($id)
     {
-        return view('khachhangthanthiet::ThongTinKhachHangThanThiet');
+        return view('khachhangthanthiet::profile');
     }
 }

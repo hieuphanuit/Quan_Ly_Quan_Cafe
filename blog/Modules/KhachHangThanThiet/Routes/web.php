@@ -13,9 +13,9 @@
 
 Route::prefix('khachhangthanthiet')->group(function () {
 	Route::group(['middleware' => ['CheckRole:QuanLyVaThuNgan']], function () {
-		Route::get('/danhsachkhachang', 'KhachHangThanThietController@index');
-		Route::get('/themkhachhang', 'KhachHangThanThietController@create');
-		Route::get('/thongtinkhachhang/{id}', 'KhachHangThanThietController@profile');
-		Route::get('/capnhatkhachhang/{id}', 'KhachHangThanThietController@edit');
+		Route::get('/', 'KhachHangThanThietController@index');
+		Route::get('/create', 'KhachHangThanThietController@create');
+		Route::get('/{id}', 'KhachHangThanThietController@profile');
+		Route::get('/{id}/edit', 'KhachHangThanThietController@edit');
 	});
 });

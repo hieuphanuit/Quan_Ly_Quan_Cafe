@@ -11,7 +11,7 @@
 @section('Content')
 <h1 style="text-align: center;">Danh sách khách hàng thân thiết</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success"href="/khachhangthanthiet/themkhachhang">Thêm khách hàng</a>
+	<a class="btn btn-success"href="/khachhangthanthiet/create">Thêm khách hàng</a>
 </div>
 <div class="form-group row">
 	<div class="col-md-4">
