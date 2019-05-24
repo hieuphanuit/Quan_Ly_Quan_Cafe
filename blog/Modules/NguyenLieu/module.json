@@ -1,0 +1,14 @@
+{
+    "name": "NguyenLieu",
+    "alias": "nguyenlieu",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\NguyenLieu\\Providers\\NguyenLieuServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

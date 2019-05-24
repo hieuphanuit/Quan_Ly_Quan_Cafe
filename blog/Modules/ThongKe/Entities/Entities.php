@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\HoaDon\Entities;
+namespace Modules\ThongKe\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HoaDonNguyenLieu extends Model
+class Entities extends Model
 {
     protected $fillable = [];
 }

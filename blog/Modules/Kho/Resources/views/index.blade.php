@@ -3,7 +3,7 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Nhân viên</a>
+    <a href="#">Kho</a>
   </li>
   <li class="breadcrumb-item active">Thông tin kho</li>
 </ol>
