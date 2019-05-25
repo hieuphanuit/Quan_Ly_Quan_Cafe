@@ -14,15 +14,15 @@
 	<form class="themthucdon">
 		<div class="form-group">
 			<label for="MaMon">Mã món: </label>
-			<input type="text" id="MaMon" name="MaMon"  class="form-control"/>
+			<input type="text" id="MaMon" name="MaMon"  class="form-control" value="{{$ThucDon->id}}" readonly />
 		</div>
 		<div class="form-group">
 			<label for="TenMon">Tên món: </label>
-			<input type="text" id="TenMon" name="TenMon"  class="form-control"/>
+			<input type="text" id="TenMon" name="TenMon"  class="form-control" value="{{$ThucDon->TenMon}}" readonly />
 		</div>
 		<div class="form-group">
 			<label for="DonGia">Đơn giá: </label>
-			<input type="text" id="DonGia" name="DonGia"  class="form-control"/>
+			<input type="text" id="DonGia" name="DonGia"  class="form-control" value="{{$ThucDon->DonGia}}" readonly />
 		</div>
 	</form>
 </div>

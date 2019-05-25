@@ -37,60 +37,32 @@
           </tr>
         </tfoot>
         <tbody>
+		@foreach ($ThucDons as $ThucDon)
           <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>61</td>
+            <td>{{$ThucDon->id}}</td>
+            <td>{{$ThucDon->TenMon}}</td>
+            <td>{{$ThucDon->DonGia}}</td>
             <td>
 				<div class="row">
 					<div class="col-md-4 hanhdong">
-						<a class="btn btn-info"style="width:80px;">Sửa</a>
+						<a href='{{url("/thucdon/$ThucDon->id/edit")}}' class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
 					<div class="col-md-4 hanhdong">
-						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
+						<a href='{{url("/thucdon/$ThucDon->id")}}' class="btn btn-warning"style="width:80px;">Chi tiết</a>
 					</div>
 					<div class="col-md-4 hanhdong">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
+						<form method="POST" action='{{url("/thucdon/$ThucDon->id/delete")}}' style="display: inline-block">
+								<input type="hidden" value="$ThucDon->id" name="delete_thucdon" />
+								<button onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')" class="btn btn-danger" style="width:80px;">
+								Xóa
+								</button>
+								{!! csrf_field() !!}
+						</form>
 					</div>
 				</div>
 			</td>
           </tr>
-          <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>          
-            <td>63</td>
-            <td>
-				<div class="row">
-					<div class="col-md-4 hanhdong">
-						<a class="btn btn-info"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-4 hanhdong">
-						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-4 hanhdong">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td>66</td>
-            <td>
-				<div class="row">
-					<div class="col-md-4 hanhdong">
-						<a class="btn btn-info"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-4 hanhdong">
-						<a class="btn btn-warning"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-4 hanhdong">
-						<a class="btn btn-danger"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
+		 @endforeach
         </tbody>
       </table>
     </div>

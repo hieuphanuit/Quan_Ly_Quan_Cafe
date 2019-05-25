@@ -15,5 +15,8 @@ Route::prefix('thucdon')->group(function() {
     Route::get('/', 'ThucDonController@index')->middleware('CheckRole:QuanLyVaThuNgan');
 	Route::get('/create', 'ThucDonController@create')->middleware('CheckRole:QuanLy');
 	Route::get('/{id}/edit', 'ThucDonController@edit')->middleware('CheckRole:QuanLy');
-	Route::get('/{id}', 'ThucDonController@profile')->middleware('CheckRole:QuanLy');
+	Route::post('/{id}/edit', 'ThucDonController@update')->middleware('CheckRole:QuanLy');
+	Route::get('/{id}', 'ThucDonController@show')->middleware('CheckRole:QuanLy');
+	Route::post('/store', 'ThucDonController@store')->middleware('CheckRole:QuanLy')->name('thucdon.store');
+	Route::post('/{id}/delete', 'ThucDonController@destroy')->middleware('CheckRole:QuanLy');
 });

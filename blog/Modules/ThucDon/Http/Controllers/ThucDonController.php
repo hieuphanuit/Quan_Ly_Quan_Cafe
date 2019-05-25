@@ -1,11 +1,11 @@
 <?php
 
 namespace Modules\ThucDon\Http\Controllers;
-
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\ThucDon\Entities\ThucDon;
 class ThucDonController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class ThucDonController extends Controller
      */
     public function index()
     {
-        return view('thucdon::index');
+		$ThucDons =ThucDon::all();
+        return view('thucdon::index',['ThucDons'=>$ThucDons]);
     }
 
     /**
@@ -34,6 +35,11 @@ class ThucDonController extends Controller
     public function store(Request $request)
     {
         //
+		$ThucDon = new ThucDon;
+		$ThucDon->TenMon = $request->get('TenMon');
+		$ThucDon->DonGia = $request->get('DonGia');
+		$ThucDon->save();
+		return redirect('/thucdon');
     }
 
     /**
@@ -43,7 +49,8 @@ class ThucDonController extends Controller
      */
     public function show($id)
     {
-        return view('thucdon::show');
+		$ThucDon= ThucDon::where ('id','=',$id)->first();
+        return view('thucdon::show',['ThucDon'=>$ThucDon]);
     }
 
     /**
@@ -53,7 +60,8 @@ class ThucDonController extends Controller
      */
     public function edit($id)
     {
-        return view('thucdon::capnhatthucdon');
+		$ThucDon= ThucDon::where ('id','=',$id)->first();
+        return view('thucdon::edit',['ThucDon'=> $ThucDon]);
     }
 
     /**
@@ -65,6 +73,16 @@ class ThucDonController extends Controller
     public function update(Request $request, $id)
     {
         //
+		$ThucDon= ThucDon::where ('id','=',$id)->first();
+		$validator = Validator::make($request->all(), $ThucDon->rules, $ThucDon->messages);
+		if ($validator->fails()) {
+    		return redirect()->back()->withErrors($validator)->withInput();
+    	} else {
+			$ThucDon->TenMon= $request['TenMon'];
+			$ThucDon->DonGia= $request['DonGia'];
+			$ThucDon->save();
+			return redirect()->back();
+		}
     }
 
     /**
@@ -75,9 +93,8 @@ class ThucDonController extends Controller
     public function destroy($id)
     {
         //
-    }
-	public function profile($id)
-    {
-        return view('thucdon::thongtinthucdon');
+		$ThucDon = ThucDon::where('id','=',$id)->first();
+		$ThucDon->delete();
+		return redirect()->back();
     }
 }

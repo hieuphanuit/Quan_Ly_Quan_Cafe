@@ -11,11 +11,7 @@
 @section('Content')
 <h1 style="text-align: center;">Thêm thực đơn</h1>
 <div class="container">
-	<form class="themthucdon">
-		<div class="form-group">
-			<label for="MaMon">Mã món: </label>
-			<input type="text" id="MaMon" name="MaMon"  class="form-control" readonly />
-		</div>
+	<form class="themthucdon" action="{{route('thucdon.store')}}" method="POST">
 		<div class="form-group">
 			<label for="TenMon">Tên món: </label>
 			<input type="text" id="TenMon" name="TenMon"  class="form-control"/>
@@ -27,6 +23,7 @@
 		<div class="form-group">
 				<button class="btn btn-info" type="submit">Thêm</button>
 		</div>
+		{!! csrf_field() !!}
 	</form>
 </div>
 @endsection
