@@ -11,38 +11,35 @@
 @section('Content')
 <h1 style="text-align: center;">Cập nhật khách hàng thân thiết</h1>
 <div class="container">
-	<form class="themkhachhang">
+	<form class="themkhachhang" action='{{url("/khachhangthanthiet/$KhachHangThanThiet->id/edit")}}' method="POST" >
 		<div class="form-group">
 			<label for="MaKhachHang">Mã khách hàng: </label>
-			<input type="text" id="MaKhachHang" name="MaKhachHang"  class="form-control"/>
+			<input type="text" id="MaKhachHang" name="MaKhachHang"  class="form-control" value="{{$KhachHangThanThiet->id}}" readonly />
 		</div>
 		<div class="form-group">
 			<label for="HoVaTen">Họ và tên: </label>
-			<input type="text" id="HoVaTen" name="HoVaTen"  class="form-control"/>
+			<input type="text" id="HoVaTen" name="HoVaTen"  class="form-control" value="{{$KhachHangThanThiet->HoVaTen}}"/>
 		</div>
 		<div>
 			<label for="DiaChi">Địa chỉ: </label>
-			<input type="text" id="DiaChi" name="DiaChi"  class="form-control"/>
+			<input type="text" id="DiaChi" name="DiaChi"  class="form-control" value="{{$KhachHangThanThiet->DiaChi}}"/>
 		</div>
 		<div class="form-group">
 			<label for="SoDienThoai">Số điện thoại: </label>
-			<input type="text" id="SoDienThoai" name="SoDienThoai"  class="form-control"/>
-		</div>
-		<div class="form-group">
-			<label for="MaNhanVien">Mã số nhân viên: </label>
-			<input type="text" id="MaNhanVien" name="MaNhanVien"  class="form-control"/>
+			<input type="text" id="SoDienThoai" name="SoDienThoai"  class="form-control" value="{{$KhachHangThanThiet->SoDienThoai}}"/>
 		</div>
 		<div class="form-group">
 			<label for="Email">Email: </label>
-			<input type="text" id="Email" name="Email"  class="form-control"/>
+			<input type="text" id="Email" name="Email"  class="form-control" value="{{$KhachHangThanThiet->Email}}"/>
 		</div>
 		<div class="form-group">
 			<label for="TrangThai">Trạng thái: </label>
-			<input type="text" id="TrangThai" name="TrangThai"  class="form-control"/>
+			<input type="text" id="TrangThai" name="TrangThai"  class="form-control" value="{{$KhachHangThanThiet->TrangThai}}"/>
 		</div>
 		<div class="form-group">
 				<button class="btn btn-info" type="submit">Cập nhật</button>
 		</div>
+		{!! csrf_field() !!}
 	</form>
 </div>
 @endsection

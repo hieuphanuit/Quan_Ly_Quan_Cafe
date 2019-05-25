@@ -22,10 +22,10 @@
 			</div>
 			<div class="col-md-4">
 				<label for="timkiem_sdt">Số điện thoại:</label>
-				<input class="form-control" type="tel" name="phone" id= "timkiem_sdt"name="timkiem_sdt"></input>
+				<input class="form-control" type="tel" id= "timkiem_sdt" name="timkiem_sdt"></input>
 			</div>
 			<div class="col-md-4">
-				<button class="btn btn-success" id="timkiemkhachhangthanthiet_button" style="width: 120px; margin-top:31px;"><b>Tìm kiếm</b></button>
+				<button class="btn btn-success" id="timkiemhoinghi_button" style="width: 120px; margin-top:31px;"><b>Tìm kiếm</b></button>
 			</div>
 			{!! csrf_field() !!}
 		</div>

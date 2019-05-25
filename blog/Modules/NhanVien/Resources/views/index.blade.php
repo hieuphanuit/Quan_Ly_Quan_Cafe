@@ -59,7 +59,7 @@
 					<div class="col-md-4 hanhdong">
 						<form method="POST" action='{{url("/nhanvien/$NhanVien->id/delete")}}' style="display: inline-block">
 								<input type="hidden" value="$user->id" name="delete_user" />
-								<button onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')" class="btn btn-danger">
+								<button onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')" class="btn btn-danger" style="width:80px;">
 								Xóa
 								</button>
 								{!! csrf_field() !!}

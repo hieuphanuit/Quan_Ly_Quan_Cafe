@@ -15,7 +15,11 @@ Route::prefix('khachhangthanthiet')->group(function () {
 	Route::group(['middleware' => ['CheckRole:QuanLyVaThuNgan']], function () {
 		Route::get('/', 'KhachHangThanThietController@index');
 		Route::get('/create', 'KhachHangThanThietController@create');
-		Route::get('/{id}', 'KhachHangThanThietController@profile');
+		Route::post('/', 'KhachHangThanThietController@store')->name('khachhangthanthiet.store');
+		Route::get('/{id}', 'KhachHangThanThietController@show');
 		Route::get('/{id}/edit', 'KhachHangThanThietController@edit');
+		Route::post('/{id}/edit', 'KhachHangThanThietController@update');
+		Route::post('/{id}/delete','KhachHangThanThietController@destroy');
+		Route::post('/search','KhachHangThanThietController@search');
 	});
 });

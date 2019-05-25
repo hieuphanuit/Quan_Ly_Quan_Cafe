@@ -11,11 +11,7 @@
 @section('Content')
 <h1 style="text-align: center;">Thêm khách hàng thân thiết</h1>
 <div class="container">
-	<form class="themkhachhang">
-		<div class="form-group">
-			<label for="MaKhachHang">Mã khách hàng: </label>
-			<input type="text" id="MaKhachHang" name="MaKhachHang"  class="form-control" readonly />
-		</div>
+	<form class="themkhachhang" action="{{route('khachhangthanthiet.store')}}" method="POST">
 		<div class="form-group">
 			<label for="HoVaTen">Họ và tên: </label>
 			<input type="text" id="HoVaTen" name="HoVaTen"  class="form-control"/>
@@ -29,20 +25,13 @@
 			<input type="text" id="SoDienThoai" name="SoDienThoai"  class="form-control"/>
 		</div>
 		<div class="form-group">
-			<label for="MaNhanVien">Mã số nhân viên: </label>
-			<input type="text" id="MaNhanVien" name="MaNhanVien"  class="form-control"/>
-		</div>
-		<div class="form-group">
 			<label for="Email">Email: </label>
 			<input type="text" id="Email" name="Email"  class="form-control"/>
 		</div>
 		<div class="form-group">
-			<label for="TrangThai">Trạng thái: </label>
-			<input type="text" id="TrangThai" name="TrangThai"  class="form-control"/>
-		</div>
-		<div class="form-group">
 				<button class="btn btn-info" type="submit">Thêm</button>
 		</div>
+		{!! csrf_field() !!}
 	</form>
 </div>
 @endsection
