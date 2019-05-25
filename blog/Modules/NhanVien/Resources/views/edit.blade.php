@@ -9,6 +9,20 @@
 </ol>
 @endsection
 @section('Content')
+<div id="dom-target" style="display: none;">
+    <?php
+		if ($NhanVien->Role=="QuanLy"){
+			$output =0;
+		}
+		if ($NhanVien->Role=="ThuNgan"){
+			$output =1;
+		}	
+		if ($NhanVien->Role=="PhucVu"){
+			$output =2;
+		}
+        echo htmlspecialchars($output);
+	?>
+</div>
 <h1 style="text-align: center;">Cập nhật nhân viên</h1>
 <div class="container">
 	<form class="editnhanvien" action='{{url("/nhanvien/$NhanVien->id/edit")}}' method="POST" >
@@ -22,11 +36,19 @@
 		</div>
 		<div class="form-group">
 			<label for="Role">Role: </label>
-			<input type="text" id="Role" name="Role"  class="form-control" value="{{$NhanVien->Role}}"/>
+			<select  onchange="changeFunc();"id="Role" name="Role"  class="form-control"/>
+			  <option value="QuanLy">Quản lý</option>
+			  <option value="ThuNgan">Thu Ngân</option>
+			  <option value="PhucVu">Phục vụ</option>
+			</select>
 		</div>
 		<div class="form-group">
 			<label for="GioiTinh">Giới tính: </label>
-			<input type="text" id="GioiTinh" name="GioiTinh"  class="form-control" value="{{$NhanVien->GioiTinh}}"/>
+			<select id="GioiTinh" name="GioiTinh"  class="form-control"/>
+			  <option value="Nam">Nam</option>
+			  <option value="Nữ">Nữ</option>
+			  <option value="Khác">Khác</option>
+			</select>
 		</div>
 		<div class="form-group">
 			<label for="DiaChi">Địa chỉ: </label>
@@ -44,11 +66,7 @@
 			<label for="Email">Email: </label>
 			<input type="text" id="Email" name="Email"  class="form-control" value="{{$NhanVien->Email}}"/>
 		</div>
-		<div class="form-group">
-			<label for="HinhAnh">Hình ảnh: </label>
-			<input type="text" id="HinhAnh" name="HinhAnh"  class="form-control" value="{{$NhanVien->HinhAnh}}"/>
-		</div>
-		<div class="form-group">
+		<div class="form-group" id="Field_MatKhau">
 			<label for="MatKhau">Mật khẩu: </label>
 			<input type="text" id="MatKhau" name="MatKhau"  class="form-control" value="{{$NhanVien->MatKhau}}"/>
 		</div>
@@ -66,5 +84,23 @@
 		{!! csrf_field() !!}
 	</form>
 </div>
+<script>
+var div = document.getElementById("dom-target");
+var Role = parseInt (div.textContent);
+$("#Role").val($("#Role option:eq("+Role+")").val());
+if(Role=="2"){
+	var matkhau_status = document.getElementById("Field_MatKhau");
+	matkhau_status.style.display = "none";
+}
+function changeFunc() {
+	var matkhau_status = document.getElementById("Field_MatKhau");
+	var role_value = document.getElementById("Role").value;
+	if (role_value == "PhucVu") {
+		matkhau_status.style.display = "none";
+	} else {
+		matkhau_status.style.display = "block";
+	}
+}
+</script>
 @endsection
 

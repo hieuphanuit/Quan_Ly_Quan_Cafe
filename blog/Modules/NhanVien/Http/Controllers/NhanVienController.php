@@ -42,9 +42,12 @@ class NhanVienController extends Controller
         $NhanVien->DiaChi=$request->get('DiaChi');
         $NhanVien->SoDienThoai=$request->get('SoDienThoai');
 		$NhanVien->Email=$request->get('Email');
-		$NhanVien->HinhAnh=$request->get('HinhAnh');
         $NhanVien->CMND=$request->get('CMND');
-        $NhanVien->MatKhau= $request->get('MatKhau');
+		if ($request->get('MatKhau')==""){
+			$NhanVien->MatKhau= 0;
+		}else{
+			$NhanVien->MatKhau= $request->get('MatKhau');
+		}
         $NhanVien->LuongTheoGio=$request->get('LuongTheoGio');
         $NhanVien->TrangThai=1;
         $NhanVien->save();
@@ -93,9 +96,12 @@ class NhanVienController extends Controller
 			$NhanVien->DiaChi=$request['DiaChi'];
 			$NhanVien->SoDienThoai=$request['SoDienThoai'];
 			$NhanVien->Email=$request['Email'];
-			$NhanVien->HinhAnh=$request['HinhAnh'];
 			$NhanVien->CMND=$request['CMND'];
+			if ($request['Role']=="PhucVu"){
+				$NhanVien->MatKhau= 0;
+			}else {
 			$NhanVien->MatKhau= $request['MatKhau'];
+			}
 			$NhanVien->LuongTheoGio=$request['LuongTheoGio'];
 			$NhanVien->TrangThai=$request['TrangThai'];
 			$NhanVien->save();
