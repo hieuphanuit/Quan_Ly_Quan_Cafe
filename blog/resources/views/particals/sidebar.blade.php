@@ -35,9 +35,9 @@
       <i class="fas fa-fw fa-folder"></i>
       <span>Hóa Đơn</span>
     </a>
-    <div class="dropdown-menu {{Request::is('hoadon/*') ||  Request::is('hoadongoimon/*') ? 'show' : null}}" aria-labelledby="pagesDropdown">
+    <div class="dropdown-menu {{Request::is('hoadonnguyenlieu/*') ||  Request::is('hoadongoimon/*') ? 'show' : null}}" aria-labelledby="pagesDropdown">
       <h6 class="dropdown-header">Hóa đơn nguyên liệu:</h6>
-      <a class="dropdown-item {{Request::is('hoadon/danhsachhoadonnguyenlieu') ? 'active' : null}}" href="/hoadon/danhsachhoadonnguyenlieu">Danh sách</a>
+      <a class="dropdown-item {{Request::is('hoadonnguyenlieu/danhsachhoadonnguyenlieu') ? 'active' : null}}" href="/hoadonnguyenlieu/danhsachhoadonnguyenlieu">Danh sách</a>
       <div class="dropdown-divider"></div>
       <h6 class="dropdown-header">Hóa đơn gọi món:</h6>
       <a class="dropdown-item {{Request::is('hoadongoimon/danhsachhoadongoimon') ? 'active' : null}}" href="/hoadongoimon/danhsachhoadongoimon">Danh sách</a>

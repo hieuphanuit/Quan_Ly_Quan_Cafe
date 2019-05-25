@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/chitiethoadonnguyenlieu",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\ChiTietHoaDonNguyenLieu\\Providers\\ChiTietHoaDonNguyenLieuServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ChiTietHoaDonNguyenLieu\\": ""
+        }
+    }
+}

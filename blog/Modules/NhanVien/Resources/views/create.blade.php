@@ -13,10 +13,6 @@
 <div class="container">
 	<form class="themnhanvien" action="{{route('nhanvien.store')}}" method="POST">
 		<div class="form-group">
-			<label for="MaNhanVien">Mã số nhân viên: </label>
-			<input type="text" id="MaNhanVien" name="MaNhanVien"  class="form-control" readonly/>
-		</div>
-		<div class="form-group">
 			<label for="HoVaTen">Họ và tên: </label>
 			<input type="text" id="HoVaTen" name="HoVaTen"  class="form-control"/>
 		</div>
@@ -41,12 +37,12 @@
 			<input type="text" id="CMND" name="CMND"  class="form-control"/>
 		</div>
 		<div class="form-group">
-			<label for="MaNhanVien">Mã số nhân viên: </label>
-			<input type="text" id="MaNhanVien" name="MaNhanVien"  class="form-control"/>
-		</div>
-		<div class="form-group">
 			<label for="Email">Email: </label>
 			<input type="text" id="Email" name="Email"  class="form-control"/>
+		</div>
+		<div class="form-group">
+			<label for="HinhAnh">Hình ảnh: </label>
+			<input type="text" id="HinhAnh" name="HinhAnh"  class="form-control"/>
 		</div>
 		<div class="form-group">
 			<label for="MatKhau">Mật khẩu: </label>
