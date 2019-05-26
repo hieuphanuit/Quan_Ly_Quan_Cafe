@@ -59,6 +59,18 @@
 <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
 <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
 
+<script>
+$(document).ready( function () {
+    $('.dataTable').DataTable({
+      paging: false,
+      searching: false,
+      info: false,
+      aaSorting: [],
+      scrollX: false
+    });
+} );
+
+</script>
 </body>
 
 </html>

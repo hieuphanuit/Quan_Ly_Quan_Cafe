@@ -19,7 +19,6 @@ class CreateKhachHangThanThietTable extends Migration
 			$table->string('DiaChi')->nullable();
 			$table->string('SoDienThoai')->nullable();
 			$table->string('Email');
-			$table->integer('TrangThai'); //1 đã active 0 chưa active
             $table->timestamps();
         });
     }

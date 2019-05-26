@@ -11,7 +11,6 @@ class KhachHangThanThiet extends Model
 		'DiaChi',
 		'SoDienThoai',
 		'Email',
-		'TrangThai'
     ];
 	
 	public $rules = [
@@ -19,14 +18,12 @@ class KhachHangThanThiet extends Model
 		'DiaChi'=>'required',
 		'SoDienThoai'=>'required',
 		'Email'=>'required',
-		'TrangThai'=> 'required'
 	];
 	public $messages = [
 		'HoVaTen.required' => 'Họ và tên là trường bắt buộc',
 		'DiaChi.required' => 'Địa chỉ là trường bắt buộc',
 		'SoDienThoai.required' => 'Số điện thoại là trường bắt buộc',
 		'Email.required' => 'Email là trường bắt buộc',
-		'TrangThai.required' => 'Trạng thái là trường bắt buộc',
 	];
 	
 	protected $table = "KhachHangThanThiet";

@@ -1,21 +1,23 @@
 <?php
 
 namespace Modules\KhachHangThanThiet\Http\Controllers;
+
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\KhachHangThanThiet\Entities\KhachHangThanThiet;
+
 class KhachHangThanThietController extends Controller
 {
     /**
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-		$KhachHangThanThiets = KhachHangThanThiet::all();
-        return view('khachhangthanthiet::index',['KhachHangThanThiets'=> $KhachHangThanThiets]);
+        $KhachHangThanThiets = KhachHangThanThiet::orderBy('id', 'DESC')->paginate(20);
+        return view('khachhangthanthiet::index', ['KhachHangThanThiets' => $KhachHangThanThiets]);
     }
 
     /**
@@ -34,16 +36,16 @@ class KhachHangThanThietController extends Controller
      */
     public function store(Request $request)
     {
-        //
-		$KhachHangThanThiet = new KhachHangThanThiet;
-		$KhachHangThanThiet->HoVaTen= $request-> get('HoVaTen');
-		$KhachHangThanThiet->DiaChi= $request-> get('DiaChi');
-		$KhachHangThanThiet->SoDienThoai= $request-> get('SoDienThoai');
-		$KhachHangThanThiet->Email= $request-> get('Email');
-		$KhachHangThanThiet->TrangThai= 1;
-		$KhachHangThanThiet->save();
-		return redirect('/khachhangthanthiet');
-	}
+        $KhachHangThanThiet = new KhachHangThanThiet;
+        $validator = Validator::make($request->all(), $KhachHangThanThiet->rules, $KhachHangThanThiet->messages);
+        if ($validator->fails())
+            return redirect()->back()->withErrors($validator)->withInput();
+
+        $KhachHangThanThiet = new KhachHangThanThiet($request->all());
+        $KhachHangThanThiet->save();
+
+        return redirect('/khachhangthanthiet');
+    }
 
     /**
      * Show the specified resource.
@@ -51,9 +53,11 @@ class KhachHangThanThietController extends Controller
      * @return Response
      */
     public function show($id)
-    {	
-		$KhachHangThanThiet = KhachHangThanThiet::where ('id','=',$id)->first();
-        return view('khachhangthanthiet::show',['KhachHangThanThiet'=>$KhachHangThanThiet]);
+    {
+        $KhachHangThanThiet = KhachHangThanThiet::find($id);
+        if (!$KhachHangThanThiet)
+            return redirect('/khachhangthanthiet')->withErrors('Khách hàng không tồn tại');
+        return view('khachhangthanthiet::show', compact('KhachHangThanThiet'));
     }
 
     /**
@@ -63,8 +67,10 @@ class KhachHangThanThietController extends Controller
      */
     public function edit($id)
     {
-		$KhachHangThanThiet = KhachHangThanThiet::where('id','=',$id)->first();
-        return view('khachhangthanthiet::edit', ['KhachHangThanThiet'=>$KhachHangThanThiet]);
+        $KhachHangThanThiet = KhachHangThanThiet::find($id);
+        if (!$KhachHangThanThiet)
+            return redirect('/khachhangthanthiet')->withErrors('Khách hàng không tồn tại');
+        return view('khachhangthanthiet::edit', ['KhachHangThanThiet' => $KhachHangThanThiet]);
     }
 
     /**
@@ -76,19 +82,18 @@ class KhachHangThanThietController extends Controller
     public function update(Request $request, $id)
     {
         //
-		$KhachHangThanThiet = KhachHangThanThiet::where('id','=',$id)->first();
-		$validator = Validator::make($request->all(), $KhachHangThanThiet->rules, $KhachHangThanThiet->messages);
-		if ($validator->fails()) {
-    		return redirect()->back()->withErrors($validator)->withInput();
-    	} else {
-			$KhachHangThanThiet->HoVaTen= $request['HoVaTen'];
-			$KhachHangThanThiet->DiaChi= $request['DiaChi'];
-			$KhachHangThanThiet->SoDienThoai= $request['SoDienThoai'];
-			$KhachHangThanThiet->Email= $request['Email'];
-			$KhachHangThanThiet->TrangThai= $request['TrangThai'];
-			$KhachHangThanThiet->save();
-			return redirect()->back();
-		}
+        $KhachHangThanThiet = KhachHangThanThiet::where('id', '=', $id)->first();
+
+        if (!$KhachHangThanThiet)
+            return redirect('/khachhangthanthiet')->withErrors('Khách hàng không tồn tại');
+
+        $validator = Validator::make($request->all(), $KhachHangThanThiet->rules, $KhachHangThanThiet->messages);
+        if ($validator->fails())
+            return redirect()->back()->withErrors($validator)->withInput();
+
+        $KhachHangThanThiet->update($request->all());
+
+        return redirect()->back()->with('message', 'Cập nhập thành công');;
     }
 
     /**
@@ -99,23 +104,34 @@ class KhachHangThanThietController extends Controller
     public function destroy($id)
     {
         //
-		$KhachHangThanThiet = KhachHangThanThiet::where('id','=',$id)->first();
-		$KhachHangThanThiet->delete();
-		return redirect('/khachhangthanthiet');
+        $KhachHangThanThiet = KhachHangThanThiet::find($id);
+        $KhachHangThanThiet->delete();
+        return redirect('/khachhangthanthiet');
     }
-	   public function search(Request $request)
+    public function search(Request $request)
     {
-        $HoVaTen= $request['timkiem_hovaten'];
-		$SoDienThoai= $request['timkiem_sdt'];
-		if($HoVaTen!= "" & $SoDienThoai=="" ){
-			 $KhachHangThanThiets = KhachHangThanThiet::where('HoVaTen','like','%'.$HoVaTen.'%')->get();
-		} elseif($HoVaTen== "" & $SoDienThoai !="" ){
-			 $KhachHangThanThiets = KhachHangThanThiet::where('SoDienThoai','=',$SoDienThoai)->get();
-		} elseif($HoVaTen != "" & $SoDienThoai !="" ) {
-        $KhachHangThanThiets = KhachHangThanThiet::where('HoVaTen','like','%'.$HoVaTen.'%') ->where ('SoDienThoai','=',$SoDienThoai) ->get();
-		} else {
-			$KhachHangThanThiets = KhachHangThanThiet::all();
-		}
-        return view ('khachhangthanthiet::search',['KhachHangThanThiets' => $KhachHangThanThiets]);
+        $HoVaTen = $request->get('timkiem_hovaten', '');
+        $SoDienThoai = $request->get('timkiem_sdt', '');
+
+        if (!$HoVaTen && !$SoDienThoai) {
+            $KhachHangThanThiets = KhachHangThanThiet::all();
+        }
+
+        if (!$HoVaTen) {
+            $KhachHangThanThiets = KhachHangThanThiet::where('SoDienThoai', '=', $SoDienThoai)
+                ->get();
+        }
+
+        if (!$SoDienThoai) {
+            $KhachHangThanThiets = KhachHangThanThiet::where('HoVaTen', 'like', '%' . $HoVaTen . '%')
+                ->get();
+        }
+
+        if ($HoVaTen && $SoDienThoai) { 
+            $KhachHangThanThiets = KhachHangThanThiet::where('HoVaTen', 'like', '%' . $HoVaTen . '%')
+                ->where('SoDienThoai', '=', $SoDienThoai)
+                ->get();
+        }
+        return view('khachhangthanthiet::search', compact('KhachHangThanThiets','HoVaTen','SoDienThoai'));
     }
 }

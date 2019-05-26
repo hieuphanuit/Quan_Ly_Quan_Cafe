@@ -3,26 +3,26 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Khách hàng</a>
+    <a href="{{url('/khachhangthanthiet')}}">Khách hàng</a>
   </li>
-  <li class="breadcrumb-item active">Danh sách khách hàng</li>
+  <li class="breadcrumb-item active">Tìm kiếm</li>
 </ol>
 @endsection
 @section('Content')
-<h1 style="text-align: center;">Danh sách khách hàng thân thiết</h1>
+<h1 style="text-align: center;">Kết quả tìm kiếm</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success"href="/khachhangthanthiet/create">Thêm khách hàng</a>
+	<a class="btn btn-success"href="{{url('/khachhangthanthiet')}}">Danh sách</a>
 </div>
 
     <form action="{{url('/khachhangthanthiet/search')}}" id="search-form" method="POST">
 		<div class="form-group row">
 			<div class="col-md-4">
 				<label for="timkiem_hovaten">Họ và tên khách hàng:</label>
-				<input class="form-control" id="timkiem_hovaten" type="text" name="timkiem_hovaten"></input>
+				<input class="form-control" id="timkiem_hovaten" type="text" name="timkiem_hovaten" value="{{$HoVaTen}}">
 			</div>
 			<div class="col-md-4">
 				<label for="timkiem_sdt">Số điện thoại:</label>
-				<input class="form-control" type="tel" id= "timkiem_sdt" name="timkiem_sdt"></input>
+				<input class="form-control" type="tel" id= "timkiem_sdt" name="timkiem_sdt"  value="{{$SoDienThoai}}">
 			</div>
 			<div class="col-md-4">
 				<button class="btn btn-success" id="timkiemhoinghi_button" style="width: 120px; margin-top:31px;"><b>Tìm kiếm</b></button>
@@ -36,28 +36,17 @@
 		<i class="fas fa-table"></i>
 	</div>
   <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <div>
+      <table class="table table-bordered dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th>Mã khách hàng</th>
             <th>Họ và tên</th>
-            <th width="30%">Địa chỉ</th>
+            <th>Địa chỉ</th>
             <th>Số điện thoại</th>
-            <th>Trạng thái</th>
-            <th>Hành Động</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <th>Mã khách hàng</th>
-            <th>Họ và tên</th>
-            <th width="30%">Địa chỉ</th>
-            <th>Số điện thoại</th>
-            <th>Trạng thái</th>
             <th width="30%">Hành Động</th>
           </tr>
-        </tfoot>
+        </thead>
         <tbody>
 		  @foreach ($KhachHangThanThiets as $KhachHangThanThiet)
           <tr>
@@ -65,7 +54,6 @@
             <td>{{$KhachHangThanThiet->HoVaTen}}</td>
             <td>{{$KhachHangThanThiet->DiaChi}}</td>
             <td>{{$KhachHangThanThiet->SoDienThoai}}</td>
-            <td>{{$KhachHangThanThiet->TrangThai}}</td>
             <td>
 				<div class="row">
 					<div class="col-md-4 hanhdong">

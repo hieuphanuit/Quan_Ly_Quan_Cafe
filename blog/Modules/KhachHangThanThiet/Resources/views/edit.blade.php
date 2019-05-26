@@ -11,6 +11,19 @@
 @section('Content')
 <h1 style="text-align: center;">Cập nhật khách hàng thân thiết</h1>
 <div class="container">
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
+
+@if($errors->any())
+	<div class="alert alert-danger" role="alert">
+			@foreach ($errors->all() as $error)
+				<p>{{ $error }}</p>
+			@endforeach
+	</div>	
+@endif
 	<form class="themkhachhang" action='{{url("/khachhangthanthiet/$KhachHangThanThiet->id/edit")}}' method="POST" >
 		<div class="form-group">
 			<label for="MaKhachHang">Mã khách hàng: </label>
@@ -31,10 +44,6 @@
 		<div class="form-group">
 			<label for="Email">Email: </label>
 			<input type="text" id="Email" name="Email"  class="form-control" value="{{$KhachHangThanThiet->Email}}"/>
-		</div>
-		<div class="form-group">
-			<label for="TrangThai">Trạng thái: </label>
-			<input type="text" id="TrangThai" name="TrangThai"  class="form-control" value="{{$KhachHangThanThiet->TrangThai}}"/>
 		</div>
 		<div class="form-group">
 				<button class="btn btn-info" type="submit">Cập nhật</button>
