@@ -8,8 +8,7 @@ class NhanVien extends Model
 {
 	protected $fillable = [
 		'Role',
-        'HoVaTen', 
-		'HinhAnh', 
+        'HoVaTen',  
 		'GioiTinh', 
 		'DiaChi',
 		'SoDienThoai',
@@ -23,7 +22,6 @@ class NhanVien extends Model
 	public $rules = [
 		'Role'=>'required',
         'HoVaTen'=>'required', 
-		'HinhAnh'=>'required', 
 		'GioiTinh'=>'required', 
 		'DiaChi'=>'required',
 		'SoDienThoai'=>'required',
@@ -36,7 +34,6 @@ class NhanVien extends Model
 	public $messages = [
 		'Role.required' => 'Role là trường bắt buộc',
 		'HoVaTen.required' => 'Họ và tên là trường bắt buộc',
-		'HinhAnh.numeric' => 'Hình ảnh là trường bắt buộc',
 		'DiaChi.required' => 'Địa chỉ là trường bắt buộc',
 		'SoDienThoai.required' => 'Số điện thoại là trường bắt buộc',
 		'CMND.required' => 'CMND là trường bắt buộc',

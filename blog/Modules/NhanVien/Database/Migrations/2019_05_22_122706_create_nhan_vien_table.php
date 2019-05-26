@@ -17,7 +17,6 @@ class CreateNhanVienTable extends Migration
             $table->bigIncrements('id');
 			$table->string('Role', 16);
 			$table->string('HoVaTen', 100);
-			$table->string('HinhAnh', 50);
 			$table->string('GioiTinh', 50)->nullable();
 			$table->string('DiaChi')->nullable();
 			$table->string('SoDienThoai')->nullable();
