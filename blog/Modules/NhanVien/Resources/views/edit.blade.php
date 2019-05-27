@@ -36,7 +36,7 @@
 		</div>
 		<div class="form-group">
 			<label for="Role">Role: </label>
-			<select  onchange="changeFunc();"id="Role" name="Role"  class="form-control"/>
+			<select  onchange="changeFunc();"id="Role" name="Role"  class="form-control">
 			  <option value="QuanLy">Quản lý</option>
 			  <option value="ThuNgan">Thu Ngân</option>
 			  <option value="PhucVu">Phục vụ</option>

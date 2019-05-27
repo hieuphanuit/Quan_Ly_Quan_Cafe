@@ -38,9 +38,7 @@
     <div class="dropdown-menu {{Request::is('hoadonnguyenlieu/*') ||  Request::is('hoadongoimon/*') ? 'show' : null}}" aria-labelledby="pagesDropdown">
       <h6 class="dropdown-header">Hóa đơn nguyên liệu:</h6>
       <a class="dropdown-item {{Request::is('hoadonnguyenlieu/danhsachhoadonnguyenlieu') ? 'active' : null}}" href="/hoadonnguyenlieu/danhsachhoadonnguyenlieu">Danh sách</a>
-      <div class="dropdown-divider"></div>
-      <h6 class="dropdown-header">Hóa đơn gọi món:</h6>
-      <a class="dropdown-item {{Request::is('hoadongoimon/danhsachhoadongoimon') ? 'active' : null}}" href="/hoadongoimon/danhsachhoadongoimon">Danh sách</a>
+      
     </div>
   </li>
   <li class="nav-item dropdown {{Request::is('thongke/*') ? 'show' : null}}">

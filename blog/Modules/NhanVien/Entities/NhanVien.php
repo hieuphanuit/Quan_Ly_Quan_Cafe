@@ -26,7 +26,7 @@ class NhanVien extends Model
 		'DiaChi'=>'required',
 		'SoDienThoai'=>'required',
 		'CMND'=>'required',
-		'Email'=>'required',
+		'Email'=>'required|email',
 		'MatKhau'=>'required',
 		'LuongTheoGio'=> 'required|numeric',
 		'TrangThai'=> 'required'

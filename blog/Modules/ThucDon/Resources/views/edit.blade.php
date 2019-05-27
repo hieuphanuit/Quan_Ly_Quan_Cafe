@@ -3,7 +3,7 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Thực đơn</a>
+    <a href='{{url("/thucdon")}}'>Thực đơn</a>
   </li>
   <li class="breadcrumb-item active">Cập nhật thực đơn</li>
 </ol>

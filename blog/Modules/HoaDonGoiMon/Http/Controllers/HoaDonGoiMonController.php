@@ -5,6 +5,7 @@ namespace Modules\HoaDonGoiMon\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\ThucDon\Entities\ThucDon;
 
 class HoaDonGoiMonController extends Controller
 {
@@ -23,7 +24,8 @@ class HoaDonGoiMonController extends Controller
      */
     public function create()
     {
-        return view('hoadongoimon::create');
+        $ThucDons = ThucDon::all();
+        return view('hoadongoimon::create',['ThucDons'=> $ThucDons]);
     }
 
     /**

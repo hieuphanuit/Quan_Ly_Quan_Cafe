@@ -3,7 +3,7 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Khách hàng</a>
+    <a href='{{url("/khachhangthanthiet")}}'>Khách hàng</a>
   </li>
   <li class="breadcrumb-item active">Danh sách khách hàng</li>
 </ol>
@@ -18,11 +18,11 @@
   <div class="form-group row">
     <div class="col-md-4">
       <label for="timkiem_hovaten">Họ và tên khách hàng:</label>
-      <input class="form-control" id="timkiem_hovaten" type="text" name="timkiem_hovaten"></input>
+      <input class="form-control" id="timkiem_hovaten" type="text" name="timkiem_hovaten"/>
     </div>
     <div class="col-md-4">
       <label for="timkiem_sdt">Số điện thoại:</label>
-      <input class="form-control" type="tel" name="phone" id="timkiem_sdt" name="timkiem_sdt"></input>
+      <input class="form-control" type="tel" name="phone" id="timkiem_sdt" name="timkiem_sdt"/>
     </div>
     <div class="col-md-4">
       <button class="btn btn-success" id="timkiemkhachhangthanthiet_button" style="width: 120px; margin-top:31px;"><b>Tìm kiếm</b></button>
@@ -57,10 +57,10 @@
             <td>
               <div class="row">
                 <div class="col-md-4 hanhdong">
-                  <a href="/khachhangthanthiet/{{$KhachHangThanThiet->id}}/edit" class="btn btn-info" style="width:80px;">Sửa</a>
+                  <a href='{{url("/khachhangthanthiet/$KhachHangThanThiet->id/edit")}}' class="btn btn-info" style="width:80px;">Sửa</a>
                 </div>
                 <div class="col-md-4 hanhdong">
-                  <a href="/khachhangthanthiet/{{$KhachHangThanThiet->id}}" class="btn btn-warning" style="width:80px;">Chi tiết</a>
+                  <a href='{{url("/khachhangthanthiet/$KhachHangThanThiet->id")}}' class="btn btn-warning" style="width:80px; color: white">Chi tiết</a>
                 </div>
                 <div class="col-md-4 hanhdong">
                   <form method="POST" action='{{url("/khachhangthanthiet/$KhachHangThanThiet->id/delete")}}' style="display: inline-block">

@@ -5,6 +5,7 @@ namespace Modules\ThongKe\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use PDF;
 
 class ThongKeController extends Controller
 {
@@ -90,5 +91,12 @@ class ThongKeController extends Controller
 	public function thongketheothang()
     {
         return view('thongke::thongketheothang');
+    }
+
+    public function exportPDFThongKeCa(){
+        $data = [];
+        $pdf = PDF::loadView('thongke::ThongKeCaFDPTemplate', $data);
+        
+        return $pdf->download('thongKe.pdf');
     }
 }

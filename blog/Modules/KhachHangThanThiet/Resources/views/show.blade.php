@@ -3,7 +3,7 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Khách hàng</a>
+    <a href='{{url("/khachhangthanthiet")}}'>Khách hàng</a>
   </li>
   <li class="breadcrumb-item active">Thông tin khách hàng thân thiết</li>
 </ol>
@@ -31,10 +31,6 @@
 		<div class="form-group">
 			<label for="Email">Email: </label>
 			<input type="text" id="Email" name="Email"  class="form-control" value="{{$KhachHangThanThiet->Email}}" readonly />
-		</div>
-		<div class="form-group">
-			<label for="TrangThai">Trạng thái: </label>
-			<input type="text" id="TrangThai" name="TrangThai"  class="form-control" value="{{$KhachHangThanThiet->TrangThai}}" readonly />
 		</div>
 	</form>
 </div>

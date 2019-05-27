@@ -23,7 +23,7 @@ class CreateNhanVienTable extends Migration
 			$table->string('CMND')->nullable(); //1 nam 2 nu 3 khac
 			$table->string('Email');
 			$table->string('MatKhau')->nullable();
-			$table->string('LuongTheoGio')->nullable();
+			$table->integer('LuongTheoGio')->nullable();
 			$table->integer('TrangThai'); //1 đã active 0 chưa active
             $table->timestamps();
         });

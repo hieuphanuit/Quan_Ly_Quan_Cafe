@@ -16,7 +16,8 @@ class CreatePostsNguyenLieuTable extends Migration
         Schema::create('NguyenLieu', function (Blueprint $table) {
             $table->bigIncrements('id');
 			$table->string('TenNguyenLieu', 100);
-			$table->string('GiaUocLuong', 100);
+			$table->integer('GiaUocLuong');
+			$table->string('DonViTinh',100);
             $table->timestamps();
         });
     }

@@ -11,15 +11,15 @@
 @section('Content')
 <h1 style="text-align: center;">Danh sách hóa đơn gọi món</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success" href="/hoadon/themhoadongoimon">Thêm hóa đơn gọi món</a>
+	<a class="btn btn-success" href="{{url('/hoadongoimon/themhoadongoimon')}}">Thêm hóa đơn gọi món</a>
 </div>
 <div class="card mb-3">
   <div class="card-header">
     <i class="fas fa-table"></i>
   </div>
   <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <div class="">
+      <table class="table table-bordered dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th>Mã hóa đơn</th>
@@ -29,15 +29,6 @@
             <th width="30%">Hành Động</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>Mã hóa đơn</th>
-            <th>Người lập</th>
-            <th>Thời gian</th>
-            <th>Tổng tiền</th>
-            <th width="30%">Hành Động</th>
-          </tr>
-        </tfoot>
         <tbody>
           <tr>
             <td>Tiger Nixon</td>
@@ -148,13 +139,13 @@
             <td>
 				<div class="row">
 					<div class="col-md-4">
-						<a class="btn btn-info hanhdong"style="width:80px;">Sửa</a>
+						<a class="btn btn-info hanhdong"style="width:80px; color:#fff;">Sửa</a>
 					</div>
 					<div class="col-md-4">
-						<a class="btn btn-warning hanhdong"style="width:80px;">Chi tiết</a>
+						<a class="btn btn-warning hanhdong"style="width:80px; color:#fff;">Chi tiết</a>
 					</div>
 					<div class="col-md-4">
-						<a class="btn btn-danger hanhdong"style="width:80px;">Xóa</a>
+						<a class="btn btn-danger hanhdong"style="width:80px; color:#fff;">Xóa</a>
 					</div>
 				</div>
 			</td>

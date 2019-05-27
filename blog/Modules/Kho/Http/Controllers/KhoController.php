@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Kho\Http\Controllers;
-
+use Modules\NguyenLieu\Routes;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -23,7 +23,7 @@ class KhoController extends Controller
      */
     public function create()
     {
-        return view('kho::create');
+        //
     }
 
     /**

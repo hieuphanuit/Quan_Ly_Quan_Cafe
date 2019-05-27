@@ -12,5 +12,9 @@
 */
 
 Route::prefix('nguyenlieu')->group(function() {
-    Route::get('/', 'NguyenLieuController@index');
+	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
+		Route::get('/', 'NguyenLieuController@index')->name('nguyenlieu.index');
+		Route::get('/create', 'NguyenLieuController@create')->name('nguyenlieu.create');
+		Route::post('/', 'NguyenLieuController@store')->name('nguyenlieu.store');
+	});
 });

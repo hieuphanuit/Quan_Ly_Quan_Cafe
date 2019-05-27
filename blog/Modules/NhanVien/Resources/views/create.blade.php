@@ -3,7 +3,7 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
    <li class="breadcrumb-item">
-    <a href="#">Nhân viên</a>
+    <a href='{{url("/nhanvien")}}'>Nhân viên</a>
   </li>
   <li class="breadcrumb-item active">Thêm nhân viên</li>
 </ol>
@@ -18,7 +18,7 @@
 		</div>
 		<div class="form-group">
 			<label for="Role">Role: </label>
-			<select  onchange="changeFunc();"id="Role" name="Role"  class="form-control"/>
+			<select  onchange="changeFunc();"id="Role" name="Role"  class="form-control">
 			  <option value="QuanLy">Quản lý</option>
 			  <option value="ThuNgan">Thu Ngân</option>
 			  <option value="PhucVu">Phục vụ</option>
@@ -26,7 +26,7 @@
 		</div>
 		<div class="form-group">
 			<label for="GioiTinh">Giới tính: </label>
-			<select id="GioiTinh" name="GioiTinh"  class="form-control"/>
+			<select id="GioiTinh" name="GioiTinh"  class="form-control">
 			  <option value="Nam">Nam</option>
 			  <option value="Nữ">Nữ</option>
 			  <option value="Khác">Khác</option>

@@ -21,4 +21,8 @@ class Kho extends Model
 	];
 	
 	protected $table = "Kho";
+
+	public function nguyenLieu(){
+		return $this->belongTo('Modules\NguyenLieu\Entities\NguyenLieu', 'MaNguyenLieu');
+	}
 }

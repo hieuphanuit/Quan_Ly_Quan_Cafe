@@ -1,0 +1,21 @@
+.themHoaDonGoiMon{
+    height: 40vh;
+    position: fixed;
+    bottom: 0;
+    left: 225px;
+    right: 0px;
+    z-index:1;
+    background-color: #ffffff;
+    overflow-y: scroll;
+}
+.subtract-btn, .plus-btn{
+    width: 38px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 24px;
+    height: 38px;
+    line-height: 38px;
+    vertical-align: middle;
+    padding: 0;
+
+}

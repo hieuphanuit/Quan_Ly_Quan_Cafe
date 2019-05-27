@@ -3,7 +3,7 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Thực đơn</a>
+    <a href='{{url("/thucdon")}}'>Thực đơn</a>
   </li>
   <li class="breadcrumb-item active">Danh sách thực đơn</li>
 </ol>
@@ -11,7 +11,7 @@
 @section('Content')
 <h1 style="text-align:center;">Danh sách thực đơn</h1>
 <div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success" href="/thucdon/create">Thêm thực đơn</a>
+	<a class="btn btn-success" href='{{url("/thucdon/create")}}'>Thêm thực đơn</a>
 </div>
 <div class="card mb-3">
   <div class="card-header">
@@ -19,7 +19,7 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th>Mã món</th>
@@ -48,7 +48,7 @@
 						<a href='{{url("/thucdon/$ThucDon->id/edit")}}' class="btn btn-info"style="width:80px;">Sửa</a>
 					</div>
 					<div class="col-md-4 hanhdong">
-						<a href='{{url("/thucdon/$ThucDon->id")}}' class="btn btn-warning"style="width:80px;">Chi tiết</a>
+						<a href='{{url("/thucdon/$ThucDon->id")}}' class="btn btn-warning"style="width:80px; color: #fff;">Chi tiết</a>
 					</div>
 					<div class="col-md-4 hanhdong">
 						<form method="POST" action='{{url("/thucdon/$ThucDon->id/delete")}}' style="display: inline-block">

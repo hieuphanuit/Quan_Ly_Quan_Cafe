@@ -38,7 +38,7 @@
 				</select>
 			</div>
 			<div class="col-md-4">
-				<a class="btn btn-success xuatpdf"style="width:120px;margin-top:32px;">Tìm kiếm</a>
+				<a class="btn btn-success xuatpdf"style="width:120px;margin-top:32px; color:#fff;">Tìm kiếm</a>
 			</div>
 	</div>
 	<div class="card mb-3">
@@ -47,7 +47,7 @@
 			Data Table Example</div>
 		<div class="card-body">
 		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<table class="table table-bordered dataTable" width="100%" cellspacing="0">
 			<thead>
 				<tr>
 					<th>Mã hóa đơn</th>
@@ -113,6 +113,6 @@
 	<input type="text" id="TongThu" name="TongThu"  class="form-control"readonly />
 </div>
 <div align="right" style="margin-top:10px;margin-bottom:10px;">
-		<a class="btn btn-success xuatpdf"style="width:120px;">Xuất PDF</a>
+		<a class="btn btn-success xuatpdf"style="width:120px; color:#fff;">Xuất PDF</a>
 </div>
 @endsection

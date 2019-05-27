@@ -2,10 +2,12 @@
 
 namespace Modules\NguyenLieu\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\NguyenLieu\Entities\NguyenLieu;
+use Modules\Kho\Entities\Kho;
 class NguyenLieuController extends Controller
 {
     /**
@@ -34,6 +36,17 @@ class NguyenLieuController extends Controller
     public function store(Request $request)
     {
         //
+		$NguyenLieu = new NguyenLieu;
+        $validator = Validator::make($request->all(), $NguyenLieu->rules, $NguyenLieu->messages);
+        if ($validator->fails())
+            return redirect()->back()->withErrors($validator)->withInput();    
+
+        $NguyenLieu = new NguyenLieu($request->all());
+        $NguyenLieu->save();
+
+        $NguyenLieu->Kho()->create(['SoLuongTon' => 0]);
+
+        return redirect('/kho');
     }
 
     /**

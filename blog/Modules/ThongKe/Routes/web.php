@@ -14,7 +14,10 @@
 Route::prefix('thongke')->group(function() {
 	Route::group(['middleware' => ['CheckRole:QuanLyVaThuNgan']], function () {
 		Route::get('/thongketheoca', 'ThongKeController@thongketheoca');
-		Route::get('/thongketheongay', 'ThongKeController@thongketheongay')->middleware('CheckRole:QuanLy');
-		Route::get('/thongketheothang', 'ThongKeController@thongketheothang')->middleware('CheckRole:QuanLy');
+	});
+	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
+		Route::get('/thongketheongay', 'ThongKeController@thongketheongay');
+		Route::get('/thongketheothang', 'ThongKeController@thongketheothang');
+		Route::get('/exportPDFThongKeCa', 'ThongKeController@exportPDFThongKeCa');
 	});
 });

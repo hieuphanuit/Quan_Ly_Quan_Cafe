@@ -9,16 +9,23 @@ class NguyenLieu extends Model
     protected $fillable = [
         'TenNguyenLieu', 
 		'GiaUocLuong',
+		'DonViTinh'
     ];
 	
 	public $rules = [
         'TenNguyenLieu'=>'required', 
-		'GiaUocLuong'=>'required|numeric'	
+		'GiaUocLuong'=>'required|numeric',
+		'DonViTinh'=>'required'
 	];
 	public $messages = [
 		'TenNguyenLieu.required' => 'Tên nguyên liệu là trường bắt buộc',
 		'GiaUocLuong.required' => 'Giá ước lượng là trường bắt buộc',
+		'DonViTinh.required' => 'Đơn vị tính là trường bắt buộc',
 	];
 	
 	protected $table = "NguyenLieu";
+
+	public function kho(){
+		return $this->hasOne('Modules\Kho\Entities\Kho', 'MaNguyenLieu');
+	}
 }
