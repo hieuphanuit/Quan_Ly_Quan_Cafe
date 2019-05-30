@@ -13,7 +13,7 @@
 
 Route::prefix('hoadonnguyenlieu')->group(function() {
     Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
-		Route::get('/danhsachhoadonnguyenlieu', 'HoaDonNguyenLieuController@index');
+		Route::get('/', 'HoaDonNguyenLieuController@index');
 		Route::get('/themhoadonnguyenlieu', 'HoaDonNguyenLieuController@create');
 	});
 });

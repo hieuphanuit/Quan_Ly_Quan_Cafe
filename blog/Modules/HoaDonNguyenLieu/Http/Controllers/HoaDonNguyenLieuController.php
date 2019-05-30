@@ -5,6 +5,7 @@ namespace Modules\HoaDonNguyenLieu\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\NguyenLieu\Entities\NguyenLieu;
 
 class HoaDonNguyenLieuController extends Controller
 {
@@ -23,7 +24,8 @@ class HoaDonNguyenLieuController extends Controller
      */
     public function create()
     {
-        return view('hoadonnguyenlieu::create');
+        $NguyenLieus = NguyenLieu::all();
+        return view('hoadonnguyenlieu::create',['NguyenLieus'=> $NguyenLieus]);
     }
 
     /**

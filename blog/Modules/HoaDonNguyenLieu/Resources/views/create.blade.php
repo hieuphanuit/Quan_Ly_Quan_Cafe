@@ -2,179 +2,103 @@
 
 @section('Breadcrumbs')
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">
-    <a href="#">Hóa đơn</a>
-  </li>
-  <li class="breadcrumb-item active">Thêm hóa đơn nguyên liệu</li>
+	<li class="breadcrumb-item">
+		<a href="#">Hóa đơn</a>
+	</li>
+	<li class="breadcrumb-item active">Thêm hóa đơn nguyên liệu</li>
 </ol>
 @endsection
 @section('Content')
 <h1 style="text-align:center;">Thêm hóa đơn nguyên liệu</h1>
 <div class="container">
-	<form class="themhoadon">
-		<div class="form-group">
-			<label for="MaMon">Mã hóa đơn: </label>
-			<input type="text" id="MaMon" name="MaMon"  class="form-control"readonly />
-		</div>
-		<div class="form-group">
-			<label for="TenMon">Người nhập: </label>
-			<input type="text" id="TenMon" name="TenMon"  class="form-control"/>
-		</div>
-		<div class="form-group">
-			<label for="ThoiGian">Thời gian: </label>
-			<input type="text" id="ThoiGian" name="ThoiGian"  class="form-control"/>
-		</div>
-		<div class="form-group">
-			<label for="TongTien">Tổng tiền: </label>
-			<input type="text" id="TongTien" name="TongTien"  class="form-control"/>
-		</div>
-	</form>
-	<h1 style="text-align:center;">Chi tiết hóa đơn nguyên liệu</h1>
-	<form class="themchitiet">
-		<div class="form-group">
-			<label for="MaNguyenLieu">Mã nguyên liệu: </label>
-			<input type="text" id="MaMon" name="MaMon"  class="form-control"/>
-		</div>
-		<div class="form-group">
-			<label for="TenNguyenLieu">Tên nguyên liệu: </label>
-			<input type="text" id="TenMon" name="TenMon"  class="form-control"/>
-		</div>
-		<div class="form-group">
-			<label for="ThoiGian">Số lượng: </label>
-			<input type="text" id="ThoiGian" name="ThoiGian"  class="form-control"/>
-		</div>
-		<div class="form-group">
-			<label for="TongTien">Đơn giá: </label>
-			<input type="text" id="TongTien" name="TongTien"  class="form-control"/>
-		</div>
-		<div class="form-group">
-			<label for="TongTien">Thành tiền: </label>
-			<input type="text" id="TongTien" name="TongTien"  class="form-control"/>
-		</div>
-		<div class="form-group">
-			<button class="btn btn-info" type="submit" style="margin-right:5px;">Thêm</button>
-			<button class="btn btn-warning" type="submit">Cập nhật</button>
-		</div>
-	</form>
-	<div class="card mb-3">
-		<div class="card-header">
-			<i class="fas fa-table"></i>
-		</div>
-		<div class="card-body">
-		<div class="table-responsive">
-			<table class="table table-bordered dataTable" width="100%" cellspacing="0">
+	<table class="table">
+		<thead>
+			<tr>
+
+				<th scope="col" width="30%">Tên món</th>
+				<th scope="col" width="10%">Đơn giá</th>
+				<th scope="col" width="10%">Số lượng tồn</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($NguyenLieus as $NguyenLieu)
+			<tr>
+
+				<td>
+					<button class="btn btn-info nguyenLieu_btn" style="width:80%" data-id="{{$NguyenLieu->id}}" data-mon="{{$NguyenLieu->TenNguyenLieu}}" data-slt="{{$NguyenLieu->SoLuongTon}}">{{$NguyenLieu->TenNguyenLieu}}</button>
+				</td>
+				<td data-id="$NguyenLieu->id">{{$NguyenLieu->GiaUocLuong}}</td>
+				<td>{{$NguyenLieu->SoLuongTon}}</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
+
+	<div style="height: 30vh">
+	</div>
+	<div class="themHoaDonGoiMon">
+		<table class="table chiTietHoaDon " id="chiTietHoaDon">
 			<thead>
 				<tr>
-					<th>Mã nguyên liệu</th>
-					<th>Tên nguyên liệu</th>
-					<th>Đơn vị tính</th>
-					<th>Thành tiền</th>
-					<th width="33%">Hành Động</th>
+
+					<th scope="col" width="30%">Tên món</th>
+					<th scope="col" width="10%" style="padding-left: 30px;">Số lượng</th>
+					<th scope="col" width="10%">Xóa</th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-					<th>Mã nguyên liệu</th>
-					<th>Tên nguyên liệu</th>
-					<th>Đơn vị tính</th>
-					<th>Thành tiền</th>
-					<th>Hành Động</th>
-				</tr>
-			</tfoot>
 			<tbody>
 				<tr>
-					<td>Tiger Nixon</td>
-					<td>System Architect</td>
-					<td>Cái</td>
-					<td>61</td>
-					<td>
-						<div class="row">
-							<div class="col-md-3">
-								<a class="btn btn-info"style="width:80px;">Sửa</a>
-							</div>
-							<div class="col-md-3">
-								<a class="btn btn-danger"style="width:80px;">Xóa</a>
-							</div>
-							<div class="col-md-3">
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>Garrett Winters</td>
-					<td>Accountant</td> 
-					<td>Cái</td>			
-					<td>63</td>
-					<td>
-						<div class="row">
-							<div class="col-md-3">
-								<a class="btn btn-info"style="width:80px;">Sửa</a>
-							</div>
-							<div class="col-md-3">
-								<a class="btn btn-danger"style="width:80px;">Xóa</a>
-							</div>
-							<div class="col-md-3">
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>Ashton Cox</td>
-					<td>Junior Technical Author</td>
-					<td>Cái</td>
-					<td>66</td>
-					<td>
-						<div class="row">
-							<div class="col-md-3">
-								<a class="btn btn-info"style="width:80px;">Sửa</a>
-							</div>
-							<div class="col-md-3">
-								<a class="btn btn-danger"style="width:80px;">Xóa</a>
-							</div>
-							<div class="col-md-3">
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>Cedric Kelly</td>
-					<td>Edinburgh</td>
-					<td>Cái</td>
-					<td>22</td>
-					<td>
-						<div class="row">
-							<div class="col-md-3">
-								<a class="btn btn-info"style="width:80px;">Sửa</a>
-							</div>
-							<div class="col-md-3">
-								<a class="btn btn-danger"style="width:80px;">Xóa</a>
-							</div>
-							<div class="col-md-3">
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>Airi Satou</td>
-					<td>Tokyo</td>
-					<td>Cái</td>
-					<td>33</td>	
-					<td>
-						<div class="row">
-							<div class="col-md-3">
-								<a class="btn btn-info"style="width:80px;">Sửa</a>
-							</div>
-							<div class="col-md-3">
-								<a class="btn btn-danger"style="width:80px;">Xóa</a>
-							</div>
-							<div class="col-md-3">
-							</div>
-						</div>
-					</td>
 				</tr>
 			</tbody>
-		  </table>
-		</div>
-	  </div>
+		</table>
+		<div>
+		<form style="display: inline-block">
+			<button class="btn btn-success" style="width:80px; position: absolute; right: 0; margin-right:20px;" >
+				Lưu
+			</button>
+			{!! csrf_field() !!}
+		</form>
+	</div>
+	</div>
+	
 </div>
+<script>
+	$(document).ready(function() {
+		$(".nguyenLieu_btn").on("click", function() {
+			var id = $(this).data('id');
+      var mon = $(this).data('mon');
+      var slt = $(this).data('slt');
+      var cur_val = $('#counter' + id).val();
+      if (cur_val==null)
+          cur_val=0;
+      cur_val= parseInt(cur_val);
+			if ($('.child-selection[data-id="' + $(this).data('id') + '"]').length) {
+        var data = 1;
+        if(cur_val<slt){
+				data += parseInt($('.child-selection[data-id="' + $(this).data('id') + '"]').val());
+        $('.child-selection[data-id="' + $(this).data('id') + '"]').val(data);
+        }
+			} else {
+				var inputfield = "<tr><td>" + mon + "</td><td><div class='row'><div><button class='btn btn-warning subtract-btn' data-id='" + id + "'>-</button></div><div class='col-md-4'><input class='child-selection form-control counter' id='counter" + id + "'style='width:60px;' type='number' data-id='" + id + "' data-slt='" + slt + "' value='1'/></div><div><button class='btn btn-success plus-btn' data-id='" + id + "' data-slt='" + slt + "'>+</button></div></div></td><td><div><button class='btn btn-danger delete-btn'>x</button></div></td></tr>";
+				$('#chiTietHoaDon').append(inputfield);
+			}
+		});
+		$("#chiTietHoaDon").on("click", ".plus-btn", function() {
+      var id = $(this).data('id');
+      var slt = $(this).data('slt');
+      var $counter = $('#counter' + id);
+      if ($counter.val() <slt) {
+        $counter.val(parseInt($counter.val()) + 1);
+      };
+		}).on("click", ".subtract-btn", function() {
+			var id = $(this).data('id');
+			var $counter = $('#counter' + id);
+			if ($counter.val() > 1) {
+				$counter.val(parseInt($counter.val()) - 1);
+			}
+		}).on("click", ".delete-btn", function() {
+			$(this).closest('tr').remove();
+		});
+	});
+</script>
 @endsection
