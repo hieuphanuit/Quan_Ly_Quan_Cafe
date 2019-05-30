@@ -16,7 +16,8 @@ class NguyenLieuController extends Controller
      */
     public function index()
     {
-        return view('nguyenlieu::index');
+        $NguyenLieus = NguyenLieu:: all();
+        return view('nguyenlieu::index',['NguyenLieus'=>$NguyenLieus]);
     }
 
     /**
@@ -43,9 +44,6 @@ class NguyenLieuController extends Controller
 
         $NguyenLieu = new NguyenLieu($request->all());
         $NguyenLieu->save();
-
-        $NguyenLieu->Kho()->create(['SoLuongTon' => 0]);
-
         return redirect('/kho');
     }
 
@@ -56,7 +54,10 @@ class NguyenLieuController extends Controller
      */
     public function show($id)
     {
-        return view('nguyenlieu::show');
+        $NguyenLieu = NguyenLieu::find($id);
+        if (!$NguyenLieu)
+            return redirect('/kho')->withErrors('Nguyên liệu không tồn tại');
+        return view('nguyenlieu::show', ['NguyenLieu' => $NguyenLieu]);
     }
 
     /**
@@ -66,7 +67,10 @@ class NguyenLieuController extends Controller
      */
     public function edit($id)
     {
-        return view('nguyenlieu::edit');
+        $NguyenLieu = NguyenLieu::find($id);
+        if (!$NguyenLieu)
+            return redirect('/kho')->withErrors('Nguyên liệu không tồn tại');
+        return view('nguyenlieu::edit', ['NguyenLieu' => $NguyenLieu]);
     }
 
     /**
@@ -78,6 +82,18 @@ class NguyenLieuController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $NguyenLieu = NguyenLieu::where('id', '=', $id)->first();
+
+        if (!$NguyenLieu)
+            return redirect('/kho')->withErrors('Nguyên liệu không tồn tại');
+
+        $validator = Validator::make($request->all(), $NguyenLieu->rules, $NguyenLieu->messages);
+        if ($validator->fails())
+            return redirect()->back()->withErrors($validator)->withInput();
+
+        $NguyenLieu->update($request->all());
+
+        return redirect()->back()->with('message', 'Cập nhập thành công');
     }
 
     /**
@@ -88,5 +104,8 @@ class NguyenLieuController extends Controller
     public function destroy($id)
     {
         //
+        $NguyenLieu = NguyenLieu::find($id);
+        $NguyenLieu->delete();
+        return redirect('/kho');
     }
 }

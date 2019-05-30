@@ -27,7 +27,7 @@
 				<td>
 					<button class="btn btn-info thucDon_btn" style="width:80%" data-id="{{$ThucDon->TenMon}}">{{$ThucDon->TenMon}}</button>
 				</td>
-				<td>{{$ThucDon->DonGia}}</td>
+				<td data-id="$ThucDon->id" >{{$ThucDon->DonGia}}</td>
 				<td></td>
 			</tr>
 			@endforeach

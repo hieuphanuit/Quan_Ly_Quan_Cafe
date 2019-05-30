@@ -93,7 +93,7 @@ class KhachHangThanThietController extends Controller
 
         $KhachHangThanThiet->update($request->all());
 
-        return redirect()->back()->with('message', 'Cập nhập thành công');;
+        return redirect()->back()->with('message', 'Cập nhập thành công');
     }
 
     /**

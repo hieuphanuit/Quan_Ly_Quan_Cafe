@@ -11,10 +11,16 @@
 |
 */
 
-Route::prefix('nguyenlieu')->group(function() {
+Route::prefix('nguyenlieu')->group(function () {
 	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
-		Route::get('/', 'NguyenLieuController@index')->name('nguyenlieu.index');
 		Route::get('/create', 'NguyenLieuController@create')->name('nguyenlieu.create');
 		Route::post('/', 'NguyenLieuController@store')->name('nguyenlieu.store');
+		Route::get('/{id}/edit', 'NguyenLieuController@edit');
+		Route::post('/{id}', 'NguyenLieuController@update')->name('nguyenlieu.update');
+		Route::get('/{id}', 'NguyenLieuController@show');
+		Route::post('/{id}/delete', 'NguyenLieuController@destroy');
 	});
+});
+Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
+	Route::get('kho/', 'NguyenLieuController@index')->name('nguyenlieu.index');
 });

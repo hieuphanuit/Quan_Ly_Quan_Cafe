@@ -35,11 +35,15 @@ class ThucDonController extends Controller
     public function store(Request $request)
     {
         //
-		$ThucDon = new ThucDon;
-		$ThucDon->TenMon = $request->get('TenMon');
-		$ThucDon->DonGia = $request->get('DonGia');
-		$ThucDon->save();
-		return redirect('/thucdon');
+        $ThucDon = new ThucDon;
+        $validator = Validator::make($request->all(), $ThucDon->rules, $ThucDon->messages);
+        if ($validator->fails())
+            return redirect()->back()->withErrors($validator)->withInput();
+
+        $ThucDon = new ThucDon($request->all());
+        $ThucDon->save();
+
+        return redirect('/thucdon');
     }
 
     /**
@@ -49,8 +53,10 @@ class ThucDonController extends Controller
      */
     public function show($id)
     {
-		$ThucDon= ThucDon::where ('id','=',$id)->first();
-        return view('thucdon::show',['ThucDon'=>$ThucDon]);
+        $ThucDon = ThucDon::find($id);
+        if (!$ThucDon)
+            return redirect('/thucdon')->withErrors('Thực đơn không tồn tại');
+        return view('thucdon::show', compact('ThucDon'));
     }
 
     /**
@@ -60,8 +66,10 @@ class ThucDonController extends Controller
      */
     public function edit($id)
     {
-		$ThucDon= ThucDon::where ('id','=',$id)->first();
-        return view('thucdon::edit',['ThucDon'=> $ThucDon]);
+        $ThucDon = ThucDon::find($id);
+        if (!$ThucDon)
+            return redirect('/thucdon')->withErrors('Thực đơn không tồn tại');
+        return view('thucdon::edit', ['ThucDon' => $ThucDon]);
     }
 
     /**
@@ -81,7 +89,7 @@ class ThucDonController extends Controller
 			$ThucDon->TenMon= $request['TenMon'];
 			$ThucDon->DonGia= $request['DonGia'];
 			$ThucDon->save();
-			return redirect()->back();
+			return redirect()->back()->with('message', 'Cập nhập thành công');
 		}
     }
 

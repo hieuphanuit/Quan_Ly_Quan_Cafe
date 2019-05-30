@@ -72,8 +72,11 @@ class NhanVienController extends Controller
      */
     public function edit($id)
     {	
-		$NhanVien = NhanVien::where('id','=',$id)->first();
-        return view('nhanvien::edit', ['NhanVien'=>$NhanVien]);
+	
+        $NhanVien = NhanVien::find($id);
+        if (!$NhanVien)
+            return redirect('/nhanvien')->withErrors('Nhân viên không tồn tại');
+        return view('nhanvien::edit', ['NhanVien' => $NhanVien]);
     }
 
     /**
@@ -105,7 +108,7 @@ class NhanVienController extends Controller
 			$NhanVien->LuongTheoGio=$request['LuongTheoGio'];
 			$NhanVien->TrangThai=$request['TrangThai'];
 			$NhanVien->save();
-			return redirect()->back();
+			return redirect()->back()->with('message', 'Cập nhập thành công');
 		}
     }
 

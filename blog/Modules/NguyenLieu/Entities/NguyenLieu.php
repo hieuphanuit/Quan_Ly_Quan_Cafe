@@ -9,17 +9,20 @@ class NguyenLieu extends Model
     protected $fillable = [
         'TenNguyenLieu', 
 		'GiaUocLuong',
+		'SoLuongTon',
 		'DonViTinh'
     ];
 	
 	public $rules = [
         'TenNguyenLieu'=>'required', 
 		'GiaUocLuong'=>'required|numeric',
+		'SoLuongTon'=>'required|numeric',
 		'DonViTinh'=>'required'
 	];
 	public $messages = [
 		'TenNguyenLieu.required' => 'Tên nguyên liệu là trường bắt buộc',
 		'GiaUocLuong.required' => 'Giá ước lượng là trường bắt buộc',
+		'SoLuongTon.required' => 'Số lượng tồn là trường bắt buộc',
 		'DonViTinh.required' => 'Đơn vị tính là trường bắt buộc',
 	];
 	

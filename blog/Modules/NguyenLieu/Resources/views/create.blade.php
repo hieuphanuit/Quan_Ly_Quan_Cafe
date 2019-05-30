@@ -28,6 +28,10 @@
 			<input type="text" id="GiaUocLuong" name="GiaUocLuong" value="{{old('GiaUocLuong')}}" class="form-control"/>
 		</div>
 		<div class="form-group">
+			<label for="SoLuongTon">Số lượng tồn: </label>
+			<input type="text" id="SoLuongTon" name="SoLuongTon" value="{{old('SoLuongTon')}}" class="form-control"/>
+		</div>
+		<div class="form-group">
 			<label for="DonViTinh">Đơn vị tính: </label>
 			<input type="text" id="DonViTinh" name="DonViTinh" value="{{old('DonViTinh')}}" class="form-control"/>
 		</div>
