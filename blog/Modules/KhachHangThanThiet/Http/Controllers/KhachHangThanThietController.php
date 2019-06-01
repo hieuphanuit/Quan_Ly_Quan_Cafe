@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\KhachHangThanThiet\Entities\KhachHangThanThiet;
+use Modules\KhachHangThanThiet\Entities\KhachHangThanThietDelete;
 
 class KhachHangThanThietController extends Controller
 {
@@ -105,6 +106,13 @@ class KhachHangThanThietController extends Controller
     {
         //
         $KhachHangThanThiet = KhachHangThanThiet::find($id);
+        $KhachHangThanThietDelete = new KhachHangThanThietDelete;
+        $KhachHangThanThietDelete->MaKhachHang = $KhachHangThanThiet->id;
+        $KhachHangThanThietDelete->HoVaTen = $KhachHangThanThiet->HoVaTen;
+        $KhachHangThanThietDelete->DiaChi = $KhachHangThanThiet->DiaChi;
+        $KhachHangThanThietDelete->SoDienThoai = $KhachHangThanThiet->SoDienThoai;
+        $KhachHangThanThietDelete->Email = $KhachHangThanThiet->Email;
+        $KhachHangThanThietDelete->save();
         $KhachHangThanThiet->delete();
         return redirect('/khachhangthanthiet');
     }

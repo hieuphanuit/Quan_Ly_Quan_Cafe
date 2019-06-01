@@ -38,10 +38,8 @@ class HoaDonNguyenLieuController extends Controller
     public function store(Request $request)
     {
         //add validate
-
-        var_dump($request->all());
-
         $monsSelected = $request->monSelected;
+        var_dump($request->all());
         $quantitys = $request->quantity;
 
         $hoaDonNguyenLieu = new HoaDonNguyenLieu([
@@ -58,7 +56,7 @@ class HoaDonNguyenLieuController extends Controller
             ];
         }
         $hoaDonNguyenLieu->ChiTietHoaDonNguyenLieu()->createMany($mons);
-
+		return view('hoadonnguyenlieu::index');
     }
 
     /**

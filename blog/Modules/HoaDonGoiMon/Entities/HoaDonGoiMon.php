@@ -3,6 +3,7 @@
 namespace Modules\HoaDonGoiMon\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\ChiTietHoaDonGoiMon\Entities\ChiTietHoaDonGoiMon;
 
 class HoaDonGoiMon extends Model
 {
@@ -24,4 +25,7 @@ class HoaDonGoiMon extends Model
 	];
 	
 	protected $table = "HoaDonGoiMon";
+	public function ChiTietHoaDonGoiMon(){
+		return $this->hasMany(ChiTietHoaDonGoiMon::class, 'MaHoaDonGoiMon');
+	}
 }

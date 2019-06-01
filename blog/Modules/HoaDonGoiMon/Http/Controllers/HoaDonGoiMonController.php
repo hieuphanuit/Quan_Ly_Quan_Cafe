@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\ThucDon\Entities\ThucDon;
+use Modules\HoaDonGoiMon\Entities\HoaDonGoiMon;
+use Modules\KhachHangThanThiet\Entities\KhachHangThanThiet;
+use Auth;
 
 class HoaDonGoiMonController extends Controller
 {
@@ -24,8 +27,9 @@ class HoaDonGoiMonController extends Controller
      */
     public function create()
     {
+        $KhachHangThanThiets = KhachHangThanThiet ::all();
         $ThucDons = ThucDon::all();
-        return view('hoadongoimon::create',['ThucDons'=> $ThucDons]);
+        return view('hoadongoimon::create',['ThucDons'=> $ThucDons, 'KhachHangThanThiets'=>$KhachHangThanThiets]);
     }
 
     /**
@@ -36,6 +40,25 @@ class HoaDonGoiMonController extends Controller
     public function store(Request $request)
     {
         //
+        $monsSelected = $request->monSelected;
+        $quantitys = $request->quantity;
+        $khachhangthanthiet = $request->kh;
+        $hoaDonGoiMon = new HoaDonGoiMon([
+                'MaNhanVien' => Auth::user()->id,
+                'MaKhachHang' => $khachhangthanthiet,
+                'TongTien' => 0
+            ]);
+        $hoaDonGoiMon->save();
+        $mons = [];
+        foreach($monsSelected as $index=>$monSelected){
+            $mons[] = [
+                'MaMon' => $monSelected,
+                'SoLuong'   => $quantitys[$index],
+                'DonGia'    => 0
+            ];
+        }
+        $hoaDonGoiMon->ChiTietHoaDonGoiMon()->createMany($mons);
+        return view('hoadongoimon::index');
     }
 
     /**

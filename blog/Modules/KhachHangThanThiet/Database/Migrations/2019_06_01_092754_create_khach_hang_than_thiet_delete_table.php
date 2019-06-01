@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsHoaDonGoiMonTable extends Migration
+class CreateKhachHangThanThietDeleteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreatePostsHoaDonGoiMonTable extends Migration
      */
     public function up()
     {
-        Schema::create('HoaDonGoiMon', function (Blueprint $table) {
+        Schema::create('KhachHangThanThietDelete', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->string('MaKhachHang', 16);
-			$table->string('MaNhanVien', 16);
-			$table->string('TongTien', 100);
+            $table->integer('MaKhachHang');
+			$table->string('HoVaTen', 100);
+			$table->string('DiaChi')->nullable();
+			$table->string('SoDienThoai')->nullable();
+			$table->string('Email');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreatePostsHoaDonGoiMonTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('HoaDonGoiMon');
+        Schema::dropIfExists('KhachHangThanThietDelete');
     }
 }

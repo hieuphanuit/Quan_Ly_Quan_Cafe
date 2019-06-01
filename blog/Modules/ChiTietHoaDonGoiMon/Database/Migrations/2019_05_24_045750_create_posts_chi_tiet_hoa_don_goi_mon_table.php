@@ -16,7 +16,8 @@ class CreatePostsChiTietHoaDonGoiMonTable extends Migration
         Schema::create('ChiTietHoaDonGoiMon', function (Blueprint $table) {
             $table->bigIncrements('id');
 			$table->string('MaMon', 16);
-			$table->string('SoLuong', 16);
+            $table->string('SoLuong', 16);
+            $table->integer('MaHoaDonGoiMon');
 			$table->string('DonGia', 100);
             $table->timestamps();
         });
