@@ -15,8 +15,9 @@ class CreatePostsChiTietHoaDonNguyenLieuTable extends Migration
     {
         Schema::create('ChiTietHoaDonNguyenLieu', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->string('MaNguyenLieu', 16);
+			$table->integer('MaNguyenLieu');
 			$table->integer('SoLuong');
+			$table->integer('MaHoaDonNguyenLieu');
 			$table->integer('DonGia');
             $table->timestamps();
         });

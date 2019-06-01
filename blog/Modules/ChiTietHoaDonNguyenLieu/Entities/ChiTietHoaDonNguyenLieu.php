@@ -26,4 +26,8 @@ class ChiTietHoaDonNguyenLieu extends Model
 	];
 	
 	protected $table = "ChiTietHoaDonNguyenLieu";
+
+	public function HoaDonNguyenLieu(){
+		return $this->belongsTo(HoaDonNguyenLieu::class, 'MaHoaDonNguyenLieu');
+	}
 }

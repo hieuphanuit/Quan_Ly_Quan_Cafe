@@ -1,6 +1,7 @@
 <?php
 
 namespace Modules\HoaDonNguyenLieu\Entities;
+use Modules\ChiTietHoaDonNguyenLieu\Entities\ChiTietHoaDonNguyenLieu;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,14 +13,15 @@ class HoaDonNguyenLieu extends Model
     ];
 	
 	public $rules = [ 
-		'MaNhanVien'=>'required',
-		'TongTien'=>'required|numeric',
 		
 	];
 	public $messages = [
-		'MaNhanVien.required' => 'Mã nhân viên là trường bắt buộc',
-		'TongTien.required' => 'Tổng tiền là trường bắt buộc'
+
 	];
 	
 	protected $table = "HoaDonNguyenLieu";
+
+	public function ChiTietHoaDonNguyenLieu(){
+		return $this->hasMany(ChiTietHoaDonNguyenLieu::class, 'MaHoaDonNguyenLieu');
+	}
 }

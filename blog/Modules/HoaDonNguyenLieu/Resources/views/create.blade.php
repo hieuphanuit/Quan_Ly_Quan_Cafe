@@ -37,59 +37,73 @@
 	<div style="height: 30vh">
 	</div>
 	<div class="themHoaDonGoiMon">
-		<table class="table chiTietHoaDon " id="chiTietHoaDon">
-			<thead>
-				<tr>
-
-					<th scope="col" width="30%">Tên món</th>
-					<th scope="col" width="10%" style="padding-left: 30px;">Số lượng</th>
-					<th scope="col" width="10%">Xóa</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				</tr>
-			</tbody>
-		</table>
-		<div>
-		<form style="display: inline-block">
-			<button class="btn btn-success" style="width:80px; position: absolute; right: 0; margin-right:20px;" >
-				Lưu
-			</button>
-			{!! csrf_field() !!}
+		<form style="display: inline-block" action="{{url('/hoadonnguyenlieu')}}" method="POST">
+			<table class="table chiTietHoaDon " id="chiTietHoaDon">
+				<thead>
+					<tr>
+						<th scope="col" width="30%">Tên món</th>
+						<th scope="col" width="10%" style="padding-left: 30px;">Số lượng</th>
+						<th scope="col" width="10%">Xóa</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					</tr>
+				</tbody>
+			</table>
+			<div>
+				<button class="btn btn-success" style="width:80px; position: absolute; right: 0; margin-right:20px;">
+					Lưu
+				</button>
+				{!! csrf_field() !!}
+			</div>
 		</form>
 	</div>
-	</div>
-	
+
 </div>
 <script>
 	$(document).ready(function() {
 		$(".nguyenLieu_btn").on("click", function() {
 			var id = $(this).data('id');
-      var mon = $(this).data('mon');
-      var slt = $(this).data('slt');
-      var cur_val = $('#counter' + id).val();
-      if (cur_val==null)
-          cur_val=0;
-      cur_val= parseInt(cur_val);
+			var mon = $(this).data('mon');
+			var slt = $(this).data('slt');
+			var cur_val = $('#counter' + id).val();
+			if (cur_val == null)
+				cur_val = 0;
+			cur_val = parseInt(cur_val);
 			if ($('.child-selection[data-id="' + $(this).data('id') + '"]').length) {
-        var data = 1;
-        if(cur_val<slt){
-				data += parseInt($('.child-selection[data-id="' + $(this).data('id') + '"]').val());
-        $('.child-selection[data-id="' + $(this).data('id') + '"]').val(data);
-        }
+				var data = 1;
+				if (cur_val < slt) {
+					data += parseInt($('.child-selection[data-id="' + $(this).data('id') + '"]').val());
+					$('.child-selection[data-id="' + $(this).data('id') + '"]').val(data);
+				}
 			} else {
-				var inputfield = "<tr><td>" + mon + "</td><td><div class='row'><div><button class='btn btn-warning subtract-btn' data-id='" + id + "'>-</button></div><div class='col-md-4'><input class='child-selection form-control counter' id='counter" + id + "'style='width:60px;' type='number' data-id='" + id + "' data-slt='" + slt + "' value='1'/></div><div><button class='btn btn-success plus-btn' data-id='" + id + "' data-slt='" + slt + "'>+</button></div></div></td><td><div><button class='btn btn-danger delete-btn'>x</button></div></td></tr>";
+				var inputfield = "<tr><td>" + mon + "</td>"
+											+"<td>"
+												+"<div class='row'>"
+													+"<div>"
+														+"<button type='button' class='btn btn-warning subtract-btn' data-id='" + id + "'>-</button>"
+													+"</div>"
+													+"<div class='col-md-4'>"
+														+"<input class='child-selection form-control counter' id='counter" + id + "'style='width:60px;' type='number' data-id='" + id + "' data-slt='" + slt + "' value='1' name='quantity[]'/>"
+														+"<input type='hidden' name='monSelected[]' value='"+id+"'>"
+													+"</div>"
+													+"<div>"
+														+"<button type='button' class='btn btn-success plus-btn' data-id='" + id + "' data-slt='" + slt + "'>+</button>"
+													+"</div>"
+												+"</div>"
+											+"</td>"
+											+"<td><div><button class='btn btn-danger delete-btn'>x</button></div></td></tr>";
 				$('#chiTietHoaDon').append(inputfield);
 			}
 		});
 		$("#chiTietHoaDon").on("click", ".plus-btn", function() {
-      var id = $(this).data('id');
-      var slt = $(this).data('slt');
-      var $counter = $('#counter' + id);
-      if ($counter.val() <slt) {
-        $counter.val(parseInt($counter.val()) + 1);
-      };
+			var id = $(this).data('id');
+			var slt = $(this).data('slt');
+			var $counter = $('#counter' + id);
+			if ($counter.val() < slt) {
+				$counter.val(parseInt($counter.val()) + 1);
+			};
 		}).on("click", ".subtract-btn", function() {
 			var id = $(this).data('id');
 			var $counter = $('#counter' + id);

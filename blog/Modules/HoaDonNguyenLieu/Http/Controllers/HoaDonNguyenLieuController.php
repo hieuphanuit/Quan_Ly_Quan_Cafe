@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\NguyenLieu\Entities\NguyenLieu;
+use Modules\HoaDonNguyenLieu\Entities\HoaDonNguyenLieu;
+use Auth;
 
 class HoaDonNguyenLieuController extends Controller
 {
@@ -35,7 +37,28 @@ class HoaDonNguyenLieuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //add validate
+
+        var_dump($request->all());
+
+        $monsSelected = $request->monSelected;
+        $quantitys = $request->quantity;
+
+        $hoaDonNguyenLieu = new HoaDonNguyenLieu([
+                'MaNhanVien' => Auth::user()->id,
+                'TongTien' => 0
+            ]);
+        $hoaDonNguyenLieu->save();
+        $mons = [];
+        foreach($monsSelected as $index=>$monSelected){
+            $mons[] = [
+                'MaNguyenLieu' => $monSelected,
+                'SoLuong'   => $quantitys[$index],
+                'DonGia'    => 0
+            ];
+        }
+        $hoaDonNguyenLieu->ChiTietHoaDonNguyenLieu()->createMany($mons);
+
     }
 
     /**
