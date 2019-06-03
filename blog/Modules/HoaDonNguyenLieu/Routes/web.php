@@ -14,6 +14,7 @@
 Route::prefix('hoadonnguyenlieu')->group(function() {
     Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
 		Route::get('/', 'HoaDonNguyenLieuController@index');
+		Route::get('/{id}', 'HoaDonNguyenLieuController@show');
 		Route::get('/themhoadonnguyenlieu', 'HoaDonNguyenLieuController@create');
 		Route::post('/', 'HoaDonNguyenLieuController@store');
 	});
