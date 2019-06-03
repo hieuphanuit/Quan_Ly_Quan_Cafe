@@ -34,8 +34,12 @@
 						@foreach ($HoaDonGoiMons as $HoaDonGoiMon)
 					<tr>
 						<td>{{$HoaDonGoiMon->id}}</td>
-						<td>{{$HoaDonGoiMon->MaNhanVien}}</td>
-						<td>{{$HoaDonGoiMon->MaKhachHang}}</td>
+						<td>{{$HoaDonGoiMon->id}}</td>
+						@if ($HoaDonGoiMon->MaKhachHang !=0)
+						<td>{{$HoaDonGoiMon->KhachHangThanThiet->HoVaTen}}</td>
+						@else 
+							<td>Không có trong danh sách khách hàng thân thiết</td>
+						@endif
 						<td>{{$HoaDonGoiMon->TongTien}}</td>
 						<td>
 							<div class="row">

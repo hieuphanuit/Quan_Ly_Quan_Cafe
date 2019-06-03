@@ -20,7 +20,7 @@ class HoaDonGoiMonController extends Controller
      */
     public function index()
     {
-        $HoaDonGoiMons = HoaDonGoiMon::orderBy('id', 'DESC')->paginate(20);
+        $HoaDonGoiMons = HoaDonGoiMon::with('KhachHangThanThiet')->orderBy('id', 'DESC')->paginate(20);
         return view('hoadongoimon::index', ['HoaDonGoiMons' => $HoaDonGoiMons]);
     }
 

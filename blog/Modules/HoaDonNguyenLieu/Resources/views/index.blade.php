@@ -42,7 +42,7 @@
                   <a href='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id/edit")}}' class="btn btn-info" style="width:80px;">Sửa</a>
                 </div>
                 <div class="col-md-4 hanhdong">
-                  <a href='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id/show")}}' class="btn btn-warning" style="width:80px; color: white">Chi tiết</a>
+                  <a href='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id")}}' class="btn btn-warning" style="width:80px; color: white">Chi tiết</a>
                 </div>
                 <div class="col-md-4 hanhdong">
                   <form method="POST" action='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id/delete")}}' style="display: inline-block">

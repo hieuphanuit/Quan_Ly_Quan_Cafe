@@ -5,6 +5,7 @@ namespace Modules\HoaDonGoiMon\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Modules\ChiTietHoaDonGoiMon\Entities\ChiTietHoaDonGoiMon;
 use Modules\NhanVien\Entities\NhanVien;
+use Modules\KhachHangThanThiet\Entities\KhachHangThanThiet;
 
 class HoaDonGoiMon extends Model
 {
@@ -32,5 +33,8 @@ class HoaDonGoiMon extends Model
 
 	public function NguoiLap(){
 		return $this->hasOne(NhanVien::class, 'id', 'MaNhanVien');
+	}
+	public function KhachHangThanThiet(){
+		return $this->hasOne(KhachHangThanThiet::class, 'id', 'MaKhachHang');
 	}
 }

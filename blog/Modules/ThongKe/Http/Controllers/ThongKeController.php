@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\ThongKe\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -69,35 +69,15 @@ class ThongKeController extends Controller
     }
 	
 	public function thongketheongay(Request $request)
-    {
-        $datetoFilter = $request->get('date_to');
-        $datefromFilter = $request->get('date_from');
-        $timeStart = new DateTime($datefromFilter);
-        $nhanVienFilter = $request->get('nhanvien');
-        $ThucDons = ThucDon::all();
-        $NhanViens = NhanVien::where('Role','ThuNgan')->orWhere('Role','QuanLy')->get();
-        $HoaDons = [];
-        $TongThu = 0;
-        if($datetoFilter && $datefromFilter){
-            $timeStart = new DateTime($datefromFilter);
-            $timeEnd = new DateTime($datetoFilter);
-            $query = HoaDonNguyenLieu::with('NhanVien')
-            ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s") , $timeEnd->format("Y-m-d H:i:s")]);
-            if($nhanVienFilter){
-                $query = $query->where('MaNhanVien', $nhanVienFilter);
-            }   
-            $HoaDons = $query->get();
-            $TongThu = array_sum(array_pluck($HoaDons, 'TongTien'));
-        }
+    {  
+        $query_goimon = DB::table('hoadongoimon')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as TongSoHoaDon, sum(TongTien) as TongTien')) ->groupBy('date');
+        $HoaDonGoiMons = $query_goimon->get();
+        $query_nguyenlieu = DB::table('hoadonnguyenlieu')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as TongSoHoaDon, sum(TongTien) as TongTien')) ->groupBy('date');
+        $HoaDonNguyenLieus = $query_nguyenlieu->get();
         return view('thongke::thongketheongay',
         compact(
-            'ThucDons',
-            'NhanViens',
-            'HoaDons',
-            'TongThu',
-            'dateFilter',
-            'caFilter',
-            'nhanVienFilter'
+            'HoaDonGoiMons',
+            'HoaDonNguyenLieus'
         ));
     }
 	
