@@ -3,13 +3,13 @@
 @section('Breadcrumbs')
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href='{{url("/kho")}}'>Kho</a>
+    <a href='{{url("/nguyenlieu")}}'>Nguyên liệu</a>
   </li>
-  <li class="breadcrumb-item active">Thông tin kho</li>
+  <li class="breadcrumb-item active">Thông tin nguyên liệu</li>
 </ol>
 @endsection
 @section('Content')
-<h1 style="text-align: center;">Thông tin kho</h1>
+<h1 style="text-align: center;">Thông tin nguyên liệu</h1>
 <div class="col-md-5" style="padding-bottom:20px;">
   <a class="btn btn-success" href="{{url('/nguyenlieu/create')}}">Thêm nguyên liệu</a>
 </div>

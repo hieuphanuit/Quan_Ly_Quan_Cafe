@@ -25,9 +25,9 @@
     </a>
   </li>
   <li class="nav-item {{Request::is('kho') ? 'active' : null}}">
-    <a class="nav-link" href="/kho">
+    <a class="nav-link" href="/nguyenlieu">
       <i class="fas fa-fw fa-folder"></i>
-      <span>Kho</span>
+      <span>Nguyên liệu</span>
     </a>
   </li>
   <li class="nav-item dropdown {{Request::is('hoadon/*') ||  Request::is('hoadongoimon/*') ? 'show' : null}}">
