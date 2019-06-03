@@ -18,7 +18,7 @@
     <i class="fas fa-table"></i>
   </div>
   <div class="card-body">
-    <div class="table-responsive">
+    <div class="">
       <table class="table table-bordered dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
@@ -29,39 +29,37 @@
             <th width="30%">Hành Động</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>Mã hóa đơn</th>
-            <th>Người lập</th>
-            <th>Thời gian</th>
-            <th>Tổng tiền</th>
-            <th width="30%">Hành Động</th>
-          </tr>
-        </tfoot>
         <tbody>
+          @foreach ($hoaDonNguyenLieus as $hoaDonNguyenLieu)
           <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>2011/04/25</td>
-            <td>61</td>
-
+            <td>{{$hoaDonNguyenLieu->id}}</td>
+            <td>{{$hoaDonNguyenLieu->MaNhanVien}}</td>
+            <td>{{date("d-m-Y H:i",strtotime($hoaDonNguyenLieu->created_at))}}</td>
+            <td>{{$hoaDonNguyenLieu->TongTien}}</td>
             <td>
               <div class="row">
-                <div class="col-md-4">
-                  <a class="btn btn-info hanhdong" style="width:80px; color:#fff;">Sửa</a>
+                <div class="col-md-4 hanhdong">
+                  <a href='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id/edit")}}' class="btn btn-info" style="width:80px;">Sửa</a>
                 </div>
-                <div class="col-md-4">
-                  <a class="btn btn-warning hanhdong" style="width:80px; color:#fff;">Chi tiết</a>
+                <div class="col-md-4 hanhdong">
+                  <a href='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id")}}' class="btn btn-warning" style="width:80px; color: white">Chi tiết</a>
                 </div>
-                <div class="col-md-4">
-                  <a class="btn btn-danger hanhdong" style="width:80px; color:#fff;">Xóa</a>
+                <div class="col-md-4 hanhdong">
+                  <form method="POST" action='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id/delete")}}' style="display: inline-block">
+                    <input type="hidden" value="$hoaDonNguyenLieu->id" name="delete_hoadon" />
+                    <button onclick="return confirm('Bạn có chắc muốn xóa khách hàng này không?')" class="btn btn-danger" style="width:80px;">
+                      Xóa
+                    </button>
+                    {!! csrf_field() !!}
+                  </form>
                 </div>
               </div>
             </td>
           </tr>
-          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
+    {{ $hoaDonNguyenLieus->links() }}
   </div>
   @endsection

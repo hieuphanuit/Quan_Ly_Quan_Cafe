@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\NguyenLieu\Entities\NguyenLieu;
 use Modules\HoaDonNguyenLieu\Entities\HoaDonNguyenLieu;
 use Auth;
+use Validator;
 
 class HoaDonNguyenLieuController extends Controller
 {
@@ -17,7 +18,8 @@ class HoaDonNguyenLieuController extends Controller
      */
     public function index()
     {
-        return view('hoadonnguyenlieu::index');
+        $hoaDonNguyenLieus = HoaDonNguyenLieu::orderBy('id', 'DESC')->paginate(20);
+        return view('hoadonnguyenlieu::index',compact('hoaDonNguyenLieus'));
     }
 
     /**
@@ -40,25 +42,34 @@ class HoaDonNguyenLieuController extends Controller
         //add validate
         $monsSelected = $request->monSelected;
         $quantitys = $request->quantity;
+        $prices = $request->price;
+
+        $validator = Validator::make($request->all(),
+                                ['monSelected' => 'required'], 
+                                $request->all()
+                                );
+        if ($validator->fails())
+            return redirect()->back()->withErrors($validator)->withInput();
 
         $hoaDonNguyenLieu = new HoaDonNguyenLieu([
                 'MaNhanVien' => Auth::user()->id,
-                'TongTien' => 0
+                'TongTien' => $request->total
             ]);
         $hoaDonNguyenLieu->save();
         $mons = [];
         foreach($monsSelected as $index=>$monSelected){
             $nguyenlieu = NguyenLieu:: find ($monSelected);
-            $nguyenlieu->SoLuongTon = $nguyenlieu->SoLuongTon - $quantitys[$index];
+            $nguyenlieu->SoLuongTon = $nguyenlieu->SoLuongTon + $quantitys[$index];
             $mons[] = [
                 'MaNguyenLieu' => $monSelected,
                 'SoLuong'   => $quantitys[$index],
-                'DonGia'    => 0
+                'DonGia'    => $prices[$index] 
             ];
             $nguyenlieu->save();    
         }
         $hoaDonNguyenLieu->ChiTietHoaDonNguyenLieu()->createMany($mons);
-        return view('hoadonnguyenlieu::index');
+        
+        return redirect('/hoadonnguyenlieu');
     }
 
     /**
@@ -68,7 +79,8 @@ class HoaDonNguyenLieuController extends Controller
      */
     public function show($id)
     {
-        return view('hoadonnguyenlieu::show');
+        $hoaDonNguyenLieu = HoaDonNguyenLieu::with('ChiTietHoaDonNguyenLieu')->find($id);
+        return view('hoadonnguyenlieu::show',compact('hoaDonNguyenLieu'));
     }
 
     /**
