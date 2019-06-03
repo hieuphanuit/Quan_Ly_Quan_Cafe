@@ -48,7 +48,7 @@ class ThongKeController extends Controller
             }
             $query = HoaDonGoiMon::with('NguoiLap')
             ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s") , $timeEnd->format("Y-m-d H:i:s")]);
-            if($nhanVienFilter){
+            if($nhanVienFilter != -1){
                 $query = $query->where('MaNhanVien', $nhanVienFilter);
             }
             $HoaDons = $query->get();
@@ -99,8 +99,11 @@ class ThongKeController extends Controller
                 $timeStart->setTime(self::CA_SANG_START,0,0);
                 $timeEnd->setTime(self::CA_TOI_STOP,0,0);
             }
-            $HoaDons = HoaDonGoiMon::with('NguoiLap')
-            ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s") , $timeEnd->format("Y-m-d H:i:s")])->get();
+            $query = HoaDonGoiMon::with('NguoiLap')
+            ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s") , $timeEnd->format("Y-m-d H:i:s")]);
+            if($nhanVienFilter != -1){
+                $query = $query->where('MaNhanVien', $nhanVienFilter);
+            }
             $TongThu = array_sum(array_pluck($HoaDons, 'TongTien'));
         }
         $pdf = PDF::loadView('thongke::ThongKeCaFDPTemplate', compact('HoaDons','TongThu','dateFilter','caFilter','nhanVienFilter'));
