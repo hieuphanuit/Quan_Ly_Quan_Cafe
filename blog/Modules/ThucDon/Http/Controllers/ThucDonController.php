@@ -14,7 +14,7 @@ class ThucDonController extends Controller
      */
     public function index()
     {
-		$ThucDons =ThucDon::all();
+		$ThucDons =ThucDon::orderBy ('id','ASC')->paginate(2);
         return view('thucdon::index',['ThucDons'=>$ThucDons]);
     }
 

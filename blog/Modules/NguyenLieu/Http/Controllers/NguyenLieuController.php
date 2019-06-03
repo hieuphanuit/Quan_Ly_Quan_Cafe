@@ -16,7 +16,7 @@ class NguyenLieuController extends Controller
      */
     public function index()
     {
-        $NguyenLieus = NguyenLieu:: all();
+        $NguyenLieus = NguyenLieu::orderBy('id','ASC')-> paginate(2);
         return view('nguyenlieu::index',['NguyenLieus'=>$NguyenLieus]);
     }
 
@@ -107,5 +107,16 @@ class NguyenLieuController extends Controller
         $NguyenLieu = NguyenLieu::find($id);
         $NguyenLieu->delete();
         return redirect('/kho');
+    }
+
+    public function capNhapSoLuong(Request $request){
+        $ids = $request->get('id', []);
+        $soLuongs = $request->get('soLuong');
+        foreach($ids as $index=>$id){
+            $NguyenLieu = NguyenLieu::find($id);
+            $NguyenLieu->SoLuongTon = $soLuongs[$index];
+            $NguyenLieu->save();
+        }
+        return redirect()->back()->with('message', 'Cập nhập thành công');
     }
 }

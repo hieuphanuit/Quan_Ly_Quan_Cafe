@@ -79,17 +79,13 @@
 			<label for="Email">Email: </label>
 			<input type="text" id="Email" name="Email" class="form-control" value="{{$NhanVien->Email}}" />
 		</div>
-		<div class="form-group" id="Field_MatKhau">
-			<label for="MatKhau">Mật khẩu: </label>
-			<input type="text" id="MatKhau" name="MatKhau" class="form-control" value="{{$NhanVien->MatKhau}}" />
+		<div class="form-group" id="Field_password">
+			<label for="password">Mật khẩu: </label>
+			<input type="text" id="password" name="password" class="form-control" value="{{$NhanVien->password}}" />
 		</div>
 		<div class="form-group">
 			<label for="LuongTheoGio">Lương theo giờ: </label>
 			<input type="text" id="LuongTheoGio" name="LuongTheoGio" class="form-control" value="{{$NhanVien->LuongTheoGio}}" />
-		</div>
-		<div class="form-group">
-			<label for="TrangThai">Trạng thái: </label>
-			<input type="text" id="TrangThai" name="TrangThai" class="form-control" value="{{$NhanVien->TrangThai}}" />
 		</div>
 		<div class="form-group">
 			<button class="btn btn-info" type="submit">Cập nhật</button>
@@ -102,12 +98,12 @@
 	var Role = parseInt(div.textContent);
 	$("#Role").val($("#Role option:eq(" + Role + ")").val());
 	if (Role == "2") {
-		var matkhau_status = document.getElementById("Field_MatKhau");
+		var matkhau_status = document.getElementById("Field_password");
 		matkhau_status.style.display = "none";
 	}
 
 	function changeFunc() {
-		var matkhau_status = document.getElementById("Field_MatKhau");
+		var matkhau_status = document.getElementById("Field_password");
 		var role_value = document.getElementById("Role").value;
 		if (role_value == "PhucVu") {
 			matkhau_status.style.display = "none";

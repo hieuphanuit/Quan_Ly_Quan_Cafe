@@ -1,11 +1,13 @@
 <?php
 
 namespace Modules\NhanVien\Http\Controllers;
+
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\NhanVien\Entities\NhanVien;
+
 class NhanVienController extends Controller
 {
     /**
@@ -14,8 +16,8 @@ class NhanVienController extends Controller
      */
     public function index()
     {
-		$NhanViens = NhanVien::all();
-        return view('nhanvien::index',['NhanViens'=>$NhanViens]);
+        $NhanViens = NhanVien::orderBy('id', 'ASC')->paginate(2);
+        return view('nhanvien::index', ['NhanViens' => $NhanViens]);
     }
 
     /**
@@ -35,21 +37,25 @@ class NhanVienController extends Controller
     public function store(Request $request)
     {
         //
-		$NhanVien= new NhanVien;
-        $NhanVien->HoVaTen=$request->get('HoVaTen');
-        $NhanVien->Role=$request->get('Role');
-        $NhanVien->GioiTinh=$request->get('GioiTinh');
-        $NhanVien->DiaChi=$request->get('DiaChi');
-        $NhanVien->SoDienThoai=$request->get('SoDienThoai');
-		$NhanVien->Email=$request->get('Email');
-        $NhanVien->CMND=$request->get('CMND');
-		if ($request->get('MatKhau')==""){
-			$NhanVien->password= 0;
-		}else{
-			$NhanVien->password= $request->get('MatKhau');
-		}
-        $NhanVien->LuongTheoGio=$request->get('LuongTheoGio');
-        $NhanVien->TrangThai=1;
+        $NhanVien = new NhanVien;
+        $validator = Validator::make($request->all(), $NhanVien->rules, $NhanVien->messages);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $NhanVien->HoVaTen = $request->get('HoVaTen');
+        $NhanVien->Role = $request->get('Role');
+        $NhanVien->GioiTinh = $request->get('GioiTinh');
+        $NhanVien->DiaChi = $request->get('DiaChi');
+        $NhanVien->SoDienThoai = $request->get('SoDienThoai');
+        $NhanVien->Email = $request->get('Email');
+        $NhanVien->CMND = $request->get('CMND');
+        if ($request->get('password') == "") {
+            $NhanVien->password = 0;
+        } else {
+            $NhanVien->password = $request->get('password');
+        }
+        $NhanVien->LuongTheoGio = $request->get('LuongTheoGio');
+        $NhanVien->TrangThai = 1;
         $NhanVien->save();
         return redirect('/nhanvien');
     }
@@ -61,8 +67,8 @@ class NhanVienController extends Controller
      */
     public function show($id)
     {
-		$NhanVien = NhanVien::where('id','=',$id)->first();
-        return view('nhanvien::show', ['NhanVien'=>$NhanVien]);
+        $NhanVien = NhanVien::where('id', '=', $id)->first();
+        return view('nhanvien::show', ['NhanVien' => $NhanVien]);
     }
 
     /**
@@ -71,8 +77,8 @@ class NhanVienController extends Controller
      * @return Response
      */
     public function edit($id)
-    {	
-	
+    {
+
         $NhanVien = NhanVien::find($id);
         if (!$NhanVien)
             return redirect('/nhanvien')->withErrors('Nhân viên không tồn tại');
@@ -88,28 +94,27 @@ class NhanVienController extends Controller
     public function update(Request $request, $id)
     {
         //
-		$NhanVien = NhanVien::where('id','=',$id)->first();
-		$validator = Validator::make($request->all(), $NhanVien->rules, $NhanVien->messages);
-		if ($validator->fails()) {
-    		return redirect()->back()->withErrors($validator)->withInput();
-    	} else {
-			$NhanVien->HoVaTen=$request['HoVaTen'];
-			$NhanVien->Role=$request['Role'];
-			$NhanVien->GioiTinh=$request['GioiTinh'];
-			$NhanVien->DiaChi=$request['DiaChi'];
-			$NhanVien->SoDienThoai=$request['SoDienThoai'];
-			$NhanVien->Email=$request['Email'];
-			$NhanVien->CMND=$request['CMND'];
-			if ($request['Role']=="PhucVu"){
-				$NhanVien->MatKhau= 0;
-			}else {
-			$NhanVien->MatKhau= $request['MatKhau'];
-			}
-			$NhanVien->LuongTheoGio=$request['LuongTheoGio'];
-			$NhanVien->TrangThai=$request['TrangThai'];
-			$NhanVien->save();
-			return redirect()->back()->with('message', 'Cập nhập thành công');
-		}
+        $NhanVien = NhanVien::where('id', '=', $id)->first();
+        $validator = Validator::make($request->all(), $NhanVien->rules, $NhanVien->messages);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            $NhanVien->HoVaTen = $request['HoVaTen'];
+            $NhanVien->Role = $request['Role'];
+            $NhanVien->GioiTinh = $request['GioiTinh'];
+            $NhanVien->DiaChi = $request['DiaChi'];
+            $NhanVien->SoDienThoai = $request['SoDienThoai'];
+            $NhanVien->Email = $request['Email'];
+            $NhanVien->CMND = $request['CMND'];
+            if ($request['Role'] == "PhucVu") {
+                $NhanVien->password = 0;
+            } else {
+                $NhanVien->password = $request['password'];
+            }
+            $NhanVien->LuongTheoGio = $request['LuongTheoGio'];
+            $NhanVien->save();
+            return redirect()->back()->with('message', 'Cập nhập thành công');
+        }
     }
 
     /**
@@ -120,8 +125,8 @@ class NhanVienController extends Controller
     public function destroy($id)
     {
         //
-		$NhanVien = NhanVien::where('id','=',$id)->first();
-		$NhanVien->delete();
-		return redirect()->back();
+        $NhanVien = NhanVien::where('id', '=', $id)->first();
+        $NhanVien->delete();
+        return redirect()->back();
     }
 }

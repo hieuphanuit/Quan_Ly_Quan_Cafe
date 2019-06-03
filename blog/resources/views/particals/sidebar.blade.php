@@ -31,15 +31,10 @@
     </a>
   </li>
   <li class="nav-item dropdown {{Request::is('hoadon/*') ||  Request::is('hoadongoimon/*') ? 'show' : null}}">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="/hoadonnguyenlieu/">
       <i class="fas fa-fw fa-folder"></i>
-      <span>Hóa Đơn</span>
+      Hóa Đơn
     </a>
-    <div class="dropdown-menu {{Request::is('hoadonnguyenlieu/*') ||  Request::is('hoadongoimon/*') ? 'show' : null}}" aria-labelledby="pagesDropdown">
-      <h6 class="dropdown-header">Hóa đơn nguyên liệu:</h6>
-      <a class="dropdown-item {{Request::is('hoadonnguyenlieu') ? 'active' : null}}" href="/hoadonnguyenlieu">Danh sách</a>
-      
-    </div>
   </li>
   <li class="nav-item dropdown {{Request::is('thongke/*') ? 'show' : null}}">
     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

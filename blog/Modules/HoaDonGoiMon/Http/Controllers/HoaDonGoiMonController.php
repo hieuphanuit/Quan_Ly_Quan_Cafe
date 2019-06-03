@@ -45,11 +45,12 @@ class HoaDonGoiMonController extends Controller
         //
         $monsSelected = $request->monSelected;
         $quantitys = $request->quantity;
+        $prices = $request->price;
         $khachhangthanthiet = $request->kh;
         $hoaDonGoiMon = new HoaDonGoiMon([
             'MaNhanVien' => Auth::user()->id,
             'MaKhachHang' => $khachhangthanthiet,
-            'TongTien' => 0
+            'TongTien' => $request->total
         ]);
         $hoaDonGoiMon->save();
         $mons = [];

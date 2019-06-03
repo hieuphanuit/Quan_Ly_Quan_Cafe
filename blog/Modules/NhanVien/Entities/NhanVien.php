@@ -26,10 +26,9 @@ class NhanVien extends Model
 		'DiaChi'=>'required',
 		'SoDienThoai'=>'required',
 		'CMND'=>'required',
-		'Email'=>'required|email',
+		'Email'=>'required|email|unique:users,Email',
 		'password'=>'required',
 		'LuongTheoGio'=> 'required|numeric',
-		'TrangThai'=> 'required'
 	];
 	public $messages = [
 		'Role.required' => 'Role là trường bắt buộc',
@@ -38,9 +37,9 @@ class NhanVien extends Model
 		'SoDienThoai.required' => 'Số điện thoại là trường bắt buộc',
 		'CMND.required' => 'CMND là trường bắt buộc',
 		'Email.required' => 'Email là trường bắt buộc',
+		'Email.unique' => 'Email đã được sử dụng',
 		'password.required' => 'Mật khẩu là trường bắt buộc',
 		'LuongTheoGio.required' => 'Lương là trường bắt buộc',
-		'TrangThai.required' => 'Trạng thái là trường bắt buộc',
 	];
 	
 	protected $table = "users";

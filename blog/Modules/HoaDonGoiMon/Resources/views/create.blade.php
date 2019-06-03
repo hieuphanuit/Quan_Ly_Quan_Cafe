@@ -35,7 +35,7 @@
 				<td>
 					<button class="btn btn-info thucDon_btn" style="width:80%" data-id="{{$ThucDon->id}}" data-mon="{{$ThucDon->TenMon}}">{{$ThucDon->TenMon}}</button>
 				</td>
-				<td data-id="$ThucDon->id">{{$ThucDon->DonGia}}</td>
+				<td> <input readonly type="number" class="form-control Price_current" data-id="{{$ThucDon->id}}" value="{{$ThucDon->DonGia}}"/> </td>
 				<td></td>
 			</tr>
 			@endforeach
@@ -60,6 +60,10 @@
 					</tr>
 				</tbody>
 			</table>
+			<div class="row"style="margin-left:50px;">
+				<label for="TongTien">Tổng tiền:</label>&nbsp;
+				<input style="width: 30%" readonly class="form-control" name="total" id="TongTien" value="0" />
+			</div>
 			<div>
 				<button class="btn btn-success" style="width:80px; position: absolute; right: 0; margin-right:20px;">
 					Lưu
@@ -88,7 +92,6 @@
 			if ($('.child-selection[data-id="' + $(this).data('id') + '"]').length) {
 				var data = 1;
 				data += parseInt($('.child-selection[data-id="' + $(this).data('id') + '"]').val());
-				console.log ($('.child-selection[data-id="' + $(this).data('id') + '"]'));
 				$('.child-selection[data-id="' + $(this).data('id') + '"]').val(data);
 				var buttons = document.querySelectorAll("#kh");
 				for (var i = 0; i < buttons.length; i++) {
@@ -100,14 +103,14 @@
 					"<td>" +
 					"<div class='row'>" +
 					"<div>" +
-					"<button class='btn btn-warning subtract-btn' data-id='" + id + "'>-</button>" +
+					"<button class='btn btn-warning subtract-btn' data-id='" + id + "' type='button'>-</button>" +
 					"</div>" +
 					"<div class='col-md-4'>" +
-					"<input class='child-selection form-control counter' id='counter" + id + "'style='width:60px;' type='number' data-id='" + id + "' value='1' name='quantity[]'/>" +
+					"<input class='child-selection form-control quantity' id='counter" + id + "'style='width:60px;' type='number' data-id='" + id + "' value='1' name='quantity[]'/>" +
 					"<input type='hidden' name='monSelected[]' value='" + id + "'>" +
 					"</div>" +
 					"<div>" +
-					"<button class='btn btn-success plus-btn' data-id='" + id + "'>+</button>" +
+					"<button class='btn btn-success plus-btn' data-id='" + id + "' type='button'>+</button>" +
 					"</div>" +
 					"</div>" +
 					"</td>" +
@@ -120,20 +123,38 @@
 					"<input type='hidden'name='kh'  id='kh' value='" + kh + "'>";
 				$('#chiTietHoaDon').append(inputfield);
 			}
+			calculateTotal();
 		});
 		$("#chiTietHoaDon").on("click", ".plus-btn", function() {
 			var id = $(this).data('id');
 			var $counter = $('#counter' + id);
 			$counter.val(parseInt($counter.val()) + 1);
+			calculateTotal();
 		}).on("click", ".subtract-btn", function() {
 			var id = $(this).data('id');
 			var $counter = $('#counter' + id);
 			if ($counter.val() > 1) {
 				$counter.val(parseInt($counter.val()) - 1);
 			}
+			calculateTotal();
 		}).on("click", ".delete-btn", function() {
 			$(this).closest('tr').remove();
+			calculateTotal();
 		});
+
 	});
+
+	function calculateTotal() {
+		var total = 0;
+		$('.child-selection').each(function(index, element) {
+			var id = $(this).data('id');
+			var price = $('.Price_current[data-id="'+id+'"]').val();
+			var quantity = $(this).val();
+			var iteamTotal = price*quantity;
+			total += iteamTotal;
+		});
+		$('#TongTien').val(total);
+		return total;
+	}
 </script>
 @endsection

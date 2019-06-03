@@ -11,7 +11,7 @@
 @section('Content')
 <h1 style="text-align: center;">Danh sách hóa đơn nguyên liệu</h1>
 <div class="col-md-5" style="padding-bottom:20px;">
-  <a class="btn btn-success" href='{{url("/hoadonnguyenlieu/themhoadonnguyenlieu")}}'>Thêm hóa đơn nguyên liệu</a>
+  <a class="btn btn-success" href='{{url("/hoadonnguyenlieu/create")}}'>Thêm hóa đơn nguyên liệu</a>
 </div>
 <div class="card mb-3">
   <div class="card-header">
@@ -33,7 +33,7 @@
           @foreach ($hoaDonNguyenLieus as $hoaDonNguyenLieu)
           <tr>
             <td>{{$hoaDonNguyenLieu->id}}</td>
-            <td>{{$hoaDonNguyenLieu->MaNhanVien}}</td>
+            <td>{{$hoaDonNguyenLieu->NhanVien->HoVaTen}}</td>
             <td>{{date("d-m-Y H:i",strtotime($hoaDonNguyenLieu->created_at))}}</td>
             <td>{{$hoaDonNguyenLieu->TongTien}}</td>
             <td>

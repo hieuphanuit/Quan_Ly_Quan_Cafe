@@ -122,7 +122,7 @@
 
 	function calculateTotal(){
 		var totalPrice = 0;
-		$('.child-selection').each(function(intex, element){
+		$('.child-selection').each(function(index, element){
 			var id = $(this).data('id');
 			var quantity = $(this).val();
 			var price = $('.estimatedPrice[data-id="'+id+'"]').val();
