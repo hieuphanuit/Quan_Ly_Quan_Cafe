@@ -44,9 +44,9 @@ class NhanVienController extends Controller
 		$NhanVien->Email=$request->get('Email');
         $NhanVien->CMND=$request->get('CMND');
 		if ($request->get('MatKhau')==""){
-			$NhanVien->MatKhau= 0;
+			$NhanVien->password= 0;
 		}else{
-			$NhanVien->MatKhau= $request->get('MatKhau');
+			$NhanVien->password= $request->get('MatKhau');
 		}
         $NhanVien->LuongTheoGio=$request->get('LuongTheoGio');
         $NhanVien->TrangThai=1;

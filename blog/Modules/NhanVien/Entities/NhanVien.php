@@ -14,7 +14,7 @@ class NhanVien extends Model
 		'SoDienThoai',
 		'CMND',
 		'Email',
-		'MatKhau',
+		'password',
 		'LuongTheoGio',
 		'TrangThai'
     ];
@@ -27,7 +27,7 @@ class NhanVien extends Model
 		'SoDienThoai'=>'required',
 		'CMND'=>'required',
 		'Email'=>'required|email',
-		'MatKhau'=>'required',
+		'password'=>'required',
 		'LuongTheoGio'=> 'required|numeric',
 		'TrangThai'=> 'required'
 	];
@@ -38,10 +38,10 @@ class NhanVien extends Model
 		'SoDienThoai.required' => 'Số điện thoại là trường bắt buộc',
 		'CMND.required' => 'CMND là trường bắt buộc',
 		'Email.required' => 'Email là trường bắt buộc',
-		'MatKhau.required' => 'Mật khẩu là trường bắt buộc',
+		'password.required' => 'Mật khẩu là trường bắt buộc',
 		'LuongTheoGio.required' => 'Lương là trường bắt buộc',
 		'TrangThai.required' => 'Trạng thái là trường bắt buộc',
 	];
 	
-	protected $table = "NhanVien";
+	protected $table = "users";
 }
