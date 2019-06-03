@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\NhanVien\Entities\NhanVien;
-
+use Illuminate\Support\Facades\Hash; 
 class NhanVienController extends Controller
 {
     /**
@@ -52,7 +52,7 @@ class NhanVienController extends Controller
         if ($request->get('password') == "") {
             $NhanVien->password = 0;
         } else {
-            $NhanVien->password = $request->get('password');
+            $NhanVien->password = Hash::make($request->get('password'));
         }
         $NhanVien->LuongTheoGio = $request->get('LuongTheoGio');
         $NhanVien->TrangThai = 1;
