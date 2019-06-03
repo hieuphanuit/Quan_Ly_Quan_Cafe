@@ -7,8 +7,10 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\ThucDon\Entities\ThucDon;
 use Modules\HoaDonGoiMon\Entities\HoaDonGoiMon;
+use Modules\ChiTietHoaDonGoiMon\Entities\ChiTietHoaDonGoiMon;
 use Modules\KhachHangThanThiet\Entities\KhachHangThanThiet;
 use Auth;
+use Modules\NhanVien\Entities\NhanVien;
 
 class HoaDonGoiMonController extends Controller
 {
@@ -18,7 +20,8 @@ class HoaDonGoiMonController extends Controller
      */
     public function index()
     {
-        return view('hoadongoimon::index');
+        $HoaDonGoiMons = HoaDonGoiMon::orderBy('id', 'DESC')->paginate(20);
+        return view('hoadongoimon::index', ['HoaDonGoiMons' => $HoaDonGoiMons]);
     }
 
     /**
@@ -27,9 +30,9 @@ class HoaDonGoiMonController extends Controller
      */
     public function create()
     {
-        $KhachHangThanThiets = KhachHangThanThiet ::all();
+        $KhachHangThanThiets = KhachHangThanThiet::all();
         $ThucDons = ThucDon::all();
-        return view('hoadongoimon::create',['ThucDons'=> $ThucDons, 'KhachHangThanThiets'=>$KhachHangThanThiets]);
+        return view('hoadongoimon::create', ['ThucDons' => $ThucDons, 'KhachHangThanThiets' => $KhachHangThanThiets]);
     }
 
     /**
@@ -44,13 +47,13 @@ class HoaDonGoiMonController extends Controller
         $quantitys = $request->quantity;
         $khachhangthanthiet = $request->kh;
         $hoaDonGoiMon = new HoaDonGoiMon([
-                'MaNhanVien' => Auth::user()->id,
-                'MaKhachHang' => $khachhangthanthiet,
-                'TongTien' => 0
-            ]);
+            'MaNhanVien' => Auth::user()->id,
+            'MaKhachHang' => $khachhangthanthiet,
+            'TongTien' => 0
+        ]);
         $hoaDonGoiMon->save();
         $mons = [];
-        foreach($monsSelected as $index=>$monSelected){
+        foreach ($monsSelected as $index => $monSelected) {
             $mons[] = [
                 'MaMon' => $monSelected,
                 'SoLuong'   => $quantitys[$index],
@@ -58,7 +61,7 @@ class HoaDonGoiMonController extends Controller
             ];
         }
         $hoaDonGoiMon->ChiTietHoaDonGoiMon()->createMany($mons);
-        return view('hoadongoimon::index');
+        return redirect()->route('danhsachhoadongoimon');
     }
 
     /**
@@ -68,7 +71,14 @@ class HoaDonGoiMonController extends Controller
      */
     public function show($id)
     {
-        return view('hoadongoimon::show');
+        $hoaDonGoiMon = HoaDonGoiMon::find($id);
+        $chiTietHoaDonGoiMons = ChiTietHoaDonGoiMon::where('MaHoaDonGoiMon', '=', $id)->get();  
+        if ($hoaDonGoiMon->MaKhachHang != 0) {
+            $KhachHangThanThiet = KhachHangThanThiet::where('id', '=', $hoaDonGoiMon->MaKhachHang)->first();
+            return view('hoadongoimon::show', ['HoaDonGoiMon' => $hoaDonGoiMon, 'ChiTietHoaDonGoiMons' => $chiTietHoaDonGoiMons, 'KhachHangThanThiet' => $KhachHangThanThiet]);
+        } else {
+            return view('hoadongoimon::show', ['HoaDonGoiMon' => $hoaDonGoiMon, 'ChiTietHoaDonGoiMons' => $chiTietHoaDonGoiMons, 'KhachHangThanThiet' => 'Không có']);
+        }
     }
 
     /**

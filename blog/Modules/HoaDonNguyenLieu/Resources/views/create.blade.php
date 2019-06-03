@@ -16,7 +16,7 @@
 			<tr>
 
 				<th scope="col" width="30%">Tên món</th>
-				<th scope="col" width="10%">Đơn giá</th>
+				<th scope="col" width="10%">Giá ước lượng</th>
 				<th scope="col" width="10%">Số lượng tồn</th>
 			</tr>
 		</thead>
@@ -42,6 +42,7 @@
 				<thead>
 					<tr>
 						<th scope="col" width="30%">Tên món</th>
+						<th scope="col" width="10%" style="padding-left: 30px;">Đơn giá</th>
 						<th scope="col" width="10%" style="padding-left: 30px;">Số lượng</th>
 						<th scope="col" width="10%">Xóa</th>
 					</tr>
@@ -51,6 +52,10 @@
 					</tr>
 				</tbody>
 			</table>
+			<div class="row"style="margin-left:50px;">
+				<span> Tổng tiền </span>
+				<span id="TongTien" >0</span>
+			</div>
 			<div>
 				<button class="btn btn-success" style="width:80px; position: absolute; right: 0; margin-right:20px;">
 					Lưu
@@ -79,12 +84,13 @@
 				}
 			} else {
 				var inputfield = "<tr><td>" + mon + "</td>"
+											+"<td><div><input class='dongia form-control' type='number' value='1'>	</div></td>"
 											+"<td>"
 												+"<div class='row'>"
 													+"<div>"
 														+"<button type='button' class='btn btn-warning subtract-btn' data-id='" + id + "'>-</button>"
 													+"</div>"
-													+"<div class='col-md-4'>"
+													+"<div class='col-md-4' style='margin-right:20px;'>"
 														+"<input class='child-selection form-control counter' id='counter" + id + "'style='width:60px;' type='number' data-id='" + id + "' data-slt='" + slt + "' value='1' name='quantity[]'/>"
 														+"<input type='hidden' name='monSelected[]' value='"+id+"'>"
 													+"</div>"
@@ -102,7 +108,7 @@
 			var slt = $(this).data('slt');
 			var $counter = $('#counter' + id);
 			if ($counter.val() < slt) {
-				$counter.val(parseInt($counter.val()) + 1);
+				$counter.val(parseInt($counter.val()) + 1);		
 			};
 		}).on("click", ".subtract-btn", function() {
 			var id = $(this).data('id');
@@ -113,6 +119,7 @@
 		}).on("click", ".delete-btn", function() {
 			$(this).closest('tr').remove();
 		});
+
 	});
 </script>
 @endsection

@@ -13,8 +13,9 @@
 
 Route::prefix('hoadongoimon')->group(function() {
     Route::group(['middleware' => ['CheckRole:QuanLyVaThuNgan']], function () {
-        Route::get('/danhsachhoadongoimon', 'HoaDonGoiMonController@index');
+        Route::get('/danhsachhoadongoimon', 'HoaDonGoiMonController@index')->name('danhsachhoadongoimon');
         Route::get('/themhoadongoimon', 'HoaDonGoiMonController@create')->middleware('CheckRole:ThuNgan');
+        Route::get('/{id}', 'HoaDonGoiMonController@show')->middleware('CheckRole:ThuNgan');
         Route::post('/', 'HoaDonGoiMonController@store')->middleware('CheckRole:ThuNgan')->name('hoadongoimon.store');
     });
     

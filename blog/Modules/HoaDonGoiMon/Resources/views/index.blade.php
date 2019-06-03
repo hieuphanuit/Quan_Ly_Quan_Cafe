@@ -2,156 +2,67 @@
 
 @section('Breadcrumbs')
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">
-    <a href="#">Hóa đơn</a>
-  </li>
-  <li class="breadcrumb-item active">Danh sách hóa đơn gọi món</li>
+	<li class="breadcrumb-item">
+		<a href="#">Hóa đơn</a>
+	</li>
+	<li class="breadcrumb-item active">Danh sách hóa đơn gọi món</li>
 </ol>
 @endsection
 @section('Content')
 <h1 style="text-align: center;">Danh sách hóa đơn gọi món</h1>
-<div class="col-md-5"style="padding-bottom:20px;">
+<div class="col-md-5" style="padding-bottom:20px;">
 	<a class="btn btn-success" href="{{url('/hoadongoimon/themhoadongoimon')}}">Thêm hóa đơn gọi món</a>
 </div>
 <div class="card mb-3">
-  <div class="card-header">
-    <i class="fas fa-table"></i>
-  </div>
-  <div class="card-body">
-    <div class="">
-      <table class="table table-bordered dataTable" width="100%" cellspacing="0">
-        <thead>
-          <tr>
-            <th>Mã hóa đơn</th>
-            <th>Người lập</th>
-            <th>Thời gian</th>
-            <th>Tổng tiền</th>
-            <th width="30%">Hành Động</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>2011/04/25</td>
-            <td>61</td>
-            
-            <td>
-				<div class="row">
-					<div class="col-md-4">
-						<a class="btn btn-info hanhdong"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-warning hanhdong"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-danger hanhdong"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-             <td>2011/07/25</td>
-            <td>63</td>
-           
-            <td>
-				<div class="row">
-					<div class="col-md-4">
-						<a class="btn btn-info hanhdong"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-warning hanhdong"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-danger hanhdong"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td>2009/01/12</td>
-            <td>66</td>
-            
-            <td>
-				<div class="row">
-					<div class="col-md-4">
-						<a class="btn btn-info hanhdong"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-warning hanhdong"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-danger hanhdong"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Cedric Kelly</td>
-            <td>Senior Javascript Developer</td>
-            <td>2012/03/29</td>
-            <td>22</td>
-            
-            <td>
-				<div class="row">
-					<div class="col-md-4">
-						<a class="btn btn-info hanhdong"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-warning hanhdong"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-danger hanhdong"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Airi Satou</td>
-            <td>Accountant</td>
-             <td>2008/11/28</td>
-            <td>33</td>
-           
-            <td>
-				<div class="row">
-					<div class="col-md-4">
-						<a class="btn btn-info hanhdong"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-warning hanhdong"style="width:80px;">Chi tiết</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-danger hanhdong"style="width:80px;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-          <tr>
-            <td>Brielle Williamson</td>
-            <td>Integration Specialist</td>
-			<td>2012/12/02</td>
-            <td>61</td>
-            
-            <td>
-				<div class="row">
-					<div class="col-md-4">
-						<a class="btn btn-info hanhdong"style="width:80px; color:#fff;">Sửa</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-warning hanhdong"style="width:80px; color:#fff;">Chi tiết</a>
-					</div>
-					<div class="col-md-4">
-						<a class="btn btn-danger hanhdong"style="width:80px; color:#fff;">Xóa</a>
-					</div>
-				</div>
-			</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-@endsection
+	<div class="card-header">
+		<i class="fas fa-table"></i>
+	</div>
+	<div class="card-body">
+		<div class="">
+			<table class="table table-bordered dataTable" width="100%" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Mã hóa đơn</th>
+						<th>Người lập</th>
+						<th>Khách hàng</th>
+						<th>Tổng tiền</th>
+						<th width="30%">Hành Động</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						@foreach ($HoaDonGoiMons as $HoaDonGoiMon)
+					<tr>
+						<td>{{$HoaDonGoiMon->id}}</td>
+						<td>{{$HoaDonGoiMon->MaNhanVien}}</td>
+						<td>{{$HoaDonGoiMon->MaKhachHang}}</td>
+						<td>{{$HoaDonGoiMon->TongTien}}</td>
+						<td>
+							<div class="row">
+								<div class="col-md-4 hanhdong">
+									<a href='{{url("/hoadongoimon/$HoaDonGoiMon->id/edit")}}' class="btn btn-info" style="width:80px;">Sửa</a>
+								</div>
+								<div class="col-md-4 hanhdong">
+									<a href='{{url("/hoadongoimon/$HoaDonGoiMon->id")}}' class="btn btn-warning" style="width:80px; color: white">Chi tiết</a>
+								</div>
+								<div class="col-md-4 hanhdong">
+									<form method="POST" action='{{url("/hoadongoimon/$HoaDonGoiMon->id/delete")}}' style="display: inline-block">
+										<input type="hidden" value="$user->id" name="delete_hoadon" />
+										<button onclick="return confirm('Bạn có chắc muốn xóa hóa đơn này không?')" class="btn btn-danger" style="width:80px;">
+											Xóa
+										</button>
+										{!! csrf_field() !!}
+									</form>
+								</div>
+							</div>
+						</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
+			<div>
+      {{ $HoaDonGoiMons->links() }}
+      </div>
+		</div>
+	</div>
+	@endsection

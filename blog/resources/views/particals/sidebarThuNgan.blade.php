@@ -11,22 +11,17 @@
       <i class="fas fa-fw fa-folder"></i>
       <span>Khách Hàng</span>
     </a>
-    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+    <div class="dropdown-menu" aria-la  elledby="pagesDropdown">
       <a class="dropdown-item" href="/khachhangthanthiet/danhsachkhachang">Danh sách</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="/khachhangthanthiet/themkhachhang">Thêm</a>
     </div>
   </li>
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="/hoadongoimon/danhsachhoadongoimon">
       <i class="fas fa-fw fa-folder"></i>
-      <span>Hóa Đơn</span>
+      Hóa Đơn
     </a>
-    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-      <h6 class="dropdown-header">Hóa đơn gọi món:</h6>
-      <a class="dropdown-item" href="/hoadongoimon/danhsachhoadongoimon">Danh sách</a>
-      <a class="dropdown-item" href="/hoadongoimon/themhoadongoimon">Thêm</a>
-    </div>
   </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

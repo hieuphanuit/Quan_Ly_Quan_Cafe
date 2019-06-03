@@ -39,7 +39,6 @@ class HoaDonNguyenLieuController extends Controller
     {
         //add validate
         $monsSelected = $request->monSelected;
-        var_dump($request->all());
         $quantitys = $request->quantity;
 
         $hoaDonNguyenLieu = new HoaDonNguyenLieu([
@@ -49,14 +48,17 @@ class HoaDonNguyenLieuController extends Controller
         $hoaDonNguyenLieu->save();
         $mons = [];
         foreach($monsSelected as $index=>$monSelected){
+            $nguyenlieu = NguyenLieu:: find ($monSelected);
+            $nguyenlieu->SoLuongTon = $nguyenlieu->SoLuongTon - $quantitys[$index];
             $mons[] = [
                 'MaNguyenLieu' => $monSelected,
                 'SoLuong'   => $quantitys[$index],
                 'DonGia'    => 0
             ];
+            $nguyenlieu->save();    
         }
         $hoaDonNguyenLieu->ChiTietHoaDonNguyenLieu()->createMany($mons);
-		return view('hoadonnguyenlieu::index');
+        return view('hoadonnguyenlieu::index');
     }
 
     /**
