@@ -12,10 +12,10 @@
 */
 
 Route::prefix('hoadonnguyenlieu')->group(function() {
-    Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
+	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
 		Route::get('/', 'HoaDonNguyenLieuController@index');
-		Route::get('/{id}', 'HoaDonNguyenLieuController@show');
-		Route::get('/themhoadonnguyenlieu', 'HoaDonNguyenLieuController@create');
+		Route::get('/{id}', 'HoaDonNguyenLieuController@show')->where(['id' => '[0-9]+']);
+		Route::get('/create', 'HoaDonNguyenLieuController@create');
 		Route::post('/', 'HoaDonNguyenLieuController@store');
 	});
 });
