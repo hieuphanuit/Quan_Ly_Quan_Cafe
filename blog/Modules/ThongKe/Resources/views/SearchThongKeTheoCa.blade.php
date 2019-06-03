@@ -5,11 +5,11 @@
 	<li class="breadcrumb-item">
 		<a href="#">Thống kê</a>
 	</li>
-	<li class="breadcrumb-item active">Thống kê theo ca</li>
+	<li class="breadcrumb-item active">Tìm kiếm theo ca</li>
 </ol>
 @endsection
 @section('Content')
-<h1 style="text-align: center;">Thống kê theo ca</h1>
+<h1 style="text-align: center;">Tìm kiếm theo ca</h1>
 <div class="container">
 	<form class="thongketheoca" action="{{route('thongketheoca.search')}}" method="GET">
 		<div class="form-group">

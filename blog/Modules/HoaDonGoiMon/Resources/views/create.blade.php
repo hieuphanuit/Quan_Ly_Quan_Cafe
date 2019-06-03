@@ -88,6 +88,7 @@
 			if ($('.child-selection[data-id="' + $(this).data('id') + '"]').length) {
 				var data = 1;
 				data += parseInt($('.child-selection[data-id="' + $(this).data('id') + '"]').val());
+				console.log ($('.child-selection[data-id="' + $(this).data('id') + '"]'));
 				$('.child-selection[data-id="' + $(this).data('id') + '"]').val(data);
 				var buttons = document.querySelectorAll("#kh");
 				for (var i = 0; i < buttons.length; i++) {

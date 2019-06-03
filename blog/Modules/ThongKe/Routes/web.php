@@ -19,5 +19,9 @@ Route::prefix('thongke')->group(function() {
 		Route::get('/thongketheongay', 'ThongKeController@thongketheongay');
 		Route::get('/thongketheothang', 'ThongKeController@thongketheothang');
 		Route::get('/exportPDFThongKeCa', 'ThongKeController@exportPDFThongKeCa');
+		Route::get('/exportPDFThongKeNgay', 'ThongKeController@thongketheongay');
+		Route::get('/exportPDFThongKeThang', 'ThongKeController@exportPDFThongKeThang');
+		Route::get('/exportPDFThongKeCa', 'ThongKeController@exportPDFThongKeCa')->name('thongketheoca.create');
+		Route::get('/', 'ThongKeController@search')->name('thongketheoca.search');
 	});
 });
