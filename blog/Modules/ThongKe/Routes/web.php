@@ -13,7 +13,7 @@
 
 Route::prefix('thongke')->group(function() {
 	Route::group(['middleware' => ['CheckRole:QuanLyVaThuNgan']], function () {
-		Route::get('/thongketheoca', 'ThongKeController@thongketheoca');
+		Route::get('/thongketheoca', 'ThongKeController@thongketheoca')->name('thongketheoca');
 	});
 	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
 		Route::get('/thongketheongay', 'ThongKeController@thongketheongay');

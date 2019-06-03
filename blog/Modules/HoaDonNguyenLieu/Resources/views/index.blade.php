@@ -11,7 +11,7 @@
 @section('Content')
 <h1 style="text-align: center;">Danh sách hóa đơn nguyên liệu</h1>
 <div class="col-md-5" style="padding-bottom:20px;">
-  <a class="btn btn-success" href='{{url("/hoadonnguyenlieu/themhoadonnguyenlieu")}}'>Thêm hóa đơn nguyên liệu</a>
+  <a class="btn btn-success" href='{{url("/hoadonnguyenlieu/create")}}'>Thêm hóa đơn nguyên liệu</a>
 </div>
 <div class="card mb-3">
   <div class="card-header">
@@ -42,7 +42,7 @@
                   <a href='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id/edit")}}' class="btn btn-info" style="width:80px;">Sửa</a>
                 </div>
                 <div class="col-md-4 hanhdong">
-                  <a href='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id")}}' class="btn btn-warning" style="width:80px; color: white">Chi tiết</a>
+                  <a href='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id/show")}}' class="btn btn-warning" style="width:80px; color: white">Chi tiết</a>
                 </div>
                 <div class="col-md-4 hanhdong">
                   <form method="POST" action='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id/delete")}}' style="display: inline-block">

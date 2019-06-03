@@ -11,68 +11,60 @@
 @section('Content')
 <h1 style="text-align: center;">Thống kê theo ca</h1>
 <div class="container">
-	<form class="thongketheoca" action="{{route('thongketheoca.search')}}" method="GET">
+	<form class="thongketheoca" action="{{route('thongketheoca')}}" method="GET">
 		<div class="form-group">
-			<label for="ThoiGian">Ca: </label>
-			<select class="form-control" id="ca_timkiem" name="ca_timkiem">
-				<option value="1">Sáng</option>
-				<option value="2">Chiều</option>
-				<option value="3">Tối</option>
+			<label for="date">Ngày: </label>
+			<input class="form-control" id="date" name="date" autocomplete="off" />
+		</div>
+		<div class="form-group">
+			<label for="ca">Ca: </label>
+			<select class="form-control" id="ca" name="ca">
+				<option value="sang" {{$caFilter == 'sang' ? 'selected' : ''}}>Sáng</option>
+				<option value="chieu" {{$caFilter == 'chieu' ? 'selected' : ''}}>Chiều</option>
+				<option value="toi" {{$caFilter == 'toi' ? 'selected' : ''}}>Tối</option>
 			</select>
 		</div>
 		<div class="form-group row">
 			<div class="col-md-4">
-				<label for="ThoiGian">Người lập:</label>
-				<select class="form-control" id="nhanvien_timkiem" name="nhanvien_timkiem">
-					@foreach ($NhanViens as $NhanVien)
-					<option value="{{$NhanVien->id}}">{{$NhanVien->HoVaTen}}</option>
+				<label for="nhanvien">Người lập:</label>
+				<select class="form-control" id="nhanVien" name="nhanvien">
+					<option value="-1" >Tất cả</option>
+						@foreach ($NhanViens as $NhanVien)
+					<option value="{{$NhanVien->id}}" {{($nhanVienFilter == $NhanVien->id) ? 'selected' : ''}}>{{$NhanVien->HoVaTen}}</option>
 					@endforeach
 				</select>
 			</div>
 			<div class="col-md-4">
-				<label for="ThoiGian">Món:</label>
-				<select class="form-control" id="mon_timkiem" name="mon_timkiem">
-					@foreach($ThucDons as $ThucDon)
-					<option value="{{$ThucDon->id}}">{{$ThucDon->TenMon}}</option>
-					@endforeach
-				</select>
-			</div>
-			<div class="col-md-4">
-				<a class="btn btn-success xuatpdf" style="width:120px;margin-top:32px; color:#fff;">Tìm kiếm</a>
+				<button class="btn btn-success" style="width:120px;margin-top:32px; color:#fff;">Thống kê</button>
 			</div>
 		</div>
 		{!! csrf_field() !!}
 	</form>
 
+	@if($HoaDons)
 	<div class="card mb-3">
 		<div class="card-body">
 			<div class="table-responsive">
-				<table class="table table-bordered dataTable" width="100%" cellspacing="0">
+				<table id="table" class="table table-bordered" width="100%" cellspacing="0">
 					<thead>
 						<tr>
 							<th>Mã hóa đơn</th>
-							<th>Người nhập</th>
+							<th>Người lập</th>
 							<th>Thời gian</th>
 							<th>Thành tiền</th>
 						</tr>
 					</thead>
-					<tfoot>
-						<tr>
-							<th>Mã hóa đơn</th>
-							<th>Người nhập</th>
-							<th>Thời gian</th>
-							<th>Thành tiền</th>
-						</tr>
-					</tfoot>
 					<tbody>
+						@foreach($HoaDons as $HoaDon)
 						<tr>
-							<td>Airi Satou</td>
-							<td>Cái</td>
-							<td>33</td>
+							<td>{{$HoaDon->id}}</td>
+							<td>{{$HoaDon->NguoiLap->HoVaTen}}</td>
+							<td>{{date("d-m-Y H:i",strtotime($HoaDon->created_at))}}</td>
 							<td>
-								123
+							{{$HoaDon->TongTien}}
 							</td>
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>
@@ -80,12 +72,38 @@
 	</div>
 	<div class="form-group">
 		<label for="TongThu">Tổng thu: </label>
-		<input type="text" id="TongThu" name="TongThu" class="form-control" readonly />
+		<input type="text" id="TongThu" class="form-control" value="{{$TongThu}}" readonly />
 	</div>
 	<form class="thongketheoca" action="{{route('thongketheoca.create')}}" method="GET">
 		<div style="margin-top:10px;margin-bottom:10px;">
+			<input type="hidden" name="date" value="{{$dateFilter}}">
+			<input type="hidden" name="ca" value="{{$caFilter}}">
+			<input type="hidden" name="nhanVien" value="{{$nhanVienFilter}}">
 			<button class="btn btn-success xuatpdf" type="submit" style="width:120px; color:#fff;">Xuất PDF</button>
 		</div>
 		{!! csrf_field() !!}
 	</form>
+	@endif
+	<script type="text/javascript">
+	{{ $dateFilter ? "var date = new Date(".(strtotime($dateFilter) * 1000).");" : "var date = new Date();" }}
+		
+		var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+		$('#date').datepicker({
+			format: "dd-mm-yyyy",
+			endDate: new Date(),
+			todayHighlight: true
+		});
+		$('#date').datepicker('setDate', today);
+	</script>
+
+	@section('dataTable')
+	<script>
+		$(document).ready(function() {
+			$('#table').DataTable({
+
+			});
+		});
+	</script>
 	@endsection
+@endsection

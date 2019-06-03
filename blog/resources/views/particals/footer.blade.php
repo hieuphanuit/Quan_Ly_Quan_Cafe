@@ -58,19 +58,19 @@
 <!-- Demo scripts for this page-->
 <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
 <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
-
-<script>
-$(document).ready( function () {
-    $('.dataTable').DataTable({
-      paging: false,
-      searching: false,
-      info: false,
-      aaSorting: [],
-      scrollX: false
-    });
-} );
-
-</script>
+@section('dataTable')
+  <script>
+  $(document).ready( function () {
+      $('.dataTable').DataTable({
+        paging: false,
+        searching: false,
+        info: false,
+        aaSorting: [],
+        scrollX: false
+      });
+  } );
+  </script>
+ @show
 </body>
 
 </html>
