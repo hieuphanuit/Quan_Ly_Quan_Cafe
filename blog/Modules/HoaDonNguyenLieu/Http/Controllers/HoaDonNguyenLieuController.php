@@ -18,7 +18,7 @@ class HoaDonNguyenLieuController extends Controller
      */
     public function index()
     {
-        $hoaDonNguyenLieus = HoaDonNguyenLieu::orderBy('id', 'DESC')->paginate(20);
+        $hoaDonNguyenLieus = HoaDonNguyenLieu::with('NhanVien')->orderBy('id', 'DESC')->paginate(20);
         return view('hoadonnguyenlieu::index',compact('hoaDonNguyenLieus'));
     }
 
@@ -79,7 +79,7 @@ class HoaDonNguyenLieuController extends Controller
      */
     public function show($id)
     {
-        $hoaDonNguyenLieu = HoaDonNguyenLieu::with('ChiTietHoaDonNguyenLieu')->find($id);
+        $hoaDonNguyenLieu = HoaDonNguyenLieu::with('ChiTietHoaDonNguyenLieu','ChiTietHoaDonNguyenLieu.NguyenLieu','NhanVien')->find($id);
         return view('hoadonnguyenlieu::show',compact('hoaDonNguyenLieu'));
     }
 

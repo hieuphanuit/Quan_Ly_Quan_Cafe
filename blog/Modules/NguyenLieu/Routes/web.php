@@ -16,9 +16,10 @@ Route::prefix('nguyenlieu')->group(function () {
 		Route::get('/create', 'NguyenLieuController@create')->name('nguyenlieu.create');
 		Route::post('/', 'NguyenLieuController@store')->name('nguyenlieu.store');
 		Route::get('/{id}/edit', 'NguyenLieuController@edit');
-		Route::post('/{id}', 'NguyenLieuController@update')->name('nguyenlieu.update');
-		Route::get('/{id}', 'NguyenLieuController@show');
+		Route::post('/{id}', 'NguyenLieuController@update')->where(['id' => '[0-9]+'])->name('nguyenlieu.update');
+		Route::get('/{id}', 'NguyenLieuController@show')->where(['id' => '[0-9]+']);
 		Route::post('/{id}/delete', 'NguyenLieuController@destroy');
+		Route::post('capNhapSoLuong', 'NguyenLieuController@capNhapSoLuong');
 	});
 });
 Route::group(['middleware' => ['CheckRole:QuanLy']], function () {

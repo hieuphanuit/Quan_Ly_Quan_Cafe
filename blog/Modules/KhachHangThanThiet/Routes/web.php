@@ -16,9 +16,9 @@ Route::prefix('khachhangthanthiet')->group(function () {
 		Route::get('/', 'KhachHangThanThietController@index');
 		Route::get('/create', 'KhachHangThanThietController@create');
 		Route::post('/', 'KhachHangThanThietController@store')->name('khachhangthanthiet.store');
-		Route::get('/{id}', 'KhachHangThanThietController@show');
+		Route::get('/{id}', 'KhachHangThanThietController@show')->where(['id' => '[0-9]+']);
 		Route::get('/{id}/edit', 'KhachHangThanThietController@edit');
-		Route::post('/{id}/edit', 'KhachHangThanThietController@update');
+		Route::post('/{id}/edit', 'KhachHangThanThietController@update')->where(['id' => '[0-9]+']);
 		Route::post('/{id}/delete','KhachHangThanThietController@destroy');
 		Route::post('/search','KhachHangThanThietController@search');
 	});

@@ -61,8 +61,8 @@
 				</tbody>
 			</table>
 			<div>
-      {{ $HoaDonGoiMons->links() }}
-      </div>
+				{{ $HoaDonGoiMons->links() }}
+			</div>
 		</div>
 	</div>
 	@endsection

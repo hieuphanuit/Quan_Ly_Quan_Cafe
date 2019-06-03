@@ -10,8 +10,8 @@
 @endsection
 @section('Content')
 <h1 style="text-align:center;">Danh sách thực đơn</h1>
-<div class="col-md-5"style="padding-bottom:20px;">
-	<a class="btn btn-success" href='{{url("/thucdon/create")}}'>Thêm thực đơn</a>
+<div class="col-md-5" style="padding-bottom:20px;">
+  <a class="btn btn-success" href='{{url("/thucdon/create")}}'>Thêm thực đơn</a>
 </div>
 <div class="card mb-3">
   <div class="card-header">
@@ -30,41 +30,44 @@
         </thead>
         <tfoot>
           <tr>
-			<th>Mã món</th>
+            <th>Mã món</th>
             <th>Tên món</th>
             <th>Đơn giá</th>
             <th width="30%">Hành Động</th>
           </tr>
         </tfoot>
         <tbody>
-		@foreach ($ThucDons as $ThucDon)
+          @foreach ($ThucDons as $ThucDon)
           <tr>
             <td>{{$ThucDon->id}}</td>
             <td>{{$ThucDon->TenMon}}</td>
             <td>{{$ThucDon->DonGia}}</td>
             <td>
-				<div class="row">
-					<div class="col-md-4 hanhdong">
-						<a href='{{url("/thucdon/$ThucDon->id/edit")}}' class="btn btn-info"style="width:80px;">Sửa</a>
-					</div>
-					<div class="col-md-4 hanhdong">
-						<a href='{{url("/thucdon/$ThucDon->id")}}' class="btn btn-warning"style="width:80px; color: #fff;">Chi tiết</a>
-					</div>
-					<div class="col-md-4 hanhdong">
-						<form method="POST" action='{{url("/thucdon/$ThucDon->id/delete")}}' style="display: inline-block">
-								<input type="hidden" value="$ThucDon->id" name="delete_thucdon" />
-								<button onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')" class="btn btn-danger" style="width:80px;">
-								Xóa
-								</button>
-								{!! csrf_field() !!}
-						</form>
-					</div>
-				</div>
-			</td>
+              <div class="row">
+                <div class="col-md-4 hanhdong">
+                  <a href='{{url("/thucdon/$ThucDon->id/edit")}}' class="btn btn-info" style="width:80px;">Sửa</a>
+                </div>
+                <div class="col-md-4 hanhdong">
+                  <a href='{{url("/thucdon/$ThucDon->id")}}' class="btn btn-warning" style="width:80px; color: #fff;">Chi tiết</a>
+                </div>
+                <div class="col-md-4 hanhdong">
+                  <form method="POST" action='{{url("/thucdon/$ThucDon->id/delete")}}' style="display: inline-block">
+                    <input type="hidden" value="{{$ThucDon->id}}" name="delete_thucdon" />
+                    <button onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')" class="btn btn-danger" style="width:80px;">
+                      Xóa
+                    </button>
+                    {!! csrf_field() !!}
+                  </form>
+                </div>
+              </div>
+            </td>
           </tr>
-		 @endforeach
+          @endforeach
         </tbody>
       </table>
+      <div>
+        {{$ThucDons->links()}}
+      </div>
     </div>
   </div>
-@endsection
+  @endsection

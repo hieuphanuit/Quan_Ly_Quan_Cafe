@@ -1,8 +1,9 @@
 <?php
 
 namespace Modules\ChiTietHoaDonNguyenLieu\Entities;
-
+use Modules\NguyenLieu\Entities\NguyenLieu;
 use Illuminate\Database\Eloquent\Model;
+use Modules\NhanVien\Entities\NhanVien;
 
 class ChiTietHoaDonNguyenLieu extends Model
 {
@@ -29,5 +30,8 @@ class ChiTietHoaDonNguyenLieu extends Model
 
 	public function HoaDonNguyenLieu(){
 		return $this->belongsTo(HoaDonNguyenLieu::class, 'MaHoaDonNguyenLieu');
+	}
+	public function NguyenLieu(){
+		return $this->belongsTo(NguyenLieu::class, 'MaNguyenLieu');
 	}
 }

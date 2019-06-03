@@ -33,7 +33,7 @@
           @foreach ($hoaDonNguyenLieus as $hoaDonNguyenLieu)
           <tr>
             <td>{{$hoaDonNguyenLieu->id}}</td>
-            <td>{{$hoaDonNguyenLieu->MaNhanVien}}</td>
+            <td>{{$hoaDonNguyenLieu->NhanVien->HoVaTen}}</td>
             <td>{{date("d-m-Y H:i",strtotime($hoaDonNguyenLieu->created_at))}}</td>
             <td>{{$hoaDonNguyenLieu->TongTien}}</td>
             <td>
