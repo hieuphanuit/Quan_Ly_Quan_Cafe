@@ -89,8 +89,9 @@ class HoaDonGoiMonController extends Controller
      */
     public function show($id)
     {
-        $hoaDonGoiMon = HoaDonGoiMon::find($id);
-        $chiTietHoaDonGoiMons = ChiTietHoaDonGoiMon::where('MaHoaDonGoiMon', '=', $id)->get();  
+        $hoaDonGoiMon = HoaDonGoiMon::with('NguoiLap')->find($id);
+        $chiTietHoaDonGoiMons = ChiTietHoaDonGoiMon::with('ThucDon')->where('MaHoaDonGoiMon', '=', $id)->get();  
+        
         if ($hoaDonGoiMon->MaKhachHang != 0) {
             $KhachHangThanThiet = KhachHangThanThiet::where('id', '=', $hoaDonGoiMon->MaKhachHang)->first();
             return view('hoadongoimon::show', ['HoaDonGoiMon' => $hoaDonGoiMon, 'ChiTietHoaDonGoiMons' => $chiTietHoaDonGoiMons, 'KhachHangThanThiet' => $KhachHangThanThiet]);

@@ -144,7 +144,7 @@ class ThongKeController extends Controller
             $HoaDons = $query->get();
             $TongThu = array_sum(array_pluck($HoaDons, 'TongTien'));
         }
-        $pdf = PDF::loadView('thongke:: ', compact('HoaDons', 'TongThu', 'dateFilter', 'caFilter', 'nhanVienFilter'));
+        $pdf = PDF::loadView('thongke::ThongKeCaFDPTemplate', compact('HoaDons', 'TongThu', 'dateFilter', 'caFilter', 'nhanVienFilter'));
         $pdf->setOptions(['dpi' => 150, 'defaultFont' => 'arial']);
         return $pdf->download('thongKe.pdf');
     }
