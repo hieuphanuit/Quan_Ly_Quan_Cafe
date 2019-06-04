@@ -19,7 +19,7 @@ Route::prefix('thongke')->group(function() {
 		Route::get('/thongketheongay', 'ThongKeController@thongketheongay')->name('thongketheongay');
 		Route::get('/thongketheothang', 'ThongKeController@thongketheothang');
 		Route::get('/exportPDFThongKeCa', 'ThongKeController@exportPDFThongKeCa');
-		Route::get('/exportPDFThongKeNgay', 'ThongKeController@thongketheongay')->name('thongketheongay.create');
+		Route::get('/exportPDFThongKeNgay', 'ThongKeController@exportPDFThongKeNgay')->name('thongketheongay.create');
 		Route::get('/exportPDFThongKeThang', 'ThongKeController@exportPDFThongKeThang');
 		Route::get('/exportPDFThongKeCa', 'ThongKeController@exportPDFThongKeCa')->name('thongketheoca.create');
 		Route::get('/', 'ThongKeController@search')->name('thongketheoca.search');
