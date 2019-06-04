@@ -45,12 +45,8 @@
 			<input type="text" id="Email" name="Email"  class="form-control" value="{{$NhanVien->Email}}" readonly />
 		</div>
 		<div class="form-group">
-			<label for="HinhAnh">Hình ảnh: </label>
-			<input type="text" id="HinhAnh" name="HinhAnh"  class="form-control" value="{{$NhanVien->HinhAnh}}"readonly  />
-		</div>
-		<div class="form-group">
 			<label for="MatKhau">Mật khẩu: </label>
-			<input type="text" id="MatKhau" name="MatKhau"  class="form-control" value="{{$NhanVien->MatKhau}}"readonly  />
+			<input type="text" id="MatKhau" name="MatKhau"  class="form-control" value="{{$NhanVien->password}}"readonly  />
 		</div>
 		<div class="form-group">
 			<label for="LuongTheoGio">Lương theo giờ: </label>
