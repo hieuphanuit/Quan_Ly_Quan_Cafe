@@ -109,7 +109,7 @@ class NhanVienController extends Controller
             if ($request['Role'] == "PhucVu") {
                 $NhanVien->password = 0;
             } else {
-                $NhanVien->password = $request['password'];
+                $NhanVien->password = Hash::make($request['password']);
             }
             $NhanVien->LuongTheoGio = $request['LuongTheoGio'];
             $NhanVien->save();

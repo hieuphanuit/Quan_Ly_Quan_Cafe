@@ -1,6 +1,7 @@
 <?php
 
 namespace Modules\ThongKe\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -19,119 +20,176 @@ class ThongKeController extends Controller
     const CA_CHIEU_START = 12;
     const CA_CHIEU_STOP = 17;
     const CA_TOI_START = 17;
-    const CA_TOI_STOP= 24;
+    const CA_TOI_STOP = 24;
 
-	public function thongketheoca(Request $request)
+    public function thongketheoca(Request $request)
     {
-        
+
         $dateFilter = $request->get('date');
         $caFilter = $request->get('ca');
         $nhanVienFilter = $request->get('nhanvien');
         $ThucDons = ThucDon::all();
-        $NhanViens = NhanVien::where('Role','ThuNgan')->get();
+        $NhanViens = NhanVien::where('Role', 'ThuNgan')->get();
 
         $HoaDons = [];
         $TongThu = 0;
-        if($dateFilter && $caFilter){
+        if ($dateFilter && $caFilter) {
             $timeStart = new DateTime($dateFilter);
             $timeEnd = new DateTime($dateFilter);
-            if($caFilter == "sang"){
-                $timeStart->setTime(self::CA_SANG_START,0,0);
-                $timeEnd->setTime(self::CA_SANG_STOP,0,0);
+            if ($caFilter == "sang") {
+                $timeStart->setTime(self::CA_SANG_START, 0, 0);
+                $timeEnd->setTime(self::CA_SANG_STOP, 0, 0);
             }
-            if($caFilter == "chieu"){
-                $timeStart->setTime(self::CA_SANG_START,0,0);
-                $timeEnd->setTime(self::CA_CHIEU_STOP,0,0);
+            if ($caFilter == "chieu") {
+                $timeStart->setTime(self::CA_SANG_START, 0, 0);
+                $timeEnd->setTime(self::CA_CHIEU_STOP, 0, 0);
             }
-            if($caFilter == "toi"){
-                $timeStart->setTime(self::CA_SANG_START,0,0);
-                $timeEnd->setTime(self::CA_TOI_STOP,0,0);
+            if ($caFilter == "toi") {
+                $timeStart->setTime(self::CA_SANG_START, 0, 0);
+                $timeEnd->setTime(self::CA_TOI_STOP, 0, 0);
             }
             $query = HoaDonGoiMon::with('NguoiLap')
-            ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s") , $timeEnd->format("Y-m-d H:i:s")]);
-            if($nhanVienFilter != -1){
+                ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s"), $timeEnd->format("Y-m-d H:i:s")]);
+            if ($nhanVienFilter != -1) {
                 $query = $query->where('MaNhanVien', $nhanVienFilter);
             }
             $HoaDons = $query->get();
             $TongThu = array_sum(array_pluck($HoaDons, 'TongTien'));
         }
-        
-        return view('thongke::thongketheoca',
-        compact(
-            'ThucDons',
-            'NhanViens',
-            'HoaDons',
-            'TongThu',
-            'dateFilter',
-            'caFilter',
-            'nhanVienFilter'
-        ));
+
+        return view(
+            'thongke::thongketheoca',
+            compact(
+                'ThucDons',
+                'NhanViens',
+                'HoaDons',
+                'TongThu',
+                'dateFilter',
+                'caFilter',
+                'nhanVienFilter'
+            )
+        );
     }
-	
-	public function thongketheongay(Request $request)
-    {  
-        $query_goimon = DB::table('hoadongoimon')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as TongSoHoaDon, sum(TongTien) as TongTien')) ->groupBy('date');
-        $HoaDonGoiMons = $query_goimon->get();
-        $query_nguyenlieu = DB::table('hoadonnguyenlieu')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as TongSoHoaDon, sum(TongTien) as TongTien')) ->groupBy('date');
+
+    public function thongketheongay(Request $request)
+    {
+        $fromdateFilter = $request->get('from_date');
+        $todateFilter = $request->get('to_date');
+        $timeStart = new DateTime($fromdateFilter);
+        $timeEnd = new DateTime($todateFilter);
+        $timeEnd->setTime(23, 59, 59);
+        $query_goimon = DB::table('hoadongoimon')
+            ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as TongSoHoaDon, sum(TongTien) as TongTien'))
+            ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s"), $timeEnd->format("Y-m-d H:i:s")])
+            ->groupBy('date')
+            ->get();
+        $HoaDonGoiMons = $query_goimon;
+        $query_nguyenlieu = DB::table('hoadonnguyenlieu')->select(
+            DB::raw('DATE(created_at) as date'),
+            DB::raw('count(*) as TongSoHoaDon, sum(TongTien) as TongTien')
+        )
+            ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s"), $timeEnd->format("Y-m-d H:i:s")])
+            ->groupBy('date');
         $HoaDonNguyenLieus = $query_nguyenlieu->get();
-        return view('thongke::thongketheongay',
-        compact(
-            'HoaDonGoiMons',
-            'HoaDonNguyenLieus'
-        ));
+        $TongChi = array_sum(array_pluck($HoaDonNguyenLieus, 'TongTien'));
+        $TongThu = array_sum(array_pluck($HoaDonGoiMons, 'TongTien'));
+        $DoanhThu = $TongThu - $TongChi;
+        return view(
+            'thongke::thongketheongay',
+            compact(
+                'HoaDonGoiMons',
+                'HoaDonNguyenLieus',
+                'TongThu',
+                'TongChi',
+                'DoanhThu',
+                'fromdateFilter',
+                'todateFilter'
+            )
+        );
     }
-	
-	public function thongketheothang()
+
+    public function thongketheothang()
     {
         return view('thongke::thongketheothang');
     }
 
-    public function exportPDFThongKeCa(Request $request){
+    public function exportPDFThongKeCa(Request $request)
+    {
 
         $dateFilter = $request->get('date');
         $caFilter = $request->get('ca');
         $nhanVienFilter = $request->get('nhanVien');
         $HoaDons = [];
         $TongThu = 0;
-        if($dateFilter && $caFilter){
+        if ($dateFilter && $caFilter) {
             $timeStart = new DateTime($dateFilter);
             $timeEnd = new DateTime($dateFilter);
-            if($caFilter == "sang"){
-                $timeStart->setTime(self::CA_SANG_START,0,0);
-                $timeEnd->setTime(self::CA_SANG_STOP,0,0);
+            if ($caFilter == "sang") {
+                $timeStart->setTime(self::CA_SANG_START, 0, 0);
+                $timeEnd->setTime(self::CA_SANG_STOP, 0, 0);
             }
-            if($caFilter == "chieu"){
-                $timeStart->setTime(self::CA_SANG_START,0,0);
-                $timeEnd->setTime(self::CA_CHIEU_STOP,0,0);
+            if ($caFilter == "chieu") {
+                $timeStart->setTime(self::CA_SANG_START, 0, 0);
+                $timeEnd->setTime(self::CA_CHIEU_STOP, 0, 0);
             }
-            if($caFilter == "toi"){
-                $timeStart->setTime(self::CA_SANG_START,0,0);
-                $timeEnd->setTime(self::CA_TOI_STOP,0,0);
+            if ($caFilter == "toi") {
+                $timeStart->setTime(self::CA_SANG_START, 0, 0);
+                $timeEnd->setTime(self::CA_TOI_STOP, 0, 0);
             }
             $query = HoaDonGoiMon::with('NguoiLap')
-            ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s") , $timeEnd->format("Y-m-d H:i:s")]);
-            if($nhanVienFilter != -1){
+                ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s"), $timeEnd->format("Y-m-d H:i:s")]);
+            if ($nhanVienFilter != -1) {
                 $query = $query->where('MaNhanVien', $nhanVienFilter);
             }
             $HoaDons = $query->get();
             $TongThu = array_sum(array_pluck($HoaDons, 'TongTien'));
         }
-        $pdf = PDF::loadView('thongke::ThongKeCaFDPTemplate', compact('HoaDons','TongThu','dateFilter','caFilter','nhanVienFilter'));
+        $pdf = PDF::loadView('thongke:: ', compact('HoaDons', 'TongThu', 'dateFilter', 'caFilter', 'nhanVienFilter'));
         $pdf->setOptions(['dpi' => 150, 'defaultFont' => 'arial']);
         return $pdf->download('thongKe.pdf');
     }
-    
-    public function exportPDFThongKeThang(){
+
+    public function exportPDFThongKeThang()
+    {
         $data = [];
         $pdf = PDF::loadView('thongke::ThongKeCaFDPTemplate', $data);
-        
+
         return $pdf->download('thongKe.pdf');
     }
 
-    public function exportPDFThongKeNgay(){
-        $data = [];
-        $pdf = PDF::loadView('thongke::ThongKeCaFDPTemplate', $data);
-        
+    public function exportPDFThongKeNgay(Request $request)
+    {
+        $fromdateFilter = $request->get('from_date');
+        $todateFilter = $request->get('to_date');
+        $timeStart = new DateTime($fromdateFilter);
+        $timeEnd = new DateTime($todateFilter);
+        $timeEnd->setTime(23, 59, 59);
+        $query_goimon = DB::table('hoadongoimon')
+            ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as TongSoHoaDon, sum(TongTien) as TongTien'))
+            ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s"), $timeEnd->format("Y-m-d H:i:s")])
+            ->groupBy('date')
+            ->get();
+        $HoaDonGoiMons = $query_goimon;
+        $query_nguyenlieu = DB::table('hoadonnguyenlieu')->select(
+            DB::raw('DATE(created_at) as date'),
+            DB::raw('count(*) as TongSoHoaDon, sum(TongTien) as TongTien')
+        )
+            ->whereBetween('created_at', [$timeStart->format("Y-m-d H:i:s"), $timeEnd->format("Y-m-d H:i:s")])
+            ->groupBy('date');
+        $HoaDonNguyenLieus = $query_nguyenlieu->get();
+        $TongChi = array_sum(array_pluck($HoaDonNguyenLieus, 'TongTien'));
+        $TongThu = array_sum(array_pluck($HoaDonGoiMons, 'TongTien'));
+        $DoanhThu = $TongThu - $TongChi;
+        $pdf = PDF::loadView('thongke::ThongKeNgayFDPTemplate', compact(
+            'HoaDonGoiMons',
+            'HoaDonNguyenLieus',
+            'TongThu',
+            'TongChi',
+            'DoanhThu',
+            'fromdateFilter',
+            'todateFilter'
+        ));
+        $pdf->setOptions(['dpi' => 150, 'defaultFont' => 'arial']);
         return $pdf->download('thongKe.pdf');
     }
 }

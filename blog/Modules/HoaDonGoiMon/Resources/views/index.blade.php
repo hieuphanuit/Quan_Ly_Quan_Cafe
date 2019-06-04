@@ -34,7 +34,7 @@
 						@foreach ($HoaDonGoiMons as $HoaDonGoiMon)
 					<tr>
 						<td>{{$HoaDonGoiMon->id}}</td>
-						<td>{{$HoaDonGoiMon->id}}</td>
+						<td>{{$HoaDonGoiMon->NguoiLap->HoVaTen}}</td>
 						@if ($HoaDonGoiMon->MaKhachHang !=0)
 						<td>{{$HoaDonGoiMon->KhachHangThanThiet->HoVaTen}}</td>
 						@else 
