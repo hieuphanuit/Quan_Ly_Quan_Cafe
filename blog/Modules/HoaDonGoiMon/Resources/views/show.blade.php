@@ -13,7 +13,7 @@
 <form class="hoadongoimon">
 	<div class="form-group">
 		<label for="NhanVien">Nhân viên: </label>
-		<input type="text" value="{{$HoaDonGoiMon->MaNhanVien}}" readonly class="form-control" />
+		<input type="text" value="{{$HoaDonGoiMon->NguoiLap->HoVaTen}}" readonly class="form-control" />
 	</div>
 	@if ($HoaDonGoiMon->MaKhachHang !=0)
 	<div class="form-group">
@@ -41,7 +41,6 @@
 			<table class="table table-bordered dataTable" width="100%" cellspacing="0">
 				<thead>
 					<tr>
-						<th>Mã hóa đơn</th>
 						<th>Tên món</th>
 						<th>Số lượng</th>
 						<th>Đơn giá</th>
@@ -51,10 +50,9 @@
 					<tr>
 						@foreach ($ChiTietHoaDonGoiMons as $ChiTietHoaDonGoiMon)
 					<tr>
-						<td>{{$ChiTietHoaDonGoiMon->id}}</td>
-						<td>{{$ChiTietHoaDonGoiMon->MaMon}}</td>
+						<td>{{$ChiTietHoaDonGoiMon->ThucDon->TenMon}}</td>
 						<td>{{$ChiTietHoaDonGoiMon->SoLuong}}</td>
-						<td>{{$ChiTietHoaDonGoiMon->DonGia}}</td>
+						<td>{{$ChiTietHoaDonGoiMon->ThucDon->DonGia}}</td>
 					</tr>
 					@endforeach
 				</tbody>

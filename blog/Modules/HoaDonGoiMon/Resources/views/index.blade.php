@@ -43,12 +43,15 @@
 						<td>{{$HoaDonGoiMon->TongTien}}</td>
 						<td>
 							<div class="row">
+								<!--
 								<div class="col-md-4 hanhdong">
 									<a href='{{url("/hoadongoimon/$HoaDonGoiMon->id/edit")}}' class="btn btn-info" style="width:80px;">Sửa</a>
 								</div>
+								-->
 								<div class="col-md-4 hanhdong">
 									<a href='{{url("/hoadongoimon/$HoaDonGoiMon->id")}}' class="btn btn-warning" style="width:80px; color: white">Chi tiết</a>
 								</div>
+								<!--
 								<div class="col-md-4 hanhdong">
 									<form method="POST" action='{{url("/hoadongoimon/$HoaDonGoiMon->id/delete")}}' style="display: inline-block">
 										<input type="hidden" value="$user->id" name="delete_hoadon" />
@@ -58,6 +61,7 @@
 										{!! csrf_field() !!}
 									</form>
 								</div>
+								-->
 							</div>
 						</td>
 					</tr>
