@@ -113,6 +113,7 @@ class ThongKeController extends Controller
             if($nhanVienFilter != -1){
                 $query = $query->where('MaNhanVien', $nhanVienFilter);
             }
+            $HoaDons = $query->get();
             $TongThu = array_sum(array_pluck($HoaDons, 'TongTien'));
         }
         $pdf = PDF::loadView('thongke::ThongKeCaFDPTemplate', compact('HoaDons','TongThu','dateFilter','caFilter','nhanVienFilter'));

@@ -11,6 +11,9 @@ use Modules\ChiTietHoaDonGoiMon\Entities\ChiTietHoaDonGoiMon;
 use Modules\KhachHangThanThiet\Entities\KhachHangThanThiet;
 use Auth;
 use Modules\NhanVien\Entities\NhanVien;
+use Validator;
+use PDF;
+
 
 class HoaDonGoiMonController extends Controller
 {
@@ -42,6 +45,13 @@ class HoaDonGoiMonController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),
+                ['monSelected' => 'required'], 
+                $request->all()
+                );
+        if ($validator->fails())
+            return redirect()->back()->withErrors($validator)->withInput();
+
         //
         $monsSelected = $request->monSelected;
         $quantitys = $request->quantity;
@@ -62,9 +72,16 @@ class HoaDonGoiMonController extends Controller
             ];
         }
         $hoaDonGoiMon->ChiTietHoaDonGoiMon()->createMany($mons);
-        return redirect()->route('danhsachhoadongoimon');
+        return redirect()->route('danhsachhoadongoimon',['hoadon'=>$hoaDonGoiMon->id]);
     }
 
+    public function exportPdfHoaDon($id){
+        $hoaDonGoiMon = HoaDonGoiMon::with('NguoiLap')->find($id);
+        $ChiTietHoaDonGoiMons = ChiTietHoaDonGoiMon::with('ThucDon')->where('MaHoaDonGoiMon', $id)->get();
+        $pdf = PDF::loadView('hoadongoimon::pdfTemplate', compact('hoaDonGoiMon','ChiTietHoaDonGoiMons'));
+        $pdf->setOptions(['dpi' => 150, 'defaultFont' => 'arial']);
+        return $pdf->download('hoaDon.pdf');
+    }
     /**
      * Show the specified resource.
      * @param int $id

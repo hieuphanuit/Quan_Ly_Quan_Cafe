@@ -3,6 +3,7 @@
 namespace Modules\ChiTietHoaDonGoiMon\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\ThucDon\Entities\ThucDon;
 
 class ChiTietHoaDonGoiMon extends Model
 {
@@ -30,4 +31,9 @@ class ChiTietHoaDonGoiMon extends Model
 	public function HoaDonGoiMon(){
 		return $this->belongsTo(HoaDonGoiMon::class, 'MaHoaDonGoiMon');
 	}
+
+	public function ThucDon(){
+		return $this->hasOne(ThucDon::class,  'id', 'MaMon');
+	}
 }
+

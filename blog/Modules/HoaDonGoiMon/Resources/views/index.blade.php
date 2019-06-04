@@ -69,4 +69,13 @@
 			</div>
 		</div>
 	</div>
+
+		@if($_GET['hoadon'])
+		<script>
+			$(window).load(function(){
+				window.open("{{url('hoadongoimon/'.$_GET['hoadon'].'/export')}}");
+			})
+			
+		</script>
+		@endif
 	@endsection

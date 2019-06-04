@@ -35,30 +35,28 @@
 
 <body>
     <h1>
-       Thống kê ca
+       Hóa đơn
     </h1>
-
+    <label>Mã hóa đơn: {{$hoaDonGoiMon->id}}</label><br/>
+    <label>Ngày tạo:  {{date("d-m-Y H:i",strtotime($hoaDonGoiMon->created_at))}}</label><br/>
+    <label>Nhân viên: {{$hoaDonGoiMon->NguoiLap->HoVaTen}}</label><br/>
     <div class="card mb-3">
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Mã hóa đơn</th>
-                            <th>Người lập</th>
-                            <th>Thời gian</th>
-                            <th>Thành tiền</th>
+                            <th>Tên món</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($HoaDons as $HoaDon)
+                        @foreach($ChiTietHoaDonGoiMons as $ChiTietHoaDonGoiMon)
                         <tr>
-                            <td>{{$HoaDon->id}}</td>
-                            <td>{{$HoaDon->NguoiLap->HoVaTen}}</td>
-                            <td>{{date("d-m-Y H:i",strtotime($HoaDon->created_at))}}</td>
-                            <td>
-                                {{$HoaDon->TongTien}}
-                            </td>
+                            <td>{{$ChiTietHoaDonGoiMon->ThucDon->TenMon}}</td>
+                            <td>{{$ChiTietHoaDonGoiMon->SoLuong}}</td>
+                            <td>{{$ChiTietHoaDonGoiMon->ThucDon->DonGia}}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -66,6 +64,6 @@
             </div>
         </div>
     </div>
-        <h3>Tổng thu: {{$TongThu}}</h3>
+        <h3>Tổng: {{$hoaDonGoiMon->TongTien}}</h3>
 
 </body>

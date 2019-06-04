@@ -14,6 +14,7 @@
 Route::prefix('thongke')->group(function() {
 	Route::group(['middleware' => ['CheckRole:QuanLyVaThuNgan']], function () {
 		Route::get('/thongketheoca', 'ThongKeController@thongketheoca')->name('thongketheoca');
+		Route::get('/exportPDFThongKeCa', 'ThongKeController@exportPDFThongKeCa')->name('thongketheoca.create');
 	});
 	Route::group(['middleware' => ['CheckRole:QuanLy']], function () {
 		Route::get('/thongketheongay', 'ThongKeController@thongketheongay')->name('thongketheongay');
@@ -21,7 +22,6 @@ Route::prefix('thongke')->group(function() {
 		Route::get('/exportPDFThongKeCa', 'ThongKeController@exportPDFThongKeCa');
 		Route::get('/exportPDFThongKeNgay', 'ThongKeController@thongketheongay')->name('thongketheongay.create');
 		Route::get('/exportPDFThongKeThang', 'ThongKeController@exportPDFThongKeThang');
-		Route::get('/exportPDFThongKeCa', 'ThongKeController@exportPDFThongKeCa')->name('thongketheoca.create');
 		Route::get('/', 'ThongKeController@search')->name('thongketheoca.search');
 	});
 });
