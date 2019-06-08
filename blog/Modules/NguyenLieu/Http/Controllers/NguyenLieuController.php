@@ -44,7 +44,7 @@ class NguyenLieuController extends Controller
 
         $NguyenLieu = new NguyenLieu($request->all());
         $NguyenLieu->save();
-        return redirect('/kho');
+        return redirect('/nguyenlieu');
     }
 
     /**

@@ -99,6 +99,9 @@
 			calculateTotal();
 		});
 		$("#chiTietHoaDon").on("click", ".plus-btn", function() {
+			var id = $(this).data('id');
+			var $counter = $('#counter' + id);
+			$counter.val(parseInt($counter.val()) + 1);
 			calculateTotal();
 		}).on("click", ".subtract-btn", function() {
 			var id = $(this).data('id');
