@@ -47,7 +47,7 @@
                 <div class="col-md-4 hanhdong">
                   <form method="POST" action='{{url("/hoadonnguyenlieu/$hoaDonNguyenLieu->id/delete")}}' style="display: inline-block">
                     <input type="hidden" value="$hoaDonNguyenLieu->id" name="delete_hoadon" />
-                    <button onclick="return confirm('Bạn có chắc muốn xóa khách hàng này không?')" class="btn btn-danger" style="width:80px;">
+                    <button onclick="return confirm('Bạn có chắc muốn xóa hóa đơn này không?')" class="btn btn-danger" style="width:80px;">
                       Xóa
                     </button>
                     {!! csrf_field() !!}

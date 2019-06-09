@@ -9,7 +9,8 @@ use Modules\NguyenLieu\Entities\NguyenLieu;
 use Modules\HoaDonNguyenLieu\Entities\HoaDonNguyenLieu;
 use Auth;
 use Validator;
-
+use Modules\ChiTietHoaDonGoiMon\Entities\ChiTietHoaDonGoiMon;
+use Modules\ChiTietHoaDonNguyenLieu\Entities\ChiTietHoaDonNguyenLieu;
 
 class HoaDonNguyenLieuController extends Controller
 {

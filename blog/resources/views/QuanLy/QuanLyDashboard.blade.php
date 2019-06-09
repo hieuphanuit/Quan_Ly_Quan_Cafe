@@ -17,10 +17,10 @@
         <div class="card-body-icon">
           <i class="fas fa-fw fa-comments"></i>
         </div>
-        <div class="mr-5">{{$TongDoanhThuTheoThang}}</div>
+        <div class="mr-5">{{$TongDoanhThuTheoThang}} VND</div>
       </div>
       <a class="card-footer text-white clearfix small z-1" href="#">
-        <span class="float-left">View Details</span>
+        <span class="float-left">Tổng doanh thu theo tháng</span>
         <span class="float-right">
           <i class="fas fa-angle-right"></i>
         </span>
@@ -33,10 +33,10 @@
         <div class="card-body-icon">
           <i class="fas fa-fw fa-list"></i>
         </div>
-        <div class="mr-5">11 New Tasks!</div>
+        <div class="mr-5">{{$TongSoHoaDon}} hóa đơn</div>
       </div>
       <a class="card-footer text-white clearfix small z-1" href="#">
-        <span class="float-left">View Details</span>
+        <span class="float-left">Tổng số hóa đơn trong tháng </span>
         <span class="float-right">
           <i class="fas fa-angle-right"></i>
         </span>
@@ -49,10 +49,10 @@
         <div class="card-body-icon">
           <i class="fas fa-fw fa-shopping-cart"></i>
         </div>
-        <div class="mr-5">123 New Orders!</div>
+        <div class="mr-5">{{$TongDoanhThuTheoNgay}} VND</div>
       </div>
       <a class="card-footer text-white clearfix small z-1" href="#">
-        <span class="float-left">View Details</span>
+        <span class="float-left">Tổng doanh thu theo ngày</span>
         <span class="float-right">
           <i class="fas fa-angle-right"></i>
         </span>
@@ -65,10 +65,10 @@
         <div class="card-body-icon">
           <i class="fas fa-fw fa-life-ring"></i>
         </div>
-        <div class="mr-5">13 New Tickets!</div>
+        <div class="mr-5">{{$TongSoKhachHang}} khách hàng</div>
       </div>
       <a class="card-footer text-white clearfix small z-1" href="#">
-        <span class="float-left">View Details</span>
+        <span class="float-left">Tổng số khách hàng thân thiết</span>
         <span class="float-right">
           <i class="fas fa-angle-right"></i>
         </span>

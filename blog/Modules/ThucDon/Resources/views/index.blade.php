@@ -53,7 +53,7 @@
                 <div class="col-md-4 hanhdong">
                   <form method="POST" action='{{url("/thucdon/$ThucDon->id/delete")}}' style="display: inline-block">
                     <input type="hidden" value="{{$ThucDon->id}}" name="delete_thucdon" />
-                    <button onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')" class="btn btn-danger" style="width:80px;">
+                    <button onclick="return confirm('Bạn có chắc muốn xóa thực đơn này không?')" class="btn btn-danger" style="width:80px;">
                       Xóa
                     </button>
                     {!! csrf_field() !!}
