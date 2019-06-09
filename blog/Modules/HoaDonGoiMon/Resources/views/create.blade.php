@@ -26,7 +26,6 @@
 
 				<th scope="col" width="30%">Tên món</th>
 				<th scope="col" width="10%">Đơn giá</th>
-				<th scope="col" width="10%">Thành tiền</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,7 +35,6 @@
 					<button class="btn btn-info thucDon_btn" style="width:80%" data-id="{{$ThucDon->id}}" data-mon="{{$ThucDon->TenMon}}">{{$ThucDon->TenMon}}</button>
 				</td>
 				<td> <input readonly type="number" class="form-control Price_current" data-id="{{$ThucDon->id}}" value="{{$ThucDon->DonGia}}"/> </td>
-				<td></td>
 			</tr>
 			@endforeach
 		</tbody>
@@ -76,13 +74,20 @@
 </div>
 <script>
 	var khachhang = 0;
-
+	var discount = 1;
 	function changeFunc() {
 		khachhang = document.getElementById("KhachHangThanThiet").value;
 		var buttons = document.querySelectorAll("#kh");
 		for (var i = 0; i < buttons.length; i++) {
 			buttons[i].value = khachhang;
 		}
+		if (khachhang!=0){
+			discount=0.9;
+		}
+		if (khachhang==0){
+			discount=1;
+		}
+		calculateTotal();
 	};
 	$(document).ready(function() {
 		$(".thucDon_btn").on("click", function() {
@@ -153,6 +158,7 @@
 			var iteamTotal = price*quantity;
 			total += iteamTotal;
 		});
+		total *= discount;
 		$('#TongTien').val(total);
 		return total;
 	}
